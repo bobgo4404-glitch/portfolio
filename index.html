@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Dev Portfolio</title>
+    
+    <!-- 1. Fonts: Noto Sans KR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- 2. Icons: FontAwesome (Replacing Lucide for Standalone stability) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- 3. Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans KR"', 'sans-serif'],
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- 4. React & ReactDOM (Latest) -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- 5. Babel Standalone (v7.23.5 - Mandatory) -->
+    <script src="https://unpkg.com/@babel/standalone@7.23.5/babel.min.js"></script>
+
+    <style>
+        /* Custom Scrollbar for consistent look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-900 font-sans antialiased selection:bg-blue-100 selection:text-blue-900">
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        // --- Components ---
+
+        const Navigation = () => {
+            const [isOpen, setIsOpen] = useState(false);
+            const [scrolled, setScrolled] = useState(false);
+
+            useEffect(() => {
+                const handleScroll = () => {
+                    setScrolled(window.scrollY > 20);
+                };
+                window.addEventListener('scroll', handleScroll);
+                return () => window.removeEventListener('scroll', handleScroll);
+            }, []);
+
+            const navLinks = [
+                { name: '요약', href: '#summary' },
+                { name: 'DX 역량', href: '#dx' },
+                { name: '경력', href: '#experience' },
+                { name: '전문성', href: '#expertise' },
+            ];
+
+            return (
+                <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
+                    <div className="container mx-auto px-6 flex justify-between items-center">
+                        <a href="#" className="text-xl md:text-2xl font-bold text-slate-800 tracking-tight flex items-center gap-2">
+                            <i className="fa-solid fa-code text-blue-600 text-2xl"></i>
+                            <span>HR<span className="text-blue-600">Dev</span>.Portfolio</span>
+                        </a>
+
+                        {/* Desktop Menu */}
+                        <div className="hidden md:flex space-x-8">
+                            {navLinks.map((link) => (
+                                <a key={link.name} href={link.href} className="text-slate-600 hover:text-blue-600 font-bold transition-colors text-sm tracking-wide">
+                                    {link.name}
+                                </a>
+                            ))}
+                        </div>
+
+                        {/* Mobile Menu Button */}
+                        <div className="md:hidden">
+                            <button onClick={() => setIsOpen(!isOpen)} className="text-slate-800 focus:outline-none p-2">
+                                {isOpen ? <i className="fa-solid fa-times text-2xl"></i> : <i className="fa-solid fa-bars text-2xl"></i>}
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* Mobile Menu Dropdown */}
+                    {isOpen && (
+                        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-slate-100 py-4 px-6 flex flex-col space-y-4">
+                            {navLinks.map((link) => (
+                                <a 
+                                    key={link.name} 
+                                    href={link.href} 
+                                    className="text-slate-600 font-medium py-2 border-b border-slate-50 last:border-0"
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    {link.name}
+                                </a>
+                            ))}
+                        </div>
+                    )}
+                </nav>
+            );
+        };
+
+        const Hero = () => {
+            return (
+                <section id="summary" className="relative min-h-[90vh] flex items-center pt-20 bg-slate-50 overflow-hidden">
+                    {/* Abstract Background */}
+                    <div className="absolute top-0 right-0 w-1/2 h-full bg-blue-50/50 skew-x-[-12deg] transform origin-top translate-x-32 hidden md:block"></div>
+                    
+                    <div className="container mx-auto px-6 relative z-10">
+                        <div className="max-w-5xl mx-auto">
+                            <div className="flex flex-col md:flex-row items-center gap-12">
+                                <div className="flex-1 text-center md:text-left">
+                                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-wider mb-6">
+                                        <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+                                        구직 중 (Available)
+                                    </div>
+                                    
+                                    <h1 className="text-4xl md:text-6xl font-bold text-slate-900 leading-tight mb-6">
+                                        데이터로 인사이트를 찾고<br />
+                                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">기술로 업무를 혁신하는</span><br />
+                                        HR & GA 전문가입니다.
+                                    </h1>
+                                    
+                                    <p className="text-lg text-slate-600 mb-8 leading-relaxed max-w-2xl mx-auto md:mx-0">
+                                        12년차 인사/총무 전문가로서 HR 운영, EHS(안전보건), 자산 관리를 넘어 
+                                        <strong className="text-slate-900"> React, Firebase 기반의 자체 업무 툴 개발</strong>까지. 
+                                        비효율을 제거하고 시스템을 구축하는 '올라운더 플레이어'입니다.
+                                    </p>
+
+                                    <div className="flex flex-wrap justify-center md:justify-start gap-4">
+                                        {/* 이력서 다운로드 대신 실용적인 이메일 문의하기로 변경 */}
+                                        <a href="mailto:bobgo9@naver.com" className="px-8 py-4 bg-slate-900 text-white rounded-lg font-semibold hover:bg-slate-800 transition-all flex items-center gap-2 shadow-lg hover:shadow-xl hover:-translate-y-1">
+                                            <i className="fa-solid fa-envelope text-lg"></i>
+                                            이메일 문의하기
+                                        </a>
+                                        <a href="#dx" className="px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-lg font-semibold hover:bg-slate-50 transition-all flex items-center gap-2">
+                                            <i className="fa-solid fa-code text-lg"></i>
+                                            개발 프로젝트 보기
+                                        </a>
+                                    </div>
+                                </div>
+
+                                {/* Right Side Stats Card */}
+                                <div className="w-full md:w-80 bg-white p-6 rounded-2xl shadow-xl border border-slate-100 relative mt-10 md:mt-0">
+                                    <div className="absolute -top-4 -right-4 w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 animate-bounce delay-700 shadow-sm">
+                                        <i className="fa-solid fa-award text-3xl"></i>
+                                    </div>
+                                    <h3 className="text-lg font-bold text-slate-800 mb-6 border-b pb-2">핵심 요약</h3>
+                                    <div className="space-y-4">
+                                        <div className="flex items-center gap-3">
+                                            <div className="p-2 bg-slate-100 rounded-lg w-10 h-10 flex items-center justify-center">
+                                                <i className="fa-solid fa-briefcase text-slate-600"></i>
+                                            </div>
+                                            <div>
+                                                <p className="text-xs text-slate-500 font-semibold uppercase">총 경력</p>
+                                                <p className="text-lg font-bold text-slate-900">12년 이상</p>
+                                            </div>
+                                        </div>
+                                        <div className="flex items-center gap-3">
+                                            <div className="p-2 bg-green-100 rounded-lg w-10 h-10 flex items-center justify-center">
+                                                <i className="fa-solid fa-user-shield text-green-600"></i>
+                                            </div>
+                                            <div>
+                                                <p className="text-xs text-slate-500 font-semibold uppercase">자격증</p>
+                                                <p className="text-sm font-bold text-slate-900">ISO 14001 심사원</p>
+                                            </div>
+                                        </div>
+                                        <div className="flex items-center gap-3">
+                                            <div className="p-2 bg-indigo-100 rounded-lg w-10 h-10 flex items-center justify-center">
+                                                <i className="fa-solid fa-code text-indigo-600"></i>
+                                            </div>
+                                            <div>
+                                                <p className="text-xs text-slate-500 font-semibold uppercase">기술 스택</p>
+                                                <p className="text-sm font-bold text-slate-900">React, Firebase, HTML</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce text-slate-400">
+                        <i className="fa-solid fa-chevron-down text-2xl"></i>
+                    </div>
+                </section>
+            );
+        };
+
+        const DxCapability = () => {
+            return (
+                <section id="dx" className="py-20 bg-slate-900 text-white">
+                    <div className="container mx-auto px-6">
+                        <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12">
+                            <div>
+                                <span className="text-blue-400 font-bold tracking-wider text-sm uppercase">강점 (Differentiator)</span>
+                                <h2 className="text-3xl md:text-4xl font-bold mt-2">IT 기반 업무 자동화 (DX)</h2>
+                                <p className="text-slate-400 mt-4 max-w-xl">
+                                    단순 반복 업무를 줄이고, 본질적인 가치에 집중하기 위해 직접 코드를 작성합니다.
+                                    실무자의 관점에서 가장 필요한 도구를 직접 기획하고 개발했습니다.
+                                </p>
+                            </div>
+                            <div className="mt-6 md:mt-0 flex gap-2">
+                                <span className="px-3 py-1 bg-slate-800 rounded text-xs font-mono text-blue-300 border border-slate-700">React.js</span>
+                                <span className="px-3 py-1 bg-slate-800 rounded text-xs font-mono text-yellow-300 border border-slate-700">Firebase</span>
+                                <span className="px-3 py-1 bg-slate-800 rounded text-xs font-mono text-orange-300 border border-slate-700">HTML5/CSS3</span>
+                            </div>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div className="bg-slate-800 p-8 rounded-2xl border border-slate-700 hover:border-blue-500 transition-colors group">
+                                <div className="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
+                                    <i className="fa-solid fa-microchip text-2xl"></i>
+                                </div>
+                                <h3 className="text-xl font-bold mb-3">실무 맞춤형 솔루션 개발</h3>
+                                <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                                    React와 Firebase를 활용하여 주간 업무 플래너, 스마트 급여 계산기 등 시중의 툴로 해결되지 않는 니치(Niche)한 업무 도구를 자체 개발하여 배포했습니다.
+                                </p>
+                            </div>
+                            
+                            <div className="bg-slate-800 p-8 rounded-2xl border border-slate-700 hover:border-blue-500 transition-colors group">
+                                <div className="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
+                                    <i className="fa-solid fa-file-circle-check text-2xl"></i>
+                                </div>
+                                <h3 className="text-xl font-bold mb-3">행정 프로세스 혁신</h3>
+                                <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                                    인사 발령문, 증명서 등 반복적으로 생성되는 문서를 자동화하는 시스템을 구축했습니다. 수작업 대비 업무 시간을 획기적으로 단축하고 휴먼 에러를 제거했습니다.
+                                </p>
+                            </div>
+
+                            <div className="bg-slate-800 p-8 rounded-2xl border border-slate-700 hover:border-blue-500 transition-colors group">
+                                <div className="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
+                                    <i className="fa-solid fa-chart-bar text-2xl"></i>
+                                </div>
+                                <h3 className="text-xl font-bold mb-3">데이터 인터페이스 설계</h3>
+                                <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                                    복잡한 엑셀 데이터를 경영진이 직관적으로 이해할 수 있도록 HTML 기반의 웹 대시보드로 시각화하여 의사결정을 지원했습니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+        const ExperienceItem = ({ company, role, period, location, details, tags }) => (
+            <div className="relative pl-8 md:pl-0">
+                {/* Timeline Line (Desktop) */}
+                <div className="hidden md:block absolute left-[50%] top-0 bottom-0 w-px bg-slate-200 transform -translate-x-1/2"></div>
+                
+                <div className={`md:flex items-start justify-between group mb-12`}>
+                    
+                    {/* Date & Logo Side */}
+                    <div className="md:w-5/12 md:text-right mb-4 md:mb-0 md:pr-12">
+                        <h3 className="text-2xl font-bold text-slate-800">{company}</h3>
+                        <p className="text-lg text-blue-600 font-medium mb-1">{role}</p>
+                        <div className="text-slate-500 text-sm flex md:justify-end items-center gap-2">
+                            <span>{period}</span>
+                            <span className="hidden md:inline">•</span>
+                            <span>{location}</span>
+                        </div>
+                    </div>
+
+                    {/* Center Dot */}
+                    <div className="absolute left-0 md:left-1/2 w-4 h-4 rounded-full bg-blue-600 border-4 border-white shadow-sm transform md:-translate-x-1/2 mt-2 z-10"></div>
+
+                    {/* Content Side */}
+                    <div className="md:w-5/12 md:pl-12">
+                        <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                            <ul className="space-y-4">
+                                {details.map((section, idx) => (
+                                    <li key={idx}>
+                                        <h4 className="font-bold text-slate-700 text-sm mb-2 flex items-center gap-2">
+                                            <span className="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
+                                            {section.title}
+                                        </h4>
+                                        <p className="text-slate-600 text-sm leading-relaxed pl-3.5 border-l-2 border-slate-100">
+                                            {section.desc}
+                                        </p>
+                                    </li>
+                                ))}
+                            </ul>
+                            <div className="mt-6 flex flex-wrap gap-2">
+                                {tags.map((tag, idx) => (
+                                    <span key={idx} className="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded font-medium">
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+
+        const Experience = () => {
+            const careers = [
+                {
+                    company: "현 재직 기업",
+                    role: "인사 운영 및 안전보건(EHS) 담당",
+                    period: "2025.04 ~ 현재",
+                    location: "충북",
+                    tags: ["HR 디지털 전환(DX)", "EHS 시스템", "React 개발", "SESP"],
+                    details: [
+                        {
+                            title: "인사 시스템 디지털화 & DX",
+                            desc: "데이터 기반 인사 정보 관리 폼 설계 및 자체 관리 시스템 구축. React/Firebase 활용 사내 업무 툴 개발로 행정 효율성 제고."
+                        },
+                        {
+                            title: "EHS 경영체계 및 글로벌 표준화",
+                            desc: "전사 안전보건 방침 수립, 영문 안전교육 콘텐츠 제작을 통한 글로벌 법인 표준화. SESP 보안 프로그램 운영 및 준법 관리."
+                        },
+                        {
+                            title: "총무/자산 관리 표준화",
+                            desc: "법인 차량, 보험 등 고정 자산 이력 관리 표준화 및 사내 제규정(취업규칙 등) 법적 준거성 검토 및 개정."
+                        }
+                    ]
+                },
+                {
+                    company: "엠플러스 (M Plus)",
+                    role: "인사총무팀 과장 (총 8년)",
+                    period: "2016.05 ~ 2024.04",
+                    location: "충북",
+                    tags: ["IPO/성장기 HR", "ISO 14001", "ESG 경영", "정부지원사업"],
+                    details: [
+                        {
+                            title: "HR 시스템 고도화 및 노무 리스크 관리",
+                            desc: "Jade ERP 활용 데이터 정합성 관리 및 300인 이상 규모 근태 시스템(타임인아웃) 도입. 노사협의회 간사로서 무분규 노사 문화 조성."
+                        },
+                        {
+                            title: "전략적 채용 및 교육(Onboarding)",
+                            desc: "장애인 체육선수 채용 모델 도입으로 ESG 경영 기여. 신규 입사자 온보딩 및 직급별 역량 강화 교육 체계 수립."
+                        },
+                        {
+                            title: "환경안전(EHS) 및 특수 인허가",
+                            desc: "ISO 14001 내부심사원 활동, 방사선 발생장치 판매 허가 취득 총괄, 위험성 평가 및 무재해 사업장 유지."
+                        },
+                        {
+                            title: "총무/자산 및 정부지원사업",
+                            desc: "본사/공장 시설물 유지보수 및 보안(CCTV/에스원) 총괄. 정부 지원금 사업 발굴을 통한 비용 절감 성과 창출."
+                        }
+                    ]
+                },
+                {
+                    company: "윤우케미칼",
+                    role: "품질보증팀(QA) 주임",
+                    period: "2013.05 ~ 2015.07",
+                    location: "충남",
+                    tags: ["품질 보증(QA)", "데이터 분석", "ISO 9001/14001", "감사(Audit)"],
+                    details: [
+                        {
+                            title: "품질경영시스템(QMS) 및 인증",
+                            desc: "ISO 9001/14001 인증 취득 프로젝트 주도. IQC/IPQC/OQC 단계별 품질 기준 수립 및 데이터 기반 불량률 관리."
+                        },
+                        {
+                            title: "정밀 분석 및 신뢰성 검증",
+                            desc: "3차원 투영기, Instron 등 정밀 계측 장비 운용 및 통계적 데이터 분석을 통한 공정 능력(Cp, Cpk) 확보."
+                        },
+                        {
+                            title: "고객사 대응 및 협력사 관리",
+                            desc: "고객 불만(VOC) 원인 분석 및 재발 방지 대책 수립. 주요 협력사 공정 감사(Audit) 수행 및 품질 육성."
+                        }
+                    ]
+                }
+            ];
+
+            return (
+                <section id="experience" className="py-24 bg-slate-50">
+                    <div className="container mx-auto px-6">
+                        <div className="text-center mb-16">
+                            <h2 className="text-sm font-bold text-blue-600 tracking-wider uppercase mb-3">경력 기술서 (Career Timeline)</h2>
+                            <h3 className="text-3xl md:text-4xl font-bold text-slate-900">경력 타임라인</h3>
+                            <p className="text-slate-500 mt-4">
+                                품질 관리(QA)의 꼼꼼함으로 시작하여,<br className="md:hidden"/> 인사/총무(HR/GA)의 유연함과 IT 기술력을 더했습니다.
+                            </p>
+                        </div>
+                        
+                        <div className="relative">
+                            {careers.map((career, idx) => (
+                                <ExperienceItem key={idx} {...career} />
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+        const ExpertiseCard = ({ iconClass, title, items, colorClass }) => (
+            <div className="bg-white p-6 rounded-xl border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 group">
+                <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-6 ${colorClass} bg-opacity-10 group-hover:bg-opacity-20 transition-colors`}>
+                    <i className={`${iconClass} ${colorClass.replace('bg-', 'text-')} text-2xl`}></i>
+                </div>
+                <h3 className="text-lg font-bold text-slate-800 mb-4">{title}</h3>
+                <ul className="space-y-3">
+                    {items.map((item, idx) => (
+                        <li key={idx} className="flex items-start text-sm text-slate-600">
+                            <span className={`mr-2 mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0 ${colorClass.replace('bg-', 'bg-')}`}></span>
+                            {item}
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        );
+
+        const Expertise = () => {
+            const areas = [
+                {
+                    iconClass: "fa-solid fa-users",
+                    title: "인사 기획 및 운영 (HRM)",
+                    colorClass: "bg-blue-600 text-blue-600",
+                    items: [
+                        "채용/평가/보상/교육(HRD) 전반 운영",
+                        "KPI 기반 성과 평가 시스템 운영",
+                        "노사협의회 운영 및 노무 리스크 관리",
+                        "직무 분석 및 R&R 재설계"
+                    ]
+                },
+                {
+                    iconClass: "fa-solid fa-user-shield",
+                    title: "EHS & 컴플라이언스",
+                    colorClass: "bg-green-600 text-green-600",
+                    items: [
+                        "ISO 14001 / 45001 시스템 운영",
+                        "위험성 평가 및 안전보건 교육",
+                        "중대재해처벌법 대응 체계 구축",
+                        "특수 인허가(방사선, 소방 등) 관리"
+                    ]
+                },
+                {
+                    iconClass: "fa-solid fa-building",
+                    title: "총무 및 자산관리 (GA)",
+                    colorClass: "bg-indigo-600 text-indigo-600",
+                    items: [
+                        "자산/시설/부동산(임대차) 관리",
+                        "전사 행사 기획 및 복리후생 운영",
+                        "보안 시스템(물리/정보) 총괄",
+                        "정부 지원 사업 발굴 및 예산 절감"
+                    ]
+                },
+                {
+                    iconClass: "fa-solid fa-database",
+                    title: "데이터 분석 & 품질 관리",
+                    colorClass: "bg-orange-600 text-orange-600",
+                    items: [
+                        "데이터 기반 의사결정 지원",
+                        "품질/공정 데이터 통계적 분석",
+                        "업무 프로세스 표준화 및 매뉴얼화",
+                        "내부 심사 및 감사(Audit) 대응"
+                    ]
+                }
+            ];
+
+            return (
+                <section id="expertise" className="py-24 bg-white">
+                    <div className="container mx-auto px-6">
+                        <div className="mb-12">
+                            <h2 className="text-sm font-bold text-blue-600 tracking-wider uppercase mb-3">핵심 역량 (Core Competencies)</h2>
+                            <h3 className="text-3xl font-bold text-slate-900">직무 전문성 요약</h3>
+                        </div>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            {areas.map((area, idx) => (
+                                <ExpertiseCard key={idx} {...area} />
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+        const Footer = () => (
+            <footer className="bg-slate-950 text-slate-400 py-12 border-t border-slate-900">
+                <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+                    <div className="text-center md:text-left">
+                        <h4 className="text-white font-bold text-lg mb-2">연락처 (Contact Info)</h4>
+                        <p>이메일: bobgo9@naver.com</p>
+                        <p>연락처: 010-5442-4404</p>
+                    </div>
+                    <div className="text-center md:text-right text-sm">
+                        <p className="mb-2">Designed & Developed by [정지원]</p>
+                        <p>&copy; 2026 HR Tech Portfolio. All rights reserved.</p>
+                    </div>
+                </div>
+            </footer>
+        );
+
+        const App = () => {
+            return (
+                <div className="font-sans text-slate-900 bg-white antialiased selection:bg-blue-100 selection:text-blue-900">
+                    <Navigation />
+                    <main>
+                        <Hero />
+                        <Expertise />
+                        <DxCapability />
+                        <Experience />
+                    </main>
+                    <Footer />
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
