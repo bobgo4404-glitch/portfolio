@@ -63,6 +63,72 @@
         html {
             scroll-behavior: smooth;
         }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes glowPulse {
+            0%, 100% { opacity: 0.45; transform: scale(1); }
+            50% { opacity: 0.75; transform: scale(1.08); }
+        }
+        @keyframes floatY {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .hero-gradient {
+            background: linear-gradient(120deg, #eef2ff, #e0f2fe, #dbeafe);
+            background-size: 180% 180%;
+            animation: gradientShift 12s ease infinite;
+        }
+        .glow-orb {
+            position: absolute;
+            border-radius: 9999px;
+            filter: blur(40px);
+            animation: glowPulse 6s ease-in-out infinite;
+        }
+        .float-soft {
+            animation: floatY 4.5s ease-in-out infinite;
+        }
+        .card-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .card-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 14px 35px rgba(15, 23, 42, 0.15);
+            border-color: #93c5fd;
+        }
+        .timeline-glow {
+            position: absolute;
+            left: 50%;
+            top: 6rem;
+            bottom: 2rem;
+            width: 3px;
+            transform: translateX(-50%);
+            background: linear-gradient(to bottom, rgba(37, 99, 235, 0.08), rgba(59, 130, 246, 0.55), rgba(37, 99, 235, 0.08));
+            filter: drop-shadow(0 0 10px rgba(37, 99, 235, 0.28));
+            z-index: 0;
+            display: none;
+        }
+        @media (min-width: 768px) {
+            .timeline-glow { display: block; }
+        }
+        .exp-bg-accent {
+            background:
+                radial-gradient(circle at 12% 24%, rgba(59, 130, 246, 0.09) 0, rgba(59, 130, 246, 0) 38%),
+                radial-gradient(circle at 88% 78%, rgba(14, 165, 233, 0.10) 0, rgba(14, 165, 233, 0) 42%),
+                linear-gradient(to bottom, #f8fafc 0%, #f1f5f9 100%);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(18px) scale(0.985);
+            transition: opacity 0.55s ease, transform 0.55s ease;
+            transition-delay: var(--reveal-delay, 0ms);
+        }
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
     </style>
 </head>
 <body class="bg-white text-slate-900 font-sans antialiased selection:bg-blue-100 selection:text-blue-900">
@@ -76,6 +142,7 @@
         const Navigation = () => {
             const [isOpen, setIsOpen] = useState(false);
             const [scrolled, setScrolled] = useState(false);
+            const mobileMenuId = "mobile-nav-menu";
 
             useEffect(() => {
                 const handleScroll = () => {
@@ -83,6 +150,14 @@
                 };
                 window.addEventListener('scroll', handleScroll);
                 return () => window.removeEventListener('scroll', handleScroll);
+            }, []);
+
+            useEffect(() => {
+                const onKeyDown = (e) => {
+                    if (e.key === "Escape") setIsOpen(false);
+                };
+                window.addEventListener("keydown", onKeyDown);
+                return () => window.removeEventListener("keydown", onKeyDown);
             }, []);
 
             const navLinks = [
@@ -95,9 +170,9 @@
             return (
                 <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
                     <div className="container mx-auto px-6 flex justify-between items-center">
-                        <a href="#" className="text-xl md:text-2xl font-bold text-slate-800 tracking-tight flex items-center gap-2">
-                            <i className="fa-solid fa-code text-blue-600 text-2xl"></i>
-                            <span>HR<span className="text-blue-600">Dev</span>.Portfolio</span>
+                        <a href="#" className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-white/90 border border-slate-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all" aria-label="홈으로 이동">
+                            <span className="text-slate-900 font-black tracking-tight text-lg">정지원</span>
+                            <span className="text-blue-600 font-bold text-sm uppercase tracking-wider">Portfolio</span>
                         </a>
 
                         {/* Desktop Menu */}
@@ -111,7 +186,14 @@
 
                         {/* Mobile Menu Button */}
                         <div className="md:hidden">
-                            <button onClick={() => setIsOpen(!isOpen)} className="text-slate-800 focus:outline-none p-2">
+                            <button
+                                onClick={() => setIsOpen(!isOpen)}
+                                className="text-slate-800 focus:outline-none p-2"
+                                aria-label={isOpen ? "모바일 메뉴 닫기" : "모바일 메뉴 열기"}
+                                aria-expanded={isOpen}
+                                aria-controls={mobileMenuId}
+                                type="button"
+                            >
                                 {isOpen ? <i className="fa-solid fa-times text-2xl"></i> : <i className="fa-solid fa-bars text-2xl"></i>}
                             </button>
                         </div>
@@ -119,7 +201,7 @@
 
                     {/* Mobile Menu Dropdown */}
                     {isOpen && (
-                        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-slate-100 py-4 px-6 flex flex-col space-y-4">
+                        <div id={mobileMenuId} className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-slate-100 py-4 px-6 flex flex-col space-y-4">
                             {navLinks.map((link) => (
                                 <a 
                                     key={link.name} 
@@ -138,47 +220,48 @@
 
         const Hero = () => {
             return (
-                <section id="summary" className="relative min-h-[90vh] flex items-center pt-20 bg-slate-50 overflow-hidden">
+                <section id="summary" className="relative min-h-[90vh] flex items-center pt-20 hero-gradient overflow-hidden">
                     {/* Abstract Background */}
                     <div className="absolute top-0 right-0 w-1/2 h-full bg-blue-50/50 skew-x-[-12deg] transform origin-top translate-x-32 hidden md:block"></div>
+                    <div className="glow-orb w-64 h-64 bg-blue-300/60 top-20 -left-10"></div>
+                    <div className="glow-orb w-80 h-80 bg-cyan-200/60 bottom-10 right-0" style={{ animationDelay: '1.2s' }}></div>
                     
                     <div className="container mx-auto px-6 relative z-10">
                         <div className="max-w-5xl mx-auto">
                             <div className="flex flex-col md:flex-row items-center gap-12">
                                 <div className="flex-1 text-center md:text-left">
-                                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-wider mb-6">
+                                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-wider mb-6 reveal" data-reveal style={{ '--reveal-delay': '40ms' }}>
                                         <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
                                         구직 중 (Available)
                                     </div>
                                     
-                                    <h1 className="text-4xl md:text-6xl font-bold text-slate-900 leading-tight mb-6">
+                                    <h1 className="text-4xl md:text-6xl font-bold text-slate-900 leading-tight mb-6 reveal" data-reveal style={{ '--reveal-delay': '100ms' }}>
                                         데이터로 인사이트를 찾고<br />
                                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">기술로 업무를 혁신하는</span><br />
                                         HR & GA 전문가입니다.
                                     </h1>
                                     
-                                    <p className="text-lg text-slate-600 mb-8 leading-relaxed max-w-2xl mx-auto md:mx-0">
-                                        12년차 인사/총무 전문가로서 HR 운영, EHS(안전보건), 자산 관리를 넘어 
-                                        <strong className="text-slate-900"> React, Firebase 기반의 자체 업무 툴 개발</strong>까지. 
-                                        비효율을 제거하고 시스템을 구축하는 '올라운더 플레이어'입니다.
+                                    <p className="text-lg text-slate-600 mb-8 leading-relaxed max-w-2xl mx-auto md:mx-0 reveal" data-reveal style={{ '--reveal-delay': '160ms' }}>
+                                        인사/총무 12년 실무 경험에 개발 역량을 결합해, 
+                                        <strong className="text-slate-900"> 반복 행정을 자동화하고 실행 가능한 시스템</strong>으로 전환합니다.
                                     </p>
 
-                                    <div className="flex flex-wrap justify-center md:justify-start gap-4">
+                                    <div className="flex flex-wrap justify-center md:justify-start gap-4 reveal" data-reveal style={{ '--reveal-delay': '220ms' }}>
                                         {/* 이력서 다운로드 대신 실용적인 이메일 문의하기로 변경 */}
                                         <a href="mailto:bobgo9@naver.com" className="px-8 py-4 bg-slate-900 text-white rounded-lg font-semibold hover:bg-slate-800 transition-all flex items-center gap-2 shadow-lg hover:shadow-xl hover:-translate-y-1">
                                             <i className="fa-solid fa-envelope text-lg"></i>
                                             이메일 문의하기
                                         </a>
                                         <a href="#dx" className="px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-lg font-semibold hover:bg-slate-50 transition-all flex items-center gap-2">
-                                            <i className="fa-solid fa-code text-lg"></i>
-                                            개발 프로젝트 보기
+                                            <i className="fa-solid fa-briefcase text-lg"></i>
+                                            업무 혁신 사례 보기
                                         </a>
                                     </div>
                                 </div>
 
                                 {/* Right Side Stats Card */}
-                                <div className="w-full md:w-80 bg-white p-6 rounded-2xl shadow-xl border border-slate-100 relative mt-10 md:mt-0">
-                                    <div className="absolute -top-4 -right-4 w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 animate-bounce delay-700 shadow-sm">
+                                <div className="w-full md:w-80 bg-white p-6 rounded-2xl shadow-xl border border-slate-100 relative mt-10 md:mt-0 card-lift float-soft reveal" data-reveal style={{ '--reveal-delay': '260ms' }}>
+                                    <div className="absolute -top-4 -right-4 w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 shadow-sm">
                                         <i className="fa-solid fa-award text-3xl"></i>
                                     </div>
                                     <h3 className="text-lg font-bold text-slate-800 mb-6 border-b pb-2">핵심 요약</h3>
@@ -229,48 +312,66 @@
                     <div className="container mx-auto px-6">
                         <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12">
                             <div>
-                                <span className="text-blue-400 font-bold tracking-wider text-sm uppercase">강점 (Differentiator)</span>
+                                <span className="text-cyan-300 font-bold tracking-wider text-sm uppercase">강점 (Differentiator)</span>
                                 <h2 className="text-3xl md:text-4xl font-bold mt-2">IT 기반 업무 자동화 (DX)</h2>
                                 <p className="text-slate-400 mt-4 max-w-xl">
-                                    단순 반복 업무를 줄이고, 본질적인 가치에 집중하기 위해 직접 코드를 작성합니다.
-                                    실무자의 관점에서 가장 필요한 도구를 직접 기획하고 개발했습니다.
+                                    반복 업무를 자동화해 실행 시간을 줄이고, 
+                                    실무자가 바로 쓰는 도구를 직접 기획·개발합니다.
                                 </p>
                             </div>
                             <div className="mt-6 md:mt-0 flex gap-2">
-                                <span className="px-3 py-1 bg-slate-800 rounded text-xs font-mono text-blue-300 border border-slate-700">React.js</span>
+                                <span className="px-3 py-1 bg-slate-800 rounded text-xs font-mono text-cyan-300 border border-slate-700">React.js</span>
                                 <span className="px-3 py-1 bg-slate-800 rounded text-xs font-mono text-yellow-300 border border-slate-700">Firebase</span>
                                 <span className="px-3 py-1 bg-slate-800 rounded text-xs font-mono text-orange-300 border border-slate-700">HTML5/CSS3</span>
                             </div>
                         </div>
 
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                            <div className="bg-slate-800/85 border border-slate-700 rounded-xl p-4 reveal card-lift" data-reveal style={{ '--reveal-delay': '40ms' }}>
+                                <p className="text-xs text-cyan-300 font-bold uppercase tracking-wider mb-1">자동화 도구</p>
+                                <p className="text-2xl font-extrabold text-white">20+</p>
+                                <p className="text-xs text-slate-400 mt-1">직접 기획 및 개발/운영</p>
+                            </div>
+                            <div className="bg-slate-800/85 border border-slate-700 rounded-xl p-4 reveal card-lift" data-reveal style={{ '--reveal-delay': '110ms' }}>
+                                <p className="text-xs text-cyan-300 font-bold uppercase tracking-wider mb-1">업무 처리시간</p>
+                                <p className="text-2xl font-extrabold text-white">최대 70%</p>
+                                <p className="text-xs text-slate-400 mt-1">문서/집계 프로세스 단축</p>
+                            </div>
+                            <div className="bg-slate-800/85 border border-slate-700 rounded-xl p-4 reveal card-lift" data-reveal style={{ '--reveal-delay': '180ms' }}>
+                                <p className="text-xs text-cyan-300 font-bold uppercase tracking-wider mb-1">휴먼 에러</p>
+                                <p className="text-2xl font-extrabold text-white">대폭 감소</p>
+                                <p className="text-xs text-slate-400 mt-1">반복 입력/포맷 오류 최소화</p>
+                            </div>
+                        </div>
+
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <div className="bg-slate-800 p-8 rounded-2xl border border-slate-700 hover:border-blue-500 transition-colors group">
-                                <div className="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
+                            <div className="bg-slate-800 p-8 rounded-2xl border border-slate-700 hover:border-cyan-400 transition-colors group card-lift reveal" data-reveal style={{ '--reveal-delay': '70ms' }}>
+                                <div className="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center mb-6 group-hover:bg-cyan-500 transition-colors">
                                     <i className="fa-solid fa-microchip text-2xl"></i>
                                 </div>
                                 <h3 className="text-xl font-bold mb-3">실무 맞춤형 솔루션 개발</h3>
                                 <p className="text-slate-400 text-sm leading-relaxed mb-4">
-                                    React와 Firebase를 활용하여 주간 업무 플래너, 스마트 급여 계산기 등 시중의 툴로 해결되지 않는 니치(Niche)한 업무 도구를 자체 개발하여 배포했습니다.
+                                    주간 플래너, 급여 계산기 등 현업의 병목 지점을 해소하는 도구를 직접 개발해 운영했습니다.
                                 </p>
                             </div>
                             
-                            <div className="bg-slate-800 p-8 rounded-2xl border border-slate-700 hover:border-blue-500 transition-colors group">
-                                <div className="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
+                            <div className="bg-slate-800 p-8 rounded-2xl border border-slate-700 hover:border-cyan-400 transition-colors group card-lift reveal" data-reveal style={{ '--reveal-delay': '140ms' }}>
+                                <div className="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center mb-6 group-hover:bg-cyan-500 transition-colors">
                                     <i className="fa-solid fa-file-circle-check text-2xl"></i>
                                 </div>
                                 <h3 className="text-xl font-bold mb-3">행정 프로세스 혁신</h3>
                                 <p className="text-slate-400 text-sm leading-relaxed mb-4">
-                                    인사 발령문, 증명서 등 반복적으로 생성되는 문서를 자동화하는 시스템을 구축했습니다. 수작업 대비 업무 시간을 획기적으로 단축하고 휴먼 에러를 제거했습니다.
+                                    발령문/증명서 자동생성 흐름을 구축해 수작업 시간을 줄이고 누락·오입력 위험을 낮췄습니다.
                                 </p>
                             </div>
 
-                            <div className="bg-slate-800 p-8 rounded-2xl border border-slate-700 hover:border-blue-500 transition-colors group">
-                                <div className="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
+                            <div className="bg-slate-800 p-8 rounded-2xl border border-slate-700 hover:border-cyan-400 transition-colors group card-lift reveal" data-reveal style={{ '--reveal-delay': '210ms' }}>
+                                <div className="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center mb-6 group-hover:bg-cyan-500 transition-colors">
                                     <i className="fa-solid fa-chart-bar text-2xl"></i>
                                 </div>
                                 <h3 className="text-xl font-bold mb-3">데이터 인터페이스 설계</h3>
                                 <p className="text-slate-400 text-sm leading-relaxed mb-4">
-                                    복잡한 엑셀 데이터를 경영진이 직관적으로 이해할 수 있도록 HTML 기반의 웹 대시보드로 시각화하여 의사결정을 지원했습니다.
+                                    복잡한 Excel 데이터를 웹 대시보드로 시각화해 보고 속도와 의사결정 정확도를 높였습니다.
                                 </p>
                             </div>
                         </div>
@@ -280,7 +381,7 @@
         };
 
         const ExperienceItem = ({ company, role, period, location, details, tags }) => (
-            <div className="relative pl-8 md:pl-0">
+            <div className="relative pl-8 md:pl-0 reveal" data-reveal>
                 {/* Timeline Line (Desktop) */}
                 <div className="hidden md:block absolute left-[50%] top-0 bottom-0 w-px bg-slate-200 transform -translate-x-1/2"></div>
                 
@@ -302,7 +403,7 @@
 
                     {/* Content Side */}
                     <div className="md:w-5/12 md:pl-12">
-                        <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                        <div className="bg-white/95 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-blue-100 hover:shadow-md transition-shadow card-lift">
                             <ul className="space-y-4">
                                 {details.map((section, idx) => (
                                     <li key={idx}>
@@ -401,7 +502,11 @@
             ];
 
             return (
-                <section id="experience" className="py-24 bg-slate-50">
+                <section id="experience" className="py-24 exp-bg-accent relative overflow-hidden">
+                    <div className="absolute inset-0 pointer-events-none">
+                        <div className="glow-orb w-80 h-80 bg-blue-200/50 -top-16 -left-12"></div>
+                        <div className="glow-orb w-96 h-96 bg-cyan-200/50 bottom-0 -right-16" style={{ animationDelay: '1.6s' }}></div>
+                    </div>
                     <div className="container mx-auto px-6">
                         <div className="text-center mb-16">
                             <h2 className="text-sm font-bold text-blue-600 tracking-wider uppercase mb-3">경력 기술서 (Career Timeline)</h2>
@@ -412,6 +517,7 @@
                         </div>
                         
                         <div className="relative">
+                            <div className="timeline-glow"></div>
                             {careers.map((career, idx) => (
                                 <ExperienceItem key={idx} {...career} />
                             ))}
@@ -422,7 +528,7 @@
         };
 
         const ExpertiseCard = ({ iconClass, title, items, colorClass }) => (
-            <div className="bg-white p-6 rounded-xl border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 group">
+            <div className="bg-white p-6 rounded-xl border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 group card-lift reveal" data-reveal>
                 <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-6 ${colorClass} bg-opacity-10 group-hover:bg-opacity-20 transition-colors`}>
                     <i className={`${iconClass} ${colorClass.replace('bg-', 'text-')} text-2xl`}></i>
                 </div>
@@ -513,22 +619,46 @@
                         <p>연락처: 010-5442-4404</p>
                     </div>
                     <div className="text-center md:text-right text-sm">
-                        <p className="mb-2">Designed & Developed by [정지원]</p>
-                        <p>&copy; 2026 HR Tech Portfolio. All rights reserved.</p>
+                        <p className="mb-2">정지원 Portfolio</p>
+                        <p>&copy; 2026 Jeong Jiwon. All rights reserved.</p>
                     </div>
                 </div>
             </footer>
         );
 
         const App = () => {
+            useEffect(() => {
+                const nodes = document.querySelectorAll("[data-reveal]");
+                if (!nodes.length) return;
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("show");
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+
+                nodes.forEach((node, idx) => {
+                    if (!node.style.getPropertyValue("--reveal-delay")) {
+                        node.style.setProperty("--reveal-delay", `${Math.min(idx * 35, 260)}ms`);
+                    }
+                    node.classList.add("reveal");
+                    observer.observe(node);
+                });
+
+                return () => observer.disconnect();
+            }, []);
+
             return (
                 <div className="font-sans text-slate-900 bg-white antialiased selection:bg-blue-100 selection:text-blue-900">
                     <Navigation />
                     <main>
                         <Hero />
-                        <Expertise />
                         <DxCapability />
                         <Experience />
+                        <Expertise />
                     </main>
                     <Footer />
                 </div>
