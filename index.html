@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HR Dev Portfolio</title>
+    <title>정지원 | HR &amp; DX 전문가 포트폴리오</title>
+    <meta name="description" content="인사/총무 12년 경력에 개발 역량을 결합한 HR·DX 전문가 정지원의 포트폴리오. React, Firebase 기반 업무 자동화 도구 20개 이상 직접 개발·운영.">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="정지원 | HR &amp; DX 전문가 포트폴리오">
+    <meta property="og:description" content="인사/총무 12년 경력에 개발 역량을 결합한 HR·DX 전문가 정지원의 포트폴리오.">
+    <meta property="og:locale" content="ko_KR">
     
     <!-- 1. Fonts: Noto Sans KR -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,116 +28,115 @@
                     fontFamily: {
                         sans: ['"Noto Sans KR"', 'sans-serif'],
                     },
-                    animation: {
-                        'blob': 'blob 7s infinite',
-                    },
-                    keyframes: {
-                        blob: {
-                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
-                        }
-                    }
                 }
             }
         }
     </script>
 
-    <!-- 4. React & ReactDOM (Latest) -->
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- 4. React & ReactDOM (Production) -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 
     <!-- 5. Babel Standalone (v7.23.5 - Mandatory) -->
     <script src="https://unpkg.com/@babel/standalone@7.23.5/babel.min.js"></script>
 
     <style>
-        /* Custom Scrollbar for consistent look */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1; 
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #cbd5e1; 
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8; 
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f5f5fb; }
+        ::-webkit-scrollbar-thumb { background: #c4c2e8; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #9896cc; }
+
+        html { scroll-behavior: smooth; }
+
         @keyframes glowPulse {
-            0%, 100% { opacity: 0.45; transform: scale(1); }
-            50% { opacity: 0.75; transform: scale(1.08); }
+            0%, 100% { opacity: 0.25; transform: scale(1); }
+            50% { opacity: 0.45; transform: scale(1.05); }
         }
-        @keyframes floatY {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
+
+        /* Hero — 정적인 세련된 배경 */
         .hero-gradient {
-            background: linear-gradient(120deg, #eef2ff, #e0f2fe, #dbeafe);
-            background-size: 180% 180%;
-            animation: gradientShift 12s ease infinite;
+            background: linear-gradient(150deg, #ffffff 0%, #f5f3ff 45%, #eef2ff 100%);
         }
+
+        /* Glow orb — 더 부드럽게 */
         .glow-orb {
             position: absolute;
             border-radius: 9999px;
-            filter: blur(40px);
-            animation: glowPulse 6s ease-in-out infinite;
+            filter: blur(72px);
+            animation: glowPulse 9s ease-in-out infinite;
         }
-        .float-soft {
-            animation: floatY 4.5s ease-in-out infinite;
-        }
+
+        /* Card hover — spring 느낌 + indigo shadow */
         .card-lift {
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            transition: transform 0.35s cubic-bezier(0.34, 1.4, 0.64, 1), box-shadow 0.35s ease, border-color 0.3s ease;
         }
         .card-lift:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 14px 35px rgba(15, 23, 42, 0.15);
-            border-color: #93c5fd;
+            transform: translateY(-6px);
+            box-shadow: 0 20px 48px rgba(79, 70, 229, 0.13), 0 2px 8px rgba(0,0,0,0.04);
+            border-color: rgba(165, 180, 252, 0.55);
         }
+
+        /* Timeline */
         .timeline-glow {
             position: absolute;
             left: 50%;
             top: 6rem;
             bottom: 2rem;
-            width: 3px;
+            width: 2px;
             transform: translateX(-50%);
-            background: linear-gradient(to bottom, rgba(37, 99, 235, 0.08), rgba(59, 130, 246, 0.55), rgba(37, 99, 235, 0.08));
-            filter: drop-shadow(0 0 10px rgba(37, 99, 235, 0.28));
+            background: linear-gradient(to bottom, transparent, rgba(99, 102, 241, 0.4), transparent);
             z-index: 0;
             display: none;
         }
-        @media (min-width: 768px) {
-            .timeline-glow { display: block; }
-        }
+        @media (min-width: 768px) { .timeline-glow { display: block; } }
+
+        /* Experience section bg */
         .exp-bg-accent {
             background:
-                radial-gradient(circle at 12% 24%, rgba(59, 130, 246, 0.09) 0, rgba(59, 130, 246, 0) 38%),
-                radial-gradient(circle at 88% 78%, rgba(14, 165, 233, 0.10) 0, rgba(14, 165, 233, 0) 42%),
-                linear-gradient(to bottom, #f8fafc 0%, #f1f5f9 100%);
+                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.06) 0, transparent 42%),
+                radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.06) 0, transparent 42%),
+                linear-gradient(to bottom, #f8f8ff 0%, #f3f4fb 100%);
         }
+
+        /* Scroll reveal */
         .reveal {
             opacity: 0;
-            transform: translateY(18px) scale(0.985);
-            transition: opacity 0.55s ease, transform 0.55s ease;
+            transform: translateY(16px);
+            transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
             transition-delay: var(--reveal-delay, 0ms);
         }
-        .reveal.show {
-            opacity: 1;
-            transform: translateY(0) scale(1);
+        .reveal.show { opacity: 1; transform: translateY(0); }
+
+        /* Hero 도트 그리드 패턴 */
+        .dot-grid {
+            background-image: radial-gradient(circle, rgba(99,102,241,0.13) 1px, transparent 1px);
+            background-size: 28px 28px;
         }
+
+        /* DX 다크 그리드 라인 */
+        .grid-lines-dark {
+            background-image:
+                linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+            background-size: 52px 52px;
+        }
+
+        /* 섹션 웨이브 구분선 */
+        .section-wave { display: block; width: 100%; }
+
+        /* Expertise 카드 상단 컬러 바 */
+        .card-accent-bar {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            border-radius: 1rem 1rem 0 0;
+        }
+
+        /* Experience 카드 왼쪽 accent */
+        .desc-border { border-left: 2px solid rgba(99,102,241,0.25); }
     </style>
 </head>
-<body class="bg-white text-slate-900 font-sans antialiased selection:bg-blue-100 selection:text-blue-900">
+<body class="bg-white text-slate-900 font-sans antialiased selection:bg-indigo-100 selection:text-indigo-900">
     <div id="root"></div>
 
     <script type="text/babel">
@@ -168,17 +173,18 @@
             ];
 
             return (
-                <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
+                <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-xl shadow-[0_1px_0_rgba(99,102,241,0.08)] py-3' : 'bg-transparent py-5'}`}>
                     <div className="container mx-auto px-6 flex justify-between items-center">
-                        <a href="#" className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-white/90 border border-slate-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all" aria-label="홈으로 이동">
-                            <span className="text-slate-900 font-black tracking-tight text-lg">정지원</span>
-                            <span className="text-blue-600 font-bold text-sm uppercase tracking-wider">Portfolio</span>
+                        <a href="#" className="inline-flex items-center gap-2 hover:opacity-70 transition-opacity" aria-label="홈으로 이동">
+                            <span className="text-slate-900 font-black tracking-tight text-xl">정지원</span>
+                            <span className="w-px h-4 bg-slate-300"></span>
+                            <span className="text-indigo-600 font-semibold text-sm tracking-wide">Portfolio</span>
                         </a>
 
                         {/* Desktop Menu */}
                         <div className="hidden md:flex space-x-8">
                             {navLinks.map((link) => (
-                                <a key={link.name} href={link.href} className="text-slate-600 hover:text-blue-600 font-bold transition-colors text-sm tracking-wide">
+                                <a key={link.name} href={link.href} className="text-slate-500 hover:text-indigo-600 font-semibold transition-colors text-sm tracking-wide">
                                     {link.name}
                                 </a>
                             ))}
@@ -200,59 +206,64 @@
                     </div>
 
                     {/* Mobile Menu Dropdown */}
-                    {isOpen && (
-                        <div id={mobileMenuId} className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-slate-100 py-4 px-6 flex flex-col space-y-4">
-                            {navLinks.map((link) => (
-                                <a 
-                                    key={link.name} 
-                                    href={link.href} 
-                                    className="text-slate-600 font-medium py-2 border-b border-slate-50 last:border-0"
-                                    onClick={() => setIsOpen(false)}
-                                >
-                                    {link.name}
-                                </a>
-                            ))}
-                        </div>
-                    )}
+                    <div
+                        id={mobileMenuId}
+                        className={`md:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-slate-100 py-4 px-6 flex flex-col space-y-4 ${isOpen ? '' : 'hidden'}`}
+                        aria-hidden={!isOpen}
+                    >
+                        {navLinks.map((link) => (
+                            <a
+                                key={link.name}
+                                href={link.href}
+                                className="text-slate-600 font-medium py-2 border-b border-slate-50 last:border-0"
+                                onClick={() => setIsOpen(false)}
+                                tabIndex={isOpen ? 0 : -1}
+                            >
+                                {link.name}
+                            </a>
+                        ))}
+                    </div>
                 </nav>
             );
         };
 
         const Hero = () => {
             return (
-                <section id="summary" className="relative min-h-[90vh] flex items-center pt-20 hero-gradient overflow-hidden">
-                    {/* Abstract Background */}
-                    <div className="absolute top-0 right-0 w-1/2 h-full bg-blue-50/50 skew-x-[-12deg] transform origin-top translate-x-32 hidden md:block"></div>
-                    <div className="glow-orb w-64 h-64 bg-blue-300/60 top-20 -left-10"></div>
-                    <div className="glow-orb w-80 h-80 bg-cyan-200/60 bottom-10 right-0" style={{ animationDelay: '1.2s' }}></div>
+                <section id="summary" className="relative min-h-[90vh] flex items-center pt-20 pb-24 hero-gradient overflow-hidden">
+                    {/* 도트 그리드 패턴 오버레이 */}
+                    <div className="absolute inset-0 dot-grid opacity-60" aria-hidden="true"></div>
+                    {/* 오른쪽 사선 패널 */}
+                    <div className="absolute top-0 right-0 w-5/12 h-full bg-indigo-50/60 skew-x-[-10deg] transform origin-top translate-x-24 hidden md:block" aria-hidden="true"></div>
+                    <div className="glow-orb w-72 h-72 bg-indigo-200/45 top-16 -left-16" aria-hidden="true"></div>
+                    <div className="glow-orb w-96 h-96 bg-violet-200/35 bottom-0 right-0" aria-hidden="true" style={{ animationDelay: '2s' }}></div>
                     
                     <div className="container mx-auto px-6 relative z-10">
                         <div className="max-w-5xl mx-auto">
                             <div className="flex flex-col md:flex-row items-center gap-12">
                                 <div className="flex-1 text-center md:text-left">
-                                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-wider mb-6 reveal" data-reveal style={{ '--reveal-delay': '40ms' }}>
-                                        <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
-                                        구직 중 (Available)
+                                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 text-indigo-600 border border-indigo-100 text-xs font-semibold uppercase tracking-wider mb-6 reveal" data-reveal style={{ '--reveal-delay': '40ms' }}>
+                                        <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse"></span>
+                                        구직 중 · Available
                                     </div>
                                     
                                     <h1 className="text-4xl md:text-6xl font-bold text-slate-900 leading-tight mb-6 reveal" data-reveal style={{ '--reveal-delay': '100ms' }}>
                                         데이터로 인사이트를 찾고<br />
-                                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">기술로 업무를 혁신하는</span><br />
+                                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-violet-600">기술로 업무를 혁신하는</span><br />
                                         HR & GA 전문가입니다.
                                     </h1>
                                     
                                     <p className="text-lg text-slate-600 mb-8 leading-relaxed max-w-2xl mx-auto md:mx-0 reveal" data-reveal style={{ '--reveal-delay': '160ms' }}>
-                                        인사/총무 12년 실무 경험에 개발 역량을 결합해, 
+                                        인사/총무 11년 실무 경험에 개발 역량을 결합해,
                                         <strong className="text-slate-900"> 반복 행정을 자동화하고 실행 가능한 시스템</strong>으로 전환합니다.
                                     </p>
 
                                     <div className="flex flex-wrap justify-center md:justify-start gap-4 reveal" data-reveal style={{ '--reveal-delay': '220ms' }}>
                                         {/* 이력서 다운로드 대신 실용적인 이메일 문의하기로 변경 */}
-                                        <a href="mailto:bobgo9@naver.com" className="px-8 py-4 bg-slate-900 text-white rounded-lg font-semibold hover:bg-slate-800 transition-all flex items-center gap-2 shadow-lg hover:shadow-xl hover:-translate-y-1">
+                                        <a href="mailto:bobgo9@naver.com" className="px-8 py-4 bg-indigo-600 text-white rounded-xl font-semibold hover:bg-indigo-700 transition-all flex items-center gap-2 shadow-lg shadow-indigo-200 hover:shadow-xl hover:shadow-indigo-200 hover:-translate-y-1">
                                             <i className="fa-solid fa-envelope text-lg"></i>
                                             이메일 문의하기
                                         </a>
-                                        <a href="#dx" className="px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-lg font-semibold hover:bg-slate-50 transition-all flex items-center gap-2">
+                                        <a href="#dx" className="px-8 py-4 bg-white text-slate-600 border border-slate-200 rounded-xl font-semibold hover:bg-indigo-50 hover:border-indigo-200 hover:text-indigo-700 hover:shadow-md hover:-translate-y-1 transition-all flex items-center gap-2">
                                             <i className="fa-solid fa-briefcase text-lg"></i>
                                             업무 혁신 사례 보기
                                         </a>
@@ -260,8 +271,8 @@
                                 </div>
 
                                 {/* Right Side Stats Card */}
-                                <div className="w-full md:w-80 bg-white p-6 rounded-2xl shadow-xl border border-slate-100 relative mt-10 md:mt-0 card-lift float-soft reveal" data-reveal style={{ '--reveal-delay': '260ms' }}>
-                                    <div className="absolute -top-4 -right-4 w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 shadow-sm">
+                                <div className="w-full md:w-80 bg-white p-6 rounded-2xl shadow-[0_4px_24px_rgba(79,70,229,0.1),0_1px_4px_rgba(0,0,0,0.04)] border border-indigo-50 relative mt-10 md:mt-0 card-lift reveal" data-reveal style={{ '--reveal-delay': '260ms' }}>
+                                    <div className="absolute -top-4 -right-4 w-20 h-20 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 shadow-sm">
                                         <i className="fa-solid fa-award text-3xl"></i>
                                     </div>
                                     <h3 className="text-lg font-bold text-slate-800 mb-6 border-b pb-2">핵심 요약</h3>
@@ -272,7 +283,7 @@
                                             </div>
                                             <div>
                                                 <p className="text-xs text-slate-500 font-semibold uppercase">총 경력</p>
-                                                <p className="text-lg font-bold text-slate-900">12년 이상</p>
+                                                <p className="text-lg font-bold text-slate-900">11년 이상</p>
                                             </div>
                                         </div>
                                         <div className="flex items-center gap-3">
@@ -290,7 +301,7 @@
                                             </div>
                                             <div>
                                                 <p className="text-xs text-slate-500 font-semibold uppercase">기술 스택</p>
-                                                <p className="text-sm font-bold text-slate-900">React, Firebase, HTML, CapCut/Final Cut Pro/Filmora</p>
+                                                <p className="text-sm font-bold text-slate-900">React, Firebase, HTML/CSS</p>
                                             </div>
                                         </div>
                                         <div className="flex items-center gap-3">
@@ -299,7 +310,7 @@
                                             </div>
                                             <div>
                                                 <p className="text-xs text-slate-500 font-semibold uppercase">취미/특기</p>
-                                                <p className="text-sm font-bold text-slate-900">영상 편집, 업무 자동화 툴 기획</p>
+                                                <p className="text-sm font-bold text-slate-900 leading-snug break-keep">영상 편집 (CapCut · Final Cut Pro · Filmora), 업무 자동화 툴 기획</p>
                                             </div>
                                         </div>
                                     </div>
@@ -308,8 +319,11 @@
                         </div>
                     </div>
                     
-                    <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce text-slate-400">
-                        <i className="fa-solid fa-chevron-down text-2xl"></i>
+                    {/* 하단 웨이브 — DX 섹션으로 부드럽게 연결 */}
+                    <div className="absolute bottom-0 left-0 w-full overflow-hidden" style={{ lineHeight: 0 }} aria-hidden="true">
+                        <svg viewBox="0 0 1440 56" preserveAspectRatio="none" className="section-wave" style={{ height: '56px' }}>
+                            <path d="M0,28 C240,56 480,0 720,28 C960,56 1200,0 1440,28 L1440,56 L0,56 Z" fill="#0c0b1a"/>
+                        </svg>
                     </div>
                 </section>
             );
@@ -317,8 +331,10 @@
 
         const DxCapability = () => {
             return (
-                <section id="dx" className="py-20 bg-slate-900 text-white">
-                    <div className="container mx-auto px-6">
+                <section id="dx" className="relative py-24 pb-32 bg-[#0c0b1a] text-white overflow-hidden">
+                    {/* 다크 그리드 라인 패턴 */}
+                    <div className="absolute inset-0 grid-lines-dark" aria-hidden="true"></div>
+                    <div className="container mx-auto px-6 relative z-10">
                         <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12">
                             <div>
                                 <span className="text-cyan-300 font-bold tracking-wider text-sm uppercase">강점 (Differentiator)</span>
@@ -329,15 +345,14 @@
                                 </p>
                             </div>
                             <div className="mt-6 md:mt-0 flex gap-2">
-                                <span className="px-3 py-1 bg-slate-800 rounded text-xs font-mono text-cyan-300 border border-slate-700">React.js</span>
-                                <span className="px-3 py-1 bg-slate-800 rounded text-xs font-mono text-yellow-300 border border-slate-700">Firebase</span>
-                                <span className="px-3 py-1 bg-slate-800 rounded text-xs font-mono text-orange-300 border border-slate-700">HTML5/CSS3</span>
-                                <span className="px-3 py-1 bg-slate-800 rounded text-xs font-mono text-pink-300 border border-slate-700">CapCut/Final Cut Pro/Filmora</span>
+                                <span className="px-3 py-1 bg-white/8 rounded-full text-xs font-mono text-cyan-300 border border-white/15">React.js</span>
+                                <span className="px-3 py-1 bg-white/8 rounded-full text-xs font-mono text-yellow-300 border border-white/15">Firebase</span>
+                                <span className="px-3 py-1 bg-white/8 rounded-full text-xs font-mono text-orange-300 border border-white/15">HTML5/CSS3</span>
                             </div>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-                            <div className="bg-slate-800/85 border border-slate-700 rounded-xl p-4 reveal card-lift" data-reveal style={{ '--reveal-delay': '40ms' }}>
+                            <div className="bg-white/5 border border-white/10 rounded-xl p-4 reveal card-lift" data-reveal style={{ '--reveal-delay': '40ms' }}>
                                 <p className="text-xs text-cyan-300 font-bold uppercase tracking-wider mb-1">자동화 도구</p>
                                 <p className="text-2xl font-extrabold text-white">20+</p>
                                 <p className="text-xs text-slate-400 mt-1">직접 기획 및 개발/운영</p>
@@ -345,12 +360,12 @@
                                     예: 인사/급여/명세 자동화, 경조사·고정자산·교육 이수 관리, 공지문·보안점검 리포트 생성, 주간 운영 대시보드
                                 </p>
                             </div>
-                            <div className="bg-slate-800/85 border border-slate-700 rounded-xl p-4 reveal card-lift" data-reveal style={{ '--reveal-delay': '110ms' }}>
+                            <div className="bg-white/5 border border-white/10 rounded-xl p-4 reveal card-lift" data-reveal style={{ '--reveal-delay': '110ms' }}>
                                 <p className="text-xs text-cyan-300 font-bold uppercase tracking-wider mb-1">업무 처리시간</p>
                                 <p className="text-2xl font-extrabold text-white">최대 70%</p>
                                 <p className="text-xs text-slate-400 mt-1">문서/집계 프로세스 단축</p>
                             </div>
-                            <div className="bg-slate-800/85 border border-slate-700 rounded-xl p-4 reveal card-lift" data-reveal style={{ '--reveal-delay': '180ms' }}>
+                            <div className="bg-white/5 border border-white/10 rounded-xl p-4 reveal card-lift" data-reveal style={{ '--reveal-delay': '180ms' }}>
                                 <p className="text-xs text-cyan-300 font-bold uppercase tracking-wider mb-1">휴먼 에러</p>
                                 <p className="text-2xl font-extrabold text-white">대폭 감소</p>
                                 <p className="text-xs text-slate-400 mt-1">반복 입력/포맷 오류 최소화</p>
@@ -358,21 +373,21 @@
                         </div>
 
                         <div className="mb-10 reveal" data-reveal style={{ '--reveal-delay': '220ms' }}>
-                            <p className="text-xs text-cyan-300 font-bold uppercase tracking-wider mb-3">대표 제작 앱 6선</p>
+                            <p className="text-xs text-cyan-300 font-bold uppercase tracking-wider mb-3">대표 제작 앱 7선</p>
                             <div className="flex flex-wrap gap-2">
-                                <span className="px-3 py-1.5 rounded-full bg-slate-800 border border-slate-700 text-xs text-slate-200">경조사 관리대장</span>
-                                <span className="px-3 py-1.5 rounded-full bg-slate-800 border border-slate-700 text-xs text-slate-200">고정자산 관리대장</span>
-                                <span className="px-3 py-1.5 rounded-full bg-slate-800 border border-slate-700 text-xs text-slate-200">교육 이수현황 보고</span>
-                                <span className="px-3 py-1.5 rounded-full bg-slate-800 border border-slate-700 text-xs text-slate-200">주간메뉴표 운영앱</span>
-                                <span className="px-3 py-1.5 rounded-full bg-slate-800 border border-slate-700 text-xs text-slate-200">보안점검 리포트 생성기</span>
-                                <span className="px-3 py-1.5 rounded-full bg-slate-800 border border-slate-700 text-xs text-slate-200">라이센스 관리대장</span>
-                                <span className="px-3 py-1.5 rounded-full bg-slate-800 border border-slate-700 text-xs text-slate-200">인건비 전략 대시보드</span>
+                                <span className="px-3 py-1.5 rounded-full bg-white/8 border border-white/15 text-xs text-slate-300 hover:bg-white/15 transition-colors">경조사 관리대장</span>
+                                <span className="px-3 py-1.5 rounded-full bg-white/8 border border-white/15 text-xs text-slate-300 hover:bg-white/15 transition-colors">고정자산 관리대장</span>
+                                <span className="px-3 py-1.5 rounded-full bg-white/8 border border-white/15 text-xs text-slate-300 hover:bg-white/15 transition-colors">교육 이수현황 보고</span>
+                                <span className="px-3 py-1.5 rounded-full bg-white/8 border border-white/15 text-xs text-slate-300 hover:bg-white/15 transition-colors">주간메뉴표 운영앱</span>
+                                <span className="px-3 py-1.5 rounded-full bg-white/8 border border-white/15 text-xs text-slate-300 hover:bg-white/15 transition-colors">보안점검 리포트 생성기</span>
+                                <span className="px-3 py-1.5 rounded-full bg-white/8 border border-white/15 text-xs text-slate-300 hover:bg-white/15 transition-colors">라이센스 관리대장</span>
+                                <span className="px-3 py-1.5 rounded-full bg-white/8 border border-white/15 text-xs text-slate-300 hover:bg-white/15 transition-colors">인건비 전략 대시보드</span>
                             </div>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <div className="bg-slate-800 p-8 rounded-2xl border border-slate-700 hover:border-cyan-400 transition-colors group card-lift reveal" data-reveal style={{ '--reveal-delay': '70ms' }}>
-                                <div className="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center mb-6 group-hover:bg-cyan-500 transition-colors">
+                            <div className="bg-white/5 p-8 rounded-2xl border border-white/10 hover:border-cyan-400/60 transition-colors group card-lift reveal" data-reveal style={{ '--reveal-delay': '70ms' }}>
+                                <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-cyan-500/80 transition-colors">
                                     <i className="fa-solid fa-microchip text-2xl"></i>
                                 </div>
                                 <h3 className="text-xl font-bold mb-3">실무 맞춤형 솔루션 개발</h3>
@@ -381,8 +396,8 @@
                                 </p>
                             </div>
                             
-                            <div className="bg-slate-800 p-8 rounded-2xl border border-slate-700 hover:border-cyan-400 transition-colors group card-lift reveal" data-reveal style={{ '--reveal-delay': '140ms' }}>
-                                <div className="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center mb-6 group-hover:bg-cyan-500 transition-colors">
+                            <div className="bg-white/5 p-8 rounded-2xl border border-white/10 hover:border-cyan-400/60 transition-colors group card-lift reveal" data-reveal style={{ '--reveal-delay': '140ms' }}>
+                                <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-cyan-500/80 transition-colors">
                                     <i className="fa-solid fa-file-circle-check text-2xl"></i>
                                 </div>
                                 <h3 className="text-xl font-bold mb-3">행정 프로세스 혁신</h3>
@@ -391,8 +406,8 @@
                                 </p>
                             </div>
 
-                            <div className="bg-slate-800 p-8 rounded-2xl border border-slate-700 hover:border-cyan-400 transition-colors group card-lift reveal" data-reveal style={{ '--reveal-delay': '210ms' }}>
-                                <div className="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center mb-6 group-hover:bg-cyan-500 transition-colors">
+                            <div className="bg-white/5 p-8 rounded-2xl border border-white/10 hover:border-cyan-400/60 transition-colors group card-lift reveal" data-reveal style={{ '--reveal-delay': '210ms' }}>
+                                <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-cyan-500/80 transition-colors">
                                     <i className="fa-solid fa-chart-bar text-2xl"></i>
                                 </div>
                                 <h3 className="text-xl font-bold mb-3">데이터 인터페이스 설계</h3>
@@ -401,6 +416,12 @@
                                 </p>
                             </div>
                         </div>
+                    </div>
+                    {/* 하단 웨이브 — Experience 섹션으로 연결 */}
+                    <div className="absolute bottom-0 left-0 w-full overflow-hidden" style={{ lineHeight: 0 }} aria-hidden="true">
+                        <svg viewBox="0 0 1440 56" preserveAspectRatio="none" className="section-wave" style={{ height: '56px' }}>
+                            <path d="M0,28 C360,0 1080,56 1440,28 L1440,56 L0,56 Z" fill="#f8f8ff"/>
+                        </svg>
                     </div>
                 </section>
             );
@@ -416,7 +437,7 @@
                     {/* Date & Logo Side */}
                     <div className="md:w-5/12 md:text-right mb-4 md:mb-0 md:pr-12">
                         <h3 className="text-2xl font-bold text-slate-800">{company}</h3>
-                        <p className="text-lg text-blue-600 font-medium mb-1">{role}</p>
+                        <p className="text-lg text-indigo-600 font-medium mb-1">{role}</p>
                         <div className="text-slate-500 text-sm flex md:justify-end items-center gap-2">
                             <span>{period}</span>
                             <span className="hidden md:inline">•</span>
@@ -425,19 +446,19 @@
                     </div>
 
                     {/* Center Dot */}
-                    <div className="absolute left-0 md:left-1/2 w-4 h-4 rounded-full bg-blue-600 border-4 border-white shadow-sm transform md:-translate-x-1/2 mt-2 z-10"></div>
+                    <div className="absolute left-0 md:left-1/2 w-4 h-4 rounded-full bg-indigo-500 border-4 border-white shadow-[0_0_0_3px_rgba(99,102,241,0.2)] transform md:-translate-x-1/2 mt-2 z-10"></div>
 
                     {/* Content Side */}
                     <div className="md:w-5/12 md:pl-12">
-                        <div className="bg-white/95 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-blue-100 hover:shadow-md transition-shadow card-lift">
+                        <div className="bg-white p-6 rounded-2xl shadow-[0_2px_16px_rgba(79,70,229,0.07),0_1px_4px_rgba(0,0,0,0.04)] border border-indigo-50 hover:shadow-[0_4px_24px_rgba(79,70,229,0.12)] transition-shadow card-lift">
                             <ul className="space-y-4">
                                 {details.map((section, idx) => (
                                     <li key={idx}>
                                         <h4 className="font-bold text-slate-700 text-sm mb-2 flex items-center gap-2">
-                                            <span className="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
+                                            <span className="w-1.5 h-1.5 bg-indigo-400 rounded-full"></span>
                                             {section.title}
                                         </h4>
-                                        <p className="text-slate-600 text-sm leading-relaxed pl-3.5 border-l-2 border-slate-100">
+                                        <p className="text-slate-600 text-sm leading-relaxed pl-3.5 desc-border">
                                             {section.desc}
                                         </p>
                                     </li>
@@ -445,7 +466,7 @@
                             </ul>
                             <div className="mt-6 flex flex-wrap gap-2">
                                 {tags.map((tag, idx) => (
-                                    <span key={idx} className="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded font-medium">
+                                    <span key={idx} className="px-2.5 py-1 bg-indigo-50 text-indigo-700 text-xs rounded-full font-medium">
                                         {tag}
                                     </span>
                                 ))}
@@ -459,23 +480,27 @@
         const Experience = () => {
             const careers = [
                 {
-                    company: "현 재직 기업",
-                    role: "인사 운영 및 안전보건(EHS) 담당",
+                    company: "유진테크놀로지",
+                    role: "경영기획팀 · 인사/총무 과장",
                     period: "2025.04 ~ 현재",
                     location: "충북",
-                    tags: ["HR 디지털 전환(DX)", "EHS 시스템", "React 개발", "SESP"],
+                    tags: ["HRM/KPI·MBO", "EHS·중대재해대응", "React/Firebase DX", "그룹웨어·DLP"],
                     details: [
                         {
-                            title: "인사 시스템 디지털화 & DX",
-                            desc: "데이터 기반 인사 정보 관리 폼 설계 및 자체 관리 시스템 구축. React/Firebase 활용 사내 업무 툴 개발로 행정 효율성 제고."
+                            title: "경영관리 DX — 인사·총무 통합 플랫폼 구축",
+                            desc: "React·Firebase 기반으로 인사정보·교육이력·고충처리·출장자·고정자산 등 경영관리 전 영역을 단일 웹 앱으로 통합. 인사발령문·관리대장 자동 생성으로 반복 행정 업무 자동화 및 오류 감소."
                         },
                         {
-                            title: "EHS 경영체계 및 글로벌 표준화",
-                            desc: "전사 안전보건 방침 수립, 영문 안전교육 콘텐츠 제작을 통한 글로벌 법인 표준화. SESP 보안 프로그램 운영 및 준법 관리."
+                            title: "KPI 기반 성과 평가 및 직무급 보상 체계",
+                            desc: "부서·직급별 KPI 설계 및 MBO 전 주기(목표 설정→중간 점검→최종 평가) 운영. 직무 가치 평가 기반 Pay Band 설계로 호봉급에서 직무급으로 전환, 내부 형평성과 외부 경쟁력 동시 확보."
                         },
                         {
-                            title: "총무/자산 관리 표준화",
-                            desc: "법인 차량, 보험 등 고정 자산 이력 관리 표준화 및 사내 제규정(취업규칙 등) 법적 준거성 검토 및 개정."
+                            title: "EHS 경영체계 구축 및 글로벌 표준화",
+                            desc: "전사 안전보건방침 수립 및 중대재해처벌법 9개 의무 조치 이행 관리. 영문 안전교육 콘텐츠 개발로 해외 법인 표준화, DLP 시스템 도입·운영으로 정보 유출 방지 체계 구축."
+                        },
+                        {
+                            title: "그룹웨어 도입 및 자산·규정 관리",
+                            desc: "다우오피스 그룹웨어 신규 도입 및 전사 확산 주도(기획~사용자 교육 전 과정). 법인차량·기업보험 자산 이력 표준화 및 취업규칙 법적 준거성 검토·개정."
                         }
                     ]
                 },
@@ -484,23 +509,23 @@
                     role: "인사총무팀 과장 (총 8년)",
                     period: "2016.05 ~ 2024.04",
                     location: "충북",
-                    tags: ["IPO/성장기 HR", "ISO 14001", "ESG 경영", "정부지원사업"],
+                    tags: ["HR 기획·노무", "ISO 14001", "ESG·장애인고용", "정부지원사업"],
                     details: [
                         {
                             title: "HR 시스템 고도화 및 노무 리스크 관리",
-                            desc: "Jade ERP 활용 데이터 정합성 관리 및 300인 이상 규모 근태 시스템(타임인아웃) 도입. 노사협의회 간사로서 무분규 노사 문화 조성."
+                            desc: "Jade ERP 기반 입·퇴사·발령 데이터 정합성 관리 및 경영 리포팅. 300인 이상 규모 근태 시스템(타임인아웃) 도입·안정화 총괄. 노사협의회 사측 간사로 안건 조율 및 고용노동부 감독 대응."
                         },
                         {
-                            title: "전략적 채용 및 교육(Onboarding)",
-                            desc: "장애인 체육선수 채용 모델 도입으로 ESG 경영 기여. 신규 입사자 온보딩 및 직급별 역량 강화 교육 체계 수립."
+                            title: "전략적 채용 및 교육·온보딩 체계 수립",
+                            desc: "헤드헌터·서치펌 등 채용 채널 다각화 및 JD 기반 직무별 선발 절차 표준화. 장애인 체육선수 채용으로 법정 고용률 충족 및 ESG 경영 기여. 신규 입사자 온보딩 및 직급별 리더십·역량 교육 프로그램 운영."
                         },
                         {
-                            title: "환경안전(EHS) 및 특수 인허가",
-                            desc: "ISO 14001 내부심사원 활동, 방사선 발생장치 판매 허가 취득 총괄, 위험성 평가 및 무재해 사업장 유지."
+                            title: "환경안전(EHS) 및 특수 인허가 관리",
+                            desc: "ISO 14001 내부심사원 자격 기반 정기 심사 수행 및 부적합 개선 주도. 방사선 발생장치 판매 허가 신규 취득 총괄. 소방안전 대행 감독 및 위험성 평가로 무재해 사업장 유지."
                         },
                         {
-                            title: "총무/자산 및 정부지원사업",
-                            desc: "본사/공장 시설물 유지보수 및 보안(CCTV/에스원) 총괄. 정부 지원금 사업 발굴을 통한 비용 절감 성과 창출."
+                            title: "총무·시설·보안 및 정부지원사업",
+                            desc: "에스원 출입통제·CCTV 및 보안구역 계획 수립. 기숙사·임대공장 임대차 계약 관리 및 해외출장 행정 지원. 기숙사 임차비·반도체 정부 지원사업 발굴·정산으로 연간 비용 절감 직접 기여."
                         }
                     ]
                 },
@@ -509,19 +534,19 @@
                     role: "품질보증팀(QA) 주임",
                     period: "2013.05 ~ 2015.07",
                     location: "충남",
-                    tags: ["품질 보증(QA)", "데이터 분석", "ISO 9001/14001", "감사(Audit)"],
+                    tags: ["품질 보증(QA)", "ISO 9001/14001", "SQC·Cpk 분석", "공급망 감사"],
                     details: [
                         {
-                            title: "품질경영시스템(QMS) 및 인증",
-                            desc: "ISO 9001/14001 인증 취득 프로젝트 주도. IQC/IPQC/OQC 단계별 품질 기준 수립 및 데이터 기반 불량률 관리."
+                            title: "전사 품질경영시스템(QMS) 구축 및 인증",
+                            desc: "ISO 9001·14001 인증 취득 프로젝트 주도(시스템 구축~인증 취득 전 과정 총괄). IQC·IPQC·OQC 단계별 품질 기준 수립 및 협력사 품질 등급 체계 운영으로 공급망 리스크 사전 관리."
                         },
                         {
-                            title: "정밀 분석 및 신뢰성 검증",
-                            desc: "3차원 투영기, Instron 등 정밀 계측 장비 운용 및 통계적 데이터 분석을 통한 공정 능력(Cp, Cpk) 확보."
+                            title: "정밀 계측·신뢰성 검증 및 통계적 품질 관리",
+                            desc: "3차원 투영기·Instron·XRF·항온항습기 등 직접 운용. Cp/Cpk 분석으로 공정 산포 정량 관리 및 불안정 요소 제거. 관리도(Control Chart) 기반 이상 징후 조기 감지 체계 구축."
                         },
                         {
-                            title: "고객사 대응 및 협력사 관리",
-                            desc: "고객 불만(VOC) 원인 분석 및 재발 방지 대책 수립. 주요 협력사 공정 감사(Audit) 수행 및 품질 육성."
+                            title: "고객 클레임(VOC) 대응 및 기술 문서 관리",
+                            desc: "4M·5-Why·특성요인도 등을 활용한 신속한 원인 분석 및 재발 방지 대책 수립·이행. 제품승인원·변경점 관리 등 핵심 기술 문서 제·개정 및 고객 감사 대응 기반 마련."
                         }
                     ]
                 }
@@ -530,15 +555,15 @@
             return (
                 <section id="experience" className="py-24 exp-bg-accent relative overflow-hidden">
                     <div className="absolute inset-0 pointer-events-none">
-                        <div className="glow-orb w-80 h-80 bg-blue-200/50 -top-16 -left-12"></div>
-                        <div className="glow-orb w-96 h-96 bg-cyan-200/50 bottom-0 -right-16" style={{ animationDelay: '1.6s' }}></div>
+                        <div className="glow-orb w-80 h-80 bg-blue-200/50 -top-16 -left-12" aria-hidden="true"></div>
+                        <div className="glow-orb w-96 h-96 bg-cyan-200/50 bottom-0 -right-16" aria-hidden="true" style={{ animationDelay: '1.6s' }}></div>
                     </div>
                     <div className="container mx-auto px-6">
                         <div className="text-center mb-16">
-                            <h2 className="text-sm font-bold text-blue-600 tracking-wider uppercase mb-3">경력 기술서 (Career Timeline)</h2>
+                            <h2 className="text-xs font-bold text-indigo-500 tracking-widest uppercase mb-3">Career Timeline</h2>
                             <h3 className="text-3xl md:text-4xl font-bold text-slate-900">경력 타임라인</h3>
                             <p className="text-slate-500 mt-4">
-                                품질 관리(QA)의 꼼꼼함으로 시작하여,<br className="md:hidden"/> 인사/총무(HR/GA)의 유연함과 IT 기술력을 더했습니다.
+                                품질 관리(QA)의 데이터 감각으로 시작하여,<br className="md:hidden"/> 인사/총무(HR/GA) 전문성과 IT 기반 DX 역량을 더했습니다.
                             </p>
                         </div>
                         
@@ -554,15 +579,17 @@
         };
 
         const ExpertiseCard = ({ iconClass, title, items, colorClass }) => (
-            <div className="bg-white p-6 rounded-xl border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 group card-lift reveal" data-reveal>
-                <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-6 ${colorClass} bg-opacity-10 group-hover:bg-opacity-20 transition-colors`}>
-                    <i className={`${iconClass} ${colorClass.replace('bg-', 'text-')} text-2xl`}></i>
+            <div className="relative bg-white pt-8 pb-6 px-6 rounded-2xl border border-slate-100/80 shadow-[0_2px_12px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_36px_rgba(79,70,229,0.12)] transition-all duration-300 group card-lift reveal overflow-hidden" data-reveal>
+                {/* 상단 컬러 accent bar */}
+                <div className={`card-accent-bar ${colorClass}`}></div>
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 ${colorClass} bg-opacity-10 group-hover:bg-opacity-20 transition-colors`}>
+                    <i className={`${iconClass} ${colorClass.replace('bg-', 'text-')} text-xl`}></i>
                 </div>
-                <h3 className="text-lg font-bold text-slate-800 mb-4">{title}</h3>
-                <ul className="space-y-3">
+                <h3 className="text-base font-bold text-slate-800 mb-4 leading-snug">{title}</h3>
+                <ul className="space-y-2.5">
                     {items.map((item, idx) => (
-                        <li key={idx} className="flex items-start text-sm text-slate-600 whitespace-pre-line">
-                            <span className={`mr-2 mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0 ${colorClass.replace('bg-', 'bg-')}`}></span>
+                        <li key={idx} className="flex items-start text-sm text-slate-500 whitespace-pre-line leading-relaxed">
+                            <span className={`mr-2 mt-[7px] w-1 h-1 rounded-full flex-shrink-0 ${colorClass} opacity-70`}></span>
                             {item}
                         </li>
                     ))}
@@ -575,7 +602,7 @@
                 {
                     iconClass: "fa-solid fa-users",
                     title: "인사 기획 및 운영 (HRM)",
-                    colorClass: "bg-blue-600 text-blue-600",
+                    colorClass: "bg-indigo-600",
                     items: [
                         "채용/평가/보상/교육(HRD) 전반 운영",
                         "KPI 기반 성과 평가 시스템 운영",
@@ -586,7 +613,7 @@
                 {
                     iconClass: "fa-solid fa-user-shield",
                     title: "EHS & 컴플라이언스",
-                    colorClass: "bg-green-600 text-green-600",
+                    colorClass: "bg-emerald-600",
                     items: [
                         "ISO 14001 / 45001 시스템 운영",
                         "위험성 평가 및 안전보건 교육",
@@ -597,7 +624,7 @@
                 {
                     iconClass: "fa-solid fa-building",
                     title: "총무 및 자산관리 (GA)",
-                    colorClass: "bg-indigo-600 text-indigo-600",
+                    colorClass: "bg-violet-600",
                     items: [
                         "자산/시설/부동산(임대차) 관리",
                         "전사 행사 기획 및 복리후생 운영",
@@ -608,22 +635,23 @@
                 {
                     iconClass: "fa-solid fa-database",
                     title: "데이터 분석 & 품질 관리",
-                    colorClass: "bg-orange-600 text-orange-600",
+                    colorClass: "bg-blue-600",
                     items: [
                         "데이터 기반 의사결정 지원",
                         "품질/공정 데이터 통계적 분석",
                         "업무 프로세스 표준화 및 매뉴얼화",
                         "내부 심사 및 감사(Audit) 대응",
-                        "CapCut, Final Cut Pro, Filmora 활용 가능\n(사내 콘텐츠/교육자료 제작)"
+                        "영상 편집 (CapCut · Final Cut Pro · Filmora)\n— 사내 교육자료·콘텐츠 제작"
                     ]
                 }
             ];
 
             return (
-                <section id="expertise" className="py-24 bg-white">
-                    <div className="container mx-auto px-6">
+                <section id="expertise" className="relative py-24 bg-white overflow-hidden">
+                    <div className="absolute inset-0 dot-grid opacity-40" aria-hidden="true"></div>
+                    <div className="container mx-auto px-6 relative z-10">
                         <div className="mb-12">
-                            <h2 className="text-sm font-bold text-blue-600 tracking-wider uppercase mb-3">핵심 역량 (Core Competencies)</h2>
+                            <h2 className="text-xs font-bold text-indigo-500 tracking-widest uppercase mb-3">Core Competencies</h2>
                             <h3 className="text-3xl font-bold text-slate-900">직무 전문성 요약</h3>
                         </div>
                         
@@ -637,13 +665,15 @@
             );
         };
 
-        const Footer = () => (
-            <footer className="bg-slate-950 text-slate-400 py-12 border-t border-slate-900">
+        const Footer = () => {
+            const tel = ["010", "5442", "4404"].join("-");
+            return (
+            <footer className="bg-[#0c0b1a] text-slate-400 py-12 border-t border-white/5">
                 <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
                     <div className="text-center md:text-left">
                         <h4 className="text-white font-bold text-lg mb-2">연락처 (Contact Info)</h4>
                         <p>이메일: bobgo9@naver.com</p>
-                        <p>연락처: 010-5442-4404</p>
+                        <p>연락처: {tel}</p>
                     </div>
                     <div className="text-center md:text-right text-sm">
                         <p className="mb-2">정지원 Portfolio</p>
@@ -651,7 +681,8 @@
                     </div>
                 </div>
             </footer>
-        );
+            );
+        };
 
         const App = () => {
             useEffect(() => {
@@ -671,7 +702,6 @@
                     if (!node.style.getPropertyValue("--reveal-delay")) {
                         node.style.setProperty("--reveal-delay", `${Math.min(idx * 35, 260)}ms`);
                     }
-                    node.classList.add("reveal");
                     observer.observe(node);
                 });
 
