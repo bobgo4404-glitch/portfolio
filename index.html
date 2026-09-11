@@ -1,729 +1,917 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>정지원 | HR &amp; DX 전문가 포트폴리오</title>
-    <meta name="description" content="인사/총무 12년 경력에 개발 역량을 결합한 HR·DX 전문가 정지원의 포트폴리오. React, Firebase 기반 업무 자동화 도구 20개 이상 직접 개발·운영.">
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="정지원 | HR &amp; DX 전문가 포트폴리오">
-    <meta property="og:description" content="인사/총무 12년 경력에 개발 역량을 결합한 HR·DX 전문가 정지원의 포트폴리오.">
-    <meta property="og:locale" content="ko_KR">
-    
-    <!-- 1. Fonts: Noto Sans KR -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    
-    <!-- 2. Icons: FontAwesome (Replacing Lucide for Standalone stability) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>정지원 | HR & DX 전문가 포트폴리오</title>
+<meta name="description" content="300~400인 제조 사업장 인사·총무·EHS 총괄 11년. KPI·직무급 제도 설계, 근태·그룹웨어 도입, React·Firebase 기반 인사총무 통합시스템 자체 개발. 데이터로 인사이트를 찾고 기술로 업무를 혁신하는 HR & GA 전문가 정지원의 포트폴리오.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="정지원 | HR & DX 전문가 포트폴리오">
+<meta property="og:description" content="인사·총무·EHS 11년 + 직접 개발한 통합시스템. 제도·시스템·현장을 함께 움직입니다.">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://bobgo4404-glitch.github.io/portfolio/">
+<meta property="og:image" content="https://bobgo4404-glitch.github.io/portfolio/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="정지원 | HR & DX 전문가 포트폴리오">
+<meta name="twitter:image" content="https://bobgo4404-glitch.github.io/portfolio/og.png">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="theme-color" content="#070B14">
 
-    <!-- 3. Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['"Noto Sans KR"', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 
-    <!-- 4. React & ReactDOM (Production) -->
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<style>
+/* ═══════════════════════ Tokens ═══════════════════════ */
+:root {
+  --bg: #070B14;
+  --bg-2: #0B1120;
+  --bg-3: #0F172A;
+  --surface: rgba(255,255,255,0.035);
+  --surface-2: rgba(255,255,255,0.06);
+  --border: rgba(255,255,255,0.09);
+  --border-strong: rgba(255,255,255,0.16);
+  --text: #EEF1F7;
+  --text-2: #B4BCCC;
+  --muted: #7D879C;
+  --a1: #7C8CFF;
+  --a2: #2FD4EE;
+  --a3: #FFC85C;
+  --grad: linear-gradient(135deg, #8B96FF 0%, #5EC8F5 55%, #2FD4EE 100%);
+  --grad-soft: linear-gradient(135deg, rgba(124,140,255,0.22), rgba(47,212,238,0.14));
+  --shadow: 0 30px 80px -20px rgba(0,0,0,0.6);
+  --r-lg: 24px; --r-md: 16px; --r-sm: 10px;
+  --font: "Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; overflow-x: clip; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font-family: var(--font); font-size: 16px; line-height: 1.7;
+  -webkit-font-smoothing: antialiased; word-break: keep-all; overflow-x: clip;
+}
+a { color: inherit; text-decoration: none; }
+h1,h2,h3,h4,p,ul { margin: 0; }
+ul { padding: 0; list-style: none; }
+:focus-visible { outline: 2px solid var(--a2); outline-offset: 3px; border-radius: 6px; }
+::selection { background: rgba(124,140,255,0.35); }
+html { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.3) #0B1120; }
+::-webkit-scrollbar { width: 11px; }
+::-webkit-scrollbar-track { background: #0B1120; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,.26); border-radius: 8px; border: 2px solid #0B1120; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,.42); }
 
-    <!-- 5. Babel Standalone (v7.23.5 - Mandatory) -->
-    <script src="https://unpkg.com/@babel/standalone@7.23.5/babel.min.js"></script>
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+.wrap > *, .card, .kpi, .tile { min-width: 0; }
+.grad-text { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
-    <style>
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #f5f5fb; }
-        ::-webkit-scrollbar-thumb { background: #c4c2e8; border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background: #9896cc; }
+/* ═══════════════════════ Background ═══════════════════════ */
+.bg-noise { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: .5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+.bg-grid { position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.028) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.028) 1px, transparent 1px);
+  background-size: 64px 64px; }
+.bg-glow { position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background: radial-gradient(700px 520px at 12% 20%, rgba(124,140,255,.13), transparent 70%), radial-gradient(800px 600px at 88% 75%, rgba(47,212,238,.09), transparent 70%), radial-gradient(500px 400px at 60% 50%, rgba(255,200,92,.045), transparent 70%);
+  animation: glowShift 24s ease-in-out infinite alternate; }
+@keyframes glowShift { to { transform: translate(-3%, 4%) scale(1.06); } }
+.bg-sky { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+.sec-aurora { position: absolute; border-radius: 50%; filter: blur(100px); pointer-events: none; z-index: 0; }
+section > .wrap { position: relative; z-index: 1; }
+.aurora { position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none; will-change: transform; }
+.progress { position: fixed; top: 0; left: 0; height: 2px; width: 0; background: var(--grad); z-index: 100; transition: width .1s linear; }
 
-        html { scroll-behavior: smooth; }
+/* ═══════════════════════ Nav ═══════════════════════ */
+.nav { position: fixed; top: 18px; left: 0; right: 0; z-index: 50; display: flex; justify-content: center; padding: 0 20px; pointer-events: none; }
+.nav-pill { pointer-events: auto; display: flex; align-items: center; gap: 6px; padding: 8px 8px 8px 18px;
+  background: rgba(11,17,32,0.55); border: 1px solid var(--border); backdrop-filter: blur(18px) saturate(1.4); -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  border-radius: 999px; box-shadow: 0 10px 40px -10px rgba(0,0,0,.6); transition: background .3s, border-color .3s; }
+.nav.scrolled .nav-pill { background: rgba(11,17,32,0.82); border-color: var(--border-strong); }
+.brand { font-weight: 800; letter-spacing: -0.01em; font-size: 15.5px; margin-right: 14px; display: flex; align-items: center; gap: 9px; }
+.brand i { width: 8px; height: 8px; border-radius: 50%; background: var(--grad); box-shadow: 0 0 12px rgba(47,212,238,.8); }
+.nav-links { display: flex; gap: 2px; }
+.nav-links a { font-size: 13.5px; font-weight: 500; color: var(--text-2); padding: 8px 13px; border-radius: 999px; transition: color .2s, background .2s; }
+.nav-links a:hover { color: var(--text); background: var(--surface-2); }
+.nav-links a.active { color: var(--text); background: var(--surface-2); }
+.nav-cta { font-size: 13.5px; font-weight: 700; color: #0A0E1A; background: var(--text); padding: 9px 16px; border-radius: 999px; margin-left: 6px; transition: transform .2s var(--ease), box-shadow .2s; }
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px -6px rgba(255,255,255,.35); }
+.nav-burger { display: none; background: none; border: 0; color: var(--text); padding: 8px; cursor: pointer; }
+.nav-sheet { display: none; }
+.nav-sheet.open { display: block; position: fixed; inset: 0; z-index: 49; background: rgba(7,11,20,.92); backdrop-filter: blur(20px); padding: 100px 28px 40px; }
+.nav-sheet a { display: block; font-size: 26px; font-weight: 700; padding: 14px 0; border-bottom: 1px solid var(--border); }
 
-        @keyframes glowPulse {
-            0%, 100% { opacity: 0.25; transform: scale(1); }
-            50% { opacity: 0.45; transform: scale(1.05); }
-        }
+/* ═══════════════════════ Hero ═══════════════════════ */
+.hero { position: relative; min-height: 100vh; display: flex; align-items: center; padding: 140px 0 100px; overflow: hidden; }
+.hero .a1 { width: 620px; height: 620px; background: rgba(124,140,255,.28); top: -180px; left: -160px; animation: drift 18s ease-in-out infinite; }
+.hero .a2 { width: 560px; height: 560px; background: rgba(47,212,238,.18); bottom: -200px; right: -120px; animation: drift 22s ease-in-out infinite reverse; }
+.hero .a3 { width: 320px; height: 320px; background: rgba(255,200,92,.10); top: 30%; left: 55%; animation: drift 26s ease-in-out infinite; }
+@keyframes drift { 0%,100% { transform: translate(0,0) scale(1);} 50% { transform: translate(40px,-30px) scale(1.08);} }
+.hero .wrap { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(0,1.25fr) minmax(0,.75fr); gap: 56px; align-items: center; }
 
-        /* Hero — 정적인 세련된 배경 */
-        .hero-gradient {
-            background: linear-gradient(150deg, #ffffff 0%, #f5f3ff 45%, #eef2ff 100%);
-        }
+.badge { display: inline-flex; align-items: center; gap: 9px; padding: 7px 14px 7px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; color: var(--text-2);
+  background: var(--surface); border: 1px solid var(--border); backdrop-filter: blur(8px); }
+.badge .dot { width: 8px; height: 8px; border-radius: 50%; background: #34D399; box-shadow: 0 0 0 0 rgba(52,211,153,.6); animation: ping 2s infinite; }
+@keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(52,211,153,.6);} 70% { box-shadow: 0 0 0 10px rgba(52,211,153,0);} 100% { box-shadow: 0 0 0 0 rgba(52,211,153,0);} }
 
-        /* Glow orb — 더 부드럽게 */
-        .glow-orb {
-            position: absolute;
-            border-radius: 9999px;
-            filter: blur(72px);
-            animation: glowPulse 9s ease-in-out infinite;
-        }
+.hero h1 { margin-top: 26px; font-size: clamp(36px, 4.1vw, 58px); font-weight: 800; line-height: 1.16; letter-spacing: -0.035em; }
+.hero h1 .line { display: block; }
+.rotator { margin-top: 22px; font-size: clamp(17px, 1.8vw, 21px); font-weight: 500; color: var(--text-2); display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.rotator .word { position: relative; display: inline-grid; height: 1.5em; overflow: hidden; vertical-align: bottom; }
+.rotator .word span { grid-area: 1/1; font-weight: 700; color: var(--text); opacity: 0; transform: translateY(100%); transition: opacity .5s var(--ease), transform .5s var(--ease); white-space: nowrap; }
+.rotator .word span.in { opacity: 1; transform: translateY(0); }
+.rotator .word span.out { opacity: 0; transform: translateY(-100%); }
+.hero p.lede { margin-top: 22px; font-size: 17px; color: var(--text-2); max-width: 36em; line-height: 1.8; }
+.hero p.lede strong { color: var(--text); font-weight: 600; }
+.cta-row { margin-top: 36px; display: flex; gap: 12px; flex-wrap: wrap; }
+.btn { position: relative; display: inline-flex; align-items: center; gap: 10px; padding: 15px 26px; border-radius: 14px; font-weight: 700; font-size: 15px; transition: transform .25s var(--ease), box-shadow .25s, background .25s, border-color .25s; overflow: hidden; }
+.btn svg { width: 18px; height: 18px; }
+.btn-primary { color: #06101C; background: var(--grad); box-shadow: 0 12px 34px -10px rgba(94,200,245,.6); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 18px 44px -10px rgba(94,200,245,.75); }
+.btn-ghost { color: var(--text); background: var(--surface); border: 1px solid var(--border-strong); backdrop-filter: blur(8px); }
+.btn-ghost:hover { transform: translateY(-2px); background: var(--surface-2); border-color: rgba(255,255,255,.28); }
+.hero-meta { margin-top: 44px; display: flex; gap: 34px; flex-wrap: wrap; }
+.hero-meta div b { display: block; font-size: 22px; font-weight: 800; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.hero-meta div span { font-size: 13px; color: var(--muted); }
 
-        /* Card hover — spring 느낌 + indigo shadow */
-        .card-lift {
-            transition: transform 0.35s cubic-bezier(0.34, 1.4, 0.64, 1), box-shadow 0.35s ease, border-color 0.3s ease;
-        }
-        .card-lift:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 48px rgba(79, 70, 229, 0.13), 0 2px 8px rgba(0,0,0,0.04);
-            border-color: rgba(165, 180, 252, 0.55);
-        }
+/* Dashboard mock */
+.dash-wrap { position: relative; }
+.dash { position: relative; border-radius: var(--r-lg); padding: 1px; background: linear-gradient(160deg, rgba(255,255,255,.22), rgba(255,255,255,.04) 40%, rgba(47,212,238,.25)); box-shadow: var(--shadow); transform: perspective(1400px) rotateY(-6deg) rotateX(3deg); transition: transform .6s var(--ease); }
+.dash:hover { transform: perspective(1400px) rotateY(0) rotateX(0); }
+.dash-in { border-radius: calc(var(--r-lg) - 1px); background: linear-gradient(180deg, #0F1729 0%, #0B1120 100%); padding: 22px 22px 20px; }
+.dash-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+.dash-top .t { font-weight: 700; font-size: 14.5px; display: flex; align-items: center; gap: 9px; }
+.dash-top .t i { width: 22px; height: 22px; border-radius: 7px; background: var(--grad); display: inline-block; }
+.dash-top .stack { font-size: 11.5px; color: var(--muted); display: flex; gap: 6px; }
+.dash-top .stack span { padding: 3px 8px; border: 1px solid var(--border); border-radius: 999px; }
+.kpis { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+.kpi { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 12px 13px; }
+.kpi small { display: block; font-size: 11px; color: var(--muted); font-weight: 500; }
+.kpi b { display: block; margin-top: 4px; font-size: 20px; font-weight: 800; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.kpi b.c1 { color: var(--a2); } .kpi b.c2 { color: var(--a3); } .kpi b.c3 { color: #34D399; }
+.chart { margin-top: 12px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 14px 10px; }
+.chart .lbl { font-size: 11.5px; color: var(--muted); display: flex; justify-content: space-between; margin-bottom: 8px; }
+.chart svg { width: 100%; height: 86px; display: block; }
+.chart rect { fill: url(#barGrad); transform-origin: bottom; transform: scaleY(0); animation: grow 1s var(--ease) forwards; }
+.chart rect:nth-child(1){animation-delay:.9s}.chart rect:nth-child(2){animation-delay:1s}.chart rect:nth-child(3){animation-delay:1.1s}.chart rect:nth-child(4){animation-delay:1.2s}.chart rect:nth-child(5){animation-delay:1.3s}.chart rect:nth-child(6){animation-delay:1.4s}.chart rect:nth-child(7){animation-delay:1.5s}.chart rect:nth-child(8){animation-delay:1.6s}
+@keyframes grow { to { transform: scaleY(1);} }
+.modules { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
+.modules span { font-size: 11.5px; padding: 5px 10px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--border); color: var(--text-2); }
+.dash-hl { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.dash-hl > div { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 12px; background: var(--surface); border: 1px solid var(--border); min-width: 0; }
+.dash-hl .ic { width: 32px; height: 32px; border-radius: 9px; display: grid; place-items: center; flex: none; }
+.dash-hl small { display: block; font-size: 11px; color: var(--muted); font-weight: 500; }
+.dash-hl b { display: block; font-size: 14px; font-weight: 800; letter-spacing: -0.01em; }
 
-        /* Timeline */
-        .timeline-glow {
-            position: absolute;
-            left: 50%;
-            top: 6rem;
-            bottom: 2rem;
-            width: 2px;
-            transform: translateX(-50%);
-            background: linear-gradient(to bottom, transparent, rgba(99, 102, 241, 0.4), transparent);
-            z-index: 0;
-            display: none;
-        }
-        @media (min-width: 768px) { .timeline-glow { display: block; } }
+/* Marquee */
+.marquee { position: relative; z-index: 2; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: rgba(255,255,255,.02); overflow: hidden; padding: 16px 0; mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
+.marquee-track { display: flex; gap: 48px; width: max-content; animation: marquee 40s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee-track span { font-size: 14px; font-weight: 600; color: var(--muted); white-space: nowrap; display: flex; align-items: center; gap: 48px; }
+.marquee-track span::after { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--a1); opacity: .7; }
+@keyframes marquee { to { transform: translateX(-50%); } }
 
-        /* Experience section bg */
-        .exp-bg-accent {
-            background:
-                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.06) 0, transparent 42%),
-                radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.06) 0, transparent 42%),
-                linear-gradient(to bottom, #f8f8ff 0%, #f3f4fb 100%);
-        }
+/* ═══════════════════════ Sections ═══════════════════════ */
+section { position: relative; z-index: 1; padding: 120px 0; }
+.sec-head { max-width: 640px; margin-bottom: 56px; }
+.sec-head .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; color: var(--a2); letter-spacing: .02em; }
+.sec-head .eyebrow::before { content: ""; width: 24px; height: 2px; background: var(--grad); border-radius: 2px; }
+.sec-head h2 { margin-top: 16px; font-size: clamp(30px, 3.6vw, 44px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; }
+.sec-head p { margin-top: 16px; color: var(--text-2); font-size: 16.5px; }
 
-        /* Scroll reveal */
-        .reveal {
-            opacity: 0;
-            transform: translateY(16px);
-            transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
-            transition-delay: var(--reveal-delay, 0ms);
-        }
-        .reveal.show { opacity: 1; transform: translateY(0); }
+/* reveal */
+.rv { opacity: 0; transform: translateY(24px); transition: opacity .8s var(--ease), transform .8s var(--ease); transition-delay: var(--d, 0ms); }
+.rv.in { opacity: 1; transform: none; }
 
-        /* Hero 도트 그리드 패턴 */
-        .dot-grid {
-            background-image: radial-gradient(circle, rgba(99,102,241,0.13) 1px, transparent 1px);
-            background-size: 28px 28px;
-        }
+/* glass card w/ spotlight */
+.card { position: relative; border-radius: var(--r-md); background: var(--surface); border: 1px solid var(--border); overflow: hidden; transition: transform .35s var(--ease), border-color .35s, background .35s; }
+.card::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: radial-gradient(520px circle at var(--mx, 50%) var(--my, 50%), rgba(124,140,255,.18), transparent 45%); opacity: 0; transition: opacity .4s; pointer-events: none; }
+.card:hover { border-color: var(--border-strong); background: var(--surface-2); transform: translateY(-4px); }
+.card:hover::before { opacity: 1; }
 
-        /* DX 다크 그리드 라인 */
-        .grid-lines-dark {
-            background-image:
-                linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-            background-size: 52px 52px;
-        }
+/* ═══════════════════════ Bento / Impact ═══════════════════════ */
+.bento { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 168px; gap: 14px; }
+.tile { padding: 24px; display: flex; flex-direction: column; justify-content: space-between; }
+.tile.big { grid-column: span 2; grid-row: span 2; background: var(--grad-soft); border-color: rgba(124,140,255,.35); }
+.tile.wide { grid-column: span 2; }
+.tile .n { font-size: 40px; font-weight: 800; letter-spacing: -0.035em; line-height: 1; font-variant-numeric: tabular-nums; }
+.tile.big .n { font-size: clamp(56px, 6vw, 84px); }
+.tile .n .u { font-size: .5em; font-weight: 700; margin-left: 2px; }
+.tile .l { font-size: 14.5px; color: var(--text-2); line-height: 1.5; margin-top: 10px; }
+.tile.big .l { font-size: 16px; max-width: 30em; }
+.tile .org { font-size: 12px; color: var(--muted); font-weight: 600; display: flex; align-items: center; gap: 8px; }
+.tile .org::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--a3); }
+.tile .ic { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: rgba(255,255,255,.06); border: 1px solid var(--border); margin-bottom: auto; }
+.tile .ic svg { width: 20px; height: 20px; }
 
-        /* 섹션 웨이브 구분선 */
-        .section-wave { display: block; width: 100%; }
+/* ═══════════════════════ Areas ═══════════════════════ */
+.areas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.area { padding: 30px 28px 28px; }
+.area .ic { width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; background: var(--grad); color: #06101C; box-shadow: 0 10px 26px -8px rgba(94,200,245,.6); }
+.area .ic svg { width: 24px; height: 24px; }
+.area h3 { margin-top: 22px; font-size: 21px; font-weight: 800; letter-spacing: -0.02em; }
+.area p { margin-top: 12px; color: var(--text-2); font-size: 15px; }
+.area ul { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--border); }
+.area li { font-size: 13.5px; color: var(--muted); padding: 4px 0 4px 16px; position: relative; }
+.area li::before { content: ""; position: absolute; left: 0; top: 13px; width: 6px; height: 6px; border-radius: 2px; background: var(--a1); transform: rotate(45deg); }
 
-        /* Expertise 카드 상단 컬러 바 */
-        .card-accent-bar {
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 3px;
-            border-radius: 1rem 1rem 0 0;
-        }
+/* ═══════════════════════ Career ═══════════════════════ */
+.timeline { position: relative; }
+.timeline::before { content: ""; position: absolute; left: 190px; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, transparent, var(--border-strong) 8%, var(--border-strong) 92%, transparent); }
+.job { position: relative; display: grid; grid-template-columns: 150px 1fr; gap: 80px; padding: 8px 0 56px; }
+.job:last-child { padding-bottom: 0; }
+.job .when { position: sticky; top: 110px; align-self: start; }
+.job .when b { display: block; font-size: 15px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.job .when span { display: block; font-size: 13px; color: var(--muted); margin-top: 4px; }
+.job .when .dur { display: inline-block; margin-top: 10px; font-size: 12px; font-weight: 700; color: var(--a2); padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(47,212,238,.35); background: rgba(47,212,238,.08); }
+.job .node { position: absolute; left: 190px; top: 14px; width: 14px; height: 14px; border-radius: 50%; background: var(--bg); border: 2px solid var(--a1); transform: translateX(-50%); box-shadow: 0 0 0 6px rgba(124,140,255,.15), 0 0 24px rgba(124,140,255,.6); }
+.job .card { padding: 30px 32px; }
+.job .card:hover { transform: none; }
+.job-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; flex-wrap: wrap; }
+.job h3 { font-size: 24px; font-weight: 800; letter-spacing: -0.02em; }
+.job .role { margin-top: 5px; font-size: 15px; color: var(--a2); font-weight: 600; }
+.job .scope { margin-top: 12px; color: var(--text-2); font-size: 15px; }
+.job .tags { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 6px; }
+.job .tags span { font-size: 12.5px; font-weight: 600; padding: 5px 11px; border-radius: 999px; background: rgba(124,140,255,.12); border: 1px solid rgba(124,140,255,.25); color: #C3CAFF; }
+.hl { margin-top: 24px; display: grid; gap: 14px; }
+.hl li { display: grid; grid-template-columns: 26px 1fr; gap: 12px; font-size: 15px; color: var(--text-2); }
+.hl li i { width: 26px; height: 26px; border-radius: 8px; background: var(--surface-2); border: 1px solid var(--border); display: grid; place-items: center; color: var(--a2); margin-top: 1px; }
+.hl li i svg { width: 14px; height: 14px; }
+.hl li b { color: var(--text); font-weight: 700; }
+details.more { margin-top: 20px; }
+details.more summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: var(--a1); padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(124,140,255,.3); transition: background .2s; }
+details.more summary::-webkit-details-marker { display: none; }
+details.more summary:hover { background: rgba(124,140,255,.12); }
+details.more summary svg { width: 14px; height: 14px; transition: transform .3s var(--ease); }
+details.more[open] summary svg { transform: rotate(180deg); }
+.more-body { margin-top: 18px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px 28px; padding-top: 18px; border-top: 1px solid var(--border); }
+.more-body h4 { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+.more-body li { font-size: 13.5px; color: var(--muted); padding: 3px 0 3px 12px; position: relative; }
+.more-body li::before { content: ""; position: absolute; left: 0; top: 12px; width: 4px; height: 4px; border-radius: 50%; background: var(--muted); }
 
-        /* Experience 카드 왼쪽 accent */
-        .desc-border { border-left: 2px solid rgba(99,102,241,0.25); }
-    </style>
+/* ═══════════════════════ System showcase ═══════════════════════ */
+.showcase { background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(124,140,255,.12), transparent 70%); }
+.sys { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 48px; align-items: center; }
+.browser { border-radius: 18px; border: 1px solid var(--border-strong); background: #0B1120; box-shadow: var(--shadow), 0 0 0 1px rgba(124,140,255,.15), 0 0 120px -30px rgba(124,140,255,.5); overflow: hidden; }
+.browser-bar { display: flex; align-items: center; gap: 8px; padding: 12px 14px; border-bottom: 1px solid var(--border); background: rgba(255,255,255,.02); }
+.browser-bar i { width: 10px; height: 10px; border-radius: 50%; background: #2A3550; }
+.browser-bar i:nth-child(1){background:#FF5F57}.browser-bar i:nth-child(2){background:#FEBC2E}.browser-bar i:nth-child(3){background:#28C840}
+.browser-bar .url { margin-left: 10px; flex: 1; font-size: 11.5px; color: var(--muted); background: var(--surface); border: 1px solid var(--border); border-radius: 7px; padding: 5px 10px; }
+.app { display: grid; grid-template-columns: 150px 1fr; min-height: 340px; }
+.app-side { border-right: 1px solid var(--border); padding: 14px 10px; background: rgba(255,255,255,.015); }
+.app-side .logo { font-size: 12px; font-weight: 800; padding: 6px 10px 14px; display: flex; align-items: center; gap: 7px; }
+.app-side .logo i { width: 14px; height: 14px; border-radius: 4px; background: var(--grad); }
+.app-side a { display: block; font-size: 12px; color: var(--muted); padding: 7px 10px; border-radius: 7px; }
+.app-side a.on { color: var(--text); background: rgba(124,140,255,.16); font-weight: 600; }
+.app-main { padding: 16px; }
+.app-main .hd { display: flex; justify-content: space-between; align-items: center; font-size: 13px; font-weight: 700; }
+.app-main .hd span { font-size: 11px; font-weight: 600; color: #06101C; background: var(--grad); padding: 4px 10px; border-radius: 6px; }
+.app-kpis { margin-top: 12px; display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }
+.app-kpis div { background: var(--surface); border: 1px solid var(--border); border-radius: 9px; padding: 9px 10px; font-size: 10.5px; color: var(--muted); }
+.app-kpis div b { display: block; font-size: 16px; color: var(--text); font-weight: 800; margin-top: 2px; font-variant-numeric: tabular-nums; }
+.doc { margin-top: 10px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.doc .paper { background: #F7F8FC; border-radius: 8px; padding: 12px; color: #1B2A41; font-size: 9px; line-height: 1.5; }
+.doc .paper b { display: block; font-size: 11px; text-align: center; margin-bottom: 6px; letter-spacing: .2em; }
+.doc .paper .row { display: flex; justify-content: space-between; border-bottom: 1px solid #D8DDE8; padding: 2px 0; }
+.doc .paper .stamp { margin-top: 6px; text-align: right; color: #B8321A; font-weight: 700; font-size: 9px; }
+.doc .list { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 10px; font-size: 10.5px; }
+.doc .list div { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid var(--border); color: var(--text-2); }
+.doc .list div:last-child { border: 0; }
+.doc .list em { font-style: normal; color: #34D399; font-weight: 700; }
+.doc .list em.w { color: var(--a3); }
+.sys-copy h3 { font-size: 26px; font-weight: 800; letter-spacing: -0.025em; line-height: 1.3; }
+.sys-copy p { margin-top: 16px; color: var(--text-2); font-size: 15.5px; }
+.sys-facts { margin-top: 26px; display: grid; gap: 10px; }
+.sys-facts div { display: grid; grid-template-columns: 110px 1fr; gap: 14px; align-items: baseline; padding: 12px 16px; border-radius: 12px; background: var(--surface); border: 1px solid var(--border); }
+.sys-facts b { font-size: 18px; font-weight: 800; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.sys-facts b.g { color: var(--a2); }
+.sys-facts span { font-size: 13.5px; color: var(--text-2); }
+.tools { margin-top: 56px; padding: 26px 28px; border-radius: var(--r-md); background: var(--surface); border: 1px solid var(--border); display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+.tools h4 { font-size: 14px; font-weight: 700; white-space: nowrap; }
+.tools h4 small { display: block; font-size: 12px; color: var(--muted); font-weight: 500; margin-top: 2px; }
+.tools ul { display: flex; flex-wrap: wrap; gap: 8px; }
+.tools li { font-size: 13px; font-weight: 500; padding: 7px 13px; border-radius: 999px; border: 1px solid var(--border); background: rgba(255,255,255,.03); color: var(--text-2); transition: border-color .2s, color .2s; }
+.tools li:hover { border-color: var(--a2); color: var(--text); }
+
+/* ═══════════════════════ Skills ═══════════════════════ */
+.skills { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.skill { padding: 26px 24px; }
+.skill .top { display: flex; align-items: center; gap: 12px; }
+.skill .top i { width: 38px; height: 38px; border-radius: 11px; display: grid; place-items: center; background: rgba(124,140,255,.14); border: 1px solid rgba(124,140,255,.25); color: #C3CAFF; }
+.skill .top i svg { width: 18px; height: 18px; }
+.skill h3 { font-size: 16.5px; font-weight: 800; letter-spacing: -0.01em; }
+.skill ul { margin-top: 18px; }
+.skill li { font-size: 14px; color: var(--text-2); padding: 8px 0; border-top: 1px solid var(--border); }
+
+/* ═══════════════════════ Principles ═══════════════════════ */
+.principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.principle { padding: 32px 28px; }
+.principle .q { font-size: 44px; line-height: 1; font-weight: 800; color: var(--a1); opacity: .6; font-family: Georgia, serif; }
+.principle h3 { margin-top: 10px; font-size: 20px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.4; }
+.principle p { margin-top: 12px; color: var(--text-2); font-size: 14.5px; }
+
+/* ═══════════════════════ Contact ═══════════════════════ */
+.contact-box { position: relative; border-radius: 28px; padding: 72px 56px; overflow: hidden; text-align: center; background: linear-gradient(160deg, #121B33, #0C1426); border: 1px solid var(--border-strong); box-shadow: var(--shadow); }
+.contact-box .aurora { filter: blur(70px); }
+.contact-box .c1 { width: 420px; height: 420px; background: rgba(124,140,255,.35); top: -200px; left: -100px; }
+.contact-box .c2 { width: 380px; height: 380px; background: rgba(47,212,238,.25); bottom: -220px; right: -80px; }
+.contact-box > :not(.aurora) { position: relative; }
+.contact-box h2 { font-size: clamp(28px, 3.6vw, 44px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.25; }
+.contact-box p { margin-top: 16px; color: var(--text-2); font-size: 16.5px; max-width: 34em; margin-left: auto; margin-right: auto; }
+.contact-box .cta-row { justify-content: center; }
+.contact-info { margin-top: 36px; display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; font-size: 14.5px; color: var(--text-2); }
+.contact-info a { display: inline-flex; align-items: center; gap: 8px; transition: color .2s; }
+.contact-info a:hover { color: var(--a2); }
+.contact-info svg { width: 16px; height: 16px; color: var(--a2); }
+footer { position: relative; z-index: 1; padding: 36px 0 44px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13.5px; }
+footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+.to-top { position: fixed; right: 24px; bottom: 24px; width: 44px; height: 44px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--border-strong); color: var(--text); display: grid; place-items: center; backdrop-filter: blur(10px); opacity: 0; transform: translateY(10px); transition: opacity .3s, transform .3s; z-index: 40; cursor: pointer; }
+.to-top.show { opacity: 1; transform: none; }
+.to-top svg { width: 18px; height: 18px; }
+
+/* ═══════════════════════ Responsive ═══════════════════════ */
+@media (max-width: 1024px) {
+  .hero .wrap { grid-template-columns: minmax(0,1fr); gap: 56px; }
+  .dash { transform: none; max-width: 560px; margin: 0 auto; }
+  .bento { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .tile.big { grid-column: span 2; }
+  .areas, .principles { grid-template-columns: minmax(0,1fr); }
+  .skills { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .sys { grid-template-columns: minmax(0,1fr); }
+  .timeline::before { left: 7px; }
+  .job { grid-template-columns: minmax(0,1fr); gap: 16px; padding-left: 32px; }
+  .job .node { left: 7px; }
+  .job .when { position: static; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .job .when span, .job .when .dur { margin: 0; }
+}
+@media (max-width: 720px) {
+  .nav-links, .nav-cta { display: none; }
+  .nav-burger { display: block; }
+  section { padding: 84px 0; }
+  .hero { padding: 120px 0 72px; min-height: auto; }
+  .hero-meta { gap: 22px; }
+  .bento { grid-template-columns: minmax(0,1fr); grid-auto-rows: auto; }
+  .tile { min-height: 150px; }
+  .tile.big, .tile.wide { grid-column: span 1; grid-row: span 1; }
+  .skills, .more-body { grid-template-columns: minmax(0,1fr); }
+  .app { grid-template-columns: minmax(0,1fr); }
+  .kpis { grid-template-columns: repeat(3, minmax(0,1fr)); gap: 6px; }
+  .kpi { padding: 10px 8px; }
+  .kpi b { font-size: 15px; }
+  .hero-meta div b { font-size: 19px; }
+  .tile .n { font-size: 34px; }
+  .tile.big .n { font-size: 52px; }
+  .app-side { display: none; }
+  .doc { grid-template-columns: minmax(0,1fr); }
+  .job .card { padding: 24px 20px; }
+  .contact-box { padding: 52px 24px; }
+  .dash-hl { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .rv { opacity: 1; transform: none; }
+  .chart rect { transform: none; }
+}
+</style>
 </head>
-<body class="bg-white text-slate-900 font-sans antialiased selection:bg-indigo-100 selection:text-indigo-900">
-    <div id="root"></div>
+<body>
 
-    <script type="text/babel">
-        const { useState, useEffect } = React;
+<div class="progress" id="progress"></div>
+<div class="bg-noise" aria-hidden="true"></div>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="bg-glow" aria-hidden="true"></div>
+<canvas class="bg-sky" id="sky" aria-hidden="true"></canvas>
 
-        // --- Components ---
+<!-- ═══════════════════════ Nav ═══════════════════════ -->
+<header class="nav" id="nav">
+  <div class="nav-pill">
+    <a class="brand" href="#top"><i aria-hidden="true"></i>정지원</a>
+    <nav class="nav-links" aria-label="페이지 내 이동">
+      <a href="#impact">성과</a>
+      <a href="#areas">역량</a>
+      <a href="#career">경력</a>
+      <a href="#system">시스템</a>
+      <a href="#skills">전문성</a>
+    </nav>
+    <a class="nav-cta" href="mailto:bobgo9@naver.com">이메일 문의</a>
+    <button class="nav-burger" id="burger" aria-label="메뉴 열기" aria-expanded="false" aria-controls="sheet">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+<div class="nav-sheet" id="sheet">
+  <a href="#impact">성과</a><a href="#areas">역량</a><a href="#career">경력</a><a href="#system">시스템</a><a href="#skills">전문성</a><a href="#contact">연락</a>
+</div>
 
-        const Navigation = () => {
-            const [isOpen, setIsOpen] = useState(false);
-            const [scrolled, setScrolled] = useState(false);
-            const mobileMenuId = "mobile-nav-menu";
+<main id="top">
 
-            useEffect(() => {
-                const handleScroll = () => {
-                    setScrolled(window.scrollY > 20);
-                };
-                window.addEventListener('scroll', handleScroll);
-                return () => window.removeEventListener('scroll', handleScroll);
-            }, []);
+<!-- ═══════════════════════ Hero ═══════════════════════ -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="aurora a1"></div><div class="aurora a2"></div><div class="aurora a3"></div>
+  <div class="wrap">
+    <div>
+      <span class="badge"><span class="dot"></span>구직 중 · Available for work</span>
+      <h1 id="hero-title">
+        <span class="line">데이터로 인사이트를 찾고</span>
+        <span class="line grad-text">기술로 업무를 혁신하는</span>
+        <span class="line">HR &amp; GA 전문가</span>
+      </h1>
+      <div class="rotator" aria-live="polite">
+        <span>제조 사업장의</span>
+        <span class="word" id="rotator">
+          <span class="in">제도 설계자</span>
+          <span>시스템 빌더</span>
+          <span>컴플라이언스 관리자</span>
+          <span>인사·총무 총괄</span>
+        </span>
+      </div>
+      <p class="lede">300~400인 제조 사업장에서 인사·총무·EHS를 총괄한 11년. KPI·직무급 제도를 설계하고, 근태 시스템과 그룹웨어를 도입했으며, <strong>React·Firebase로 인사·총무 통합시스템을 직접 개발해</strong> 반복 행정을 시스템으로 옮겼습니다.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#system">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          직접 만든 시스템 보기
+        </a>
+        <a class="btn btn-ghost" href="mailto:bobgo9@naver.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          이메일 문의하기
+        </a>
+      </div>
+      <div class="hero-meta">
+        <div><b>11년 5개월</b><span>총 경력</span></div>
+        <div><b>400인</b><span>최대 사업장 규모</span></div>
+        <div><b>ISO 14001</b><span>내부심사원</span></div>
+        <div><b>React · Firebase</b><span>개발 스택</span></div>
+      </div>
+    </div>
 
-            useEffect(() => {
-                const onKeyDown = (e) => {
-                    if (e.key === "Escape") setIsOpen(false);
-                };
-                window.addEventListener("keydown", onKeyDown);
-                return () => window.removeEventListener("keydown", onKeyDown);
-            }, []);
+    <div class="dash-wrap">
+      <div class="dash" id="dash">
+        <div class="dash-in">
+          <div class="dash-top">
+            <div class="t"><i></i>인사·총무 통합시스템</div>
+            <div class="stack"><span>React</span><span>Firebase</span><span>LIVE</span></div>
+          </div>
+          <div class="kpis">
+            <div class="kpi"><small>연간 절감</small><b class="c1">5,000만원</b></div>
+            <div class="kpi"><small>행정 처리시간</small><b class="c2">−60%</b></div>
+            <div class="kpi"><small>법정교육 이수율</small><b class="c3">100%</b></div>
+          </div>
+          <div class="chart">
+            <div class="lbl"><span>월별 자동 생성 문서</span><span>2025.08 ~</span></div>
+            <svg viewBox="0 0 320 86" preserveAspectRatio="none" aria-hidden="true">
+              <defs><linearGradient id="barGrad" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#7C8CFF"/><stop offset="1" stop-color="#2FD4EE"/></linearGradient></defs>
+              <rect x="6" y="50" width="30" height="36" rx="4"/><rect x="46" y="40" width="30" height="46" rx="4"/><rect x="86" y="46" width="30" height="40" rx="4"/><rect x="126" y="28" width="30" height="58" rx="4"/><rect x="166" y="22" width="30" height="64" rx="4"/><rect x="206" y="30" width="30" height="56" rx="4"/><rect x="246" y="12" width="30" height="74" rx="4"/><rect x="286" y="6" width="30" height="80" rx="4"/>
+            </svg>
+          </div>
+          <div class="modules">
+            <span>인사정보</span><span>인사발령</span><span>교육 이력</span><span>고충처리</span><span>출장자</span><span>고정자산</span><span>차량</span><span>보험</span><span>동호회</span>
+          </div>
+          <div class="dash-hl">
+            <div><span class="ic" style="background:rgba(52,211,153,.15);color:#34D399"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><small>고용노동부 근로감독 2회</small><b>지적 2건 마무리</b></div></div>
+            <div><span class="ic" style="background:rgba(255,200,92,.15);color:#FFC85C"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><div><small>정부지원사업 발굴·정산</small><b>연 1억 6천만원 수령</b></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-            const navLinks = [
-                { name: '요약', href: '#summary' },
-                { name: 'DX 역량', href: '#dx' },
-                { name: '경력', href: '#experience' },
-                { name: '전문성', href: '#expertise' },
-            ];
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>KPI · MBO 설계</span><span>직무급 Pay Band</span><span>중대재해처벌법 대응</span><span>근로감독 대응</span><span>노사협의회 간사</span><span>그룹웨어 도입</span><span>근태시스템 구축</span><span>ISO 9001 · 14001</span><span>React · Firebase</span><span>DLP 정보보안</span><span>정부지원사업</span><span>취업규칙 개정</span>
+    <span>KPI · MBO 설계</span><span>직무급 Pay Band</span><span>중대재해처벌법 대응</span><span>근로감독 대응</span><span>노사협의회 간사</span><span>그룹웨어 도입</span><span>근태시스템 구축</span><span>ISO 9001 · 14001</span><span>React · Firebase</span><span>DLP 정보보안</span><span>정부지원사업</span><span>취업규칙 개정</span>
+  </div>
+</div>
 
-            return (
-                <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-xl shadow-[0_1px_0_rgba(99,102,241,0.08)] py-3' : 'bg-transparent py-5'}`}>
-                    <div className="container mx-auto px-6 flex justify-between items-center">
-                        <a href="#" className="inline-flex items-center gap-2 hover:opacity-70 transition-opacity" aria-label="홈으로 이동">
-                            <span className="text-slate-900 font-black tracking-tight text-xl">정지원</span>
-                            <span className="w-px h-4 bg-slate-300"></span>
-                            <span className="text-indigo-600 font-semibold text-sm tracking-wide">Portfolio</span>
-                        </a>
+<!-- ═══════════════════════ Impact (Bento) ═══════════════════════ -->
+<section id="impact" aria-labelledby="impact-title">
+  <div class="sec-aurora" style="width:560px;height:560px;background:rgba(124,140,255,.16);top:-160px;right:-140px"></div>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Impact</span>
+      <h2 id="impact-title">숫자로 증명된 성과</h2>
+      <p>재직 중 실제 집행·확인된 결과입니다. 비용을 줄이고, 시간을 줄이고, 리스크를 줄였습니다.</p>
+    </div>
+    <div class="bento">
+      <div class="card tile big rv">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 10h18M8 15h3"/></svg></span>
+        <div><div class="n"><span data-count="5000" data-sep>0</span><span class="u">만원</span></div><p class="l">인사·총무 통합시스템을 외부 솔루션 없이 자체 개발해 상용 HR SaaS를 대체. 2025년 8월부터 전사 운영 중인 시스템의 연간 절감액.</p></div>
+        <span class="org">유진테크놀로지 · 연간</span>
+      </div>
+      <div class="card tile rv" style="--d:60ms">
+        <div><div class="n"><span data-count="60">0</span><span class="u">%</span></div><p class="l">인사 행정 처리 시간 단축<br>발령문·보고서·대장 자동 생성</p></div>
+        <span class="org">유진테크놀로지</span>
+      </div>
+      <div class="card tile rv" style="--d:120ms">
+        <div><div class="n"><span data-count="1.8" data-dec="1">0</span><span class="u">억원</span></div><p class="l">고용부담금 연간 절감<br>장애인 의무고용률 충족</p></div>
+        <span class="org">엠플러스</span>
+      </div>
+      <div class="card tile rv" style="--d:180ms">
+        <div><div class="n"><span data-count="1.6" data-dec="1">0</span><span class="u">억원</span></div><p class="l">정부 지원 사업 연간 수령<br>발굴·신청·정산 전 과정 주관</p></div>
+        <span class="org">엠플러스</span>
+      </div>
+      <div class="card tile rv" style="--d:240ms">
+        <div><div class="n"><span data-count="15">0</span><span class="u">%</span></div><p class="l">기업성 보험료 연간 절감<br>갱신 요율 협의</p></div>
+        <span class="org">엠플러스</span>
+      </div>
+      <div class="card tile wide rv" style="--d:300ms">
+        <div><div class="n">2회 → <span class="grad-text">2건</span></div><p class="l">고용노동부 정기 근로감독 2회를 소명 자료로 대응, 지적사항 2건으로 마무리. 취약 항목 사전 점검으로 노무 리스크 최소화.</p></div>
+        <span class="org">엠플러스 · 노사협의회 사측 간사 4년</span>
+      </div>
+      <div class="card tile rv" style="--d:360ms">
+        <div><div class="n"><span data-count="100">0</span><span class="u">%</span></div><p class="l">법정 의무교육 이수율<br>시스템 연동 관리</p></div>
+        <span class="org">양사 공통</span>
+      </div>
+      <div class="card tile rv" style="--d:420ms">
+        <div><div class="n"><span data-count="90">0</span><span class="u">명</span></div><p class="l">연간 채용 운영 규모<br>채널 다각화·JD 기반 선발</p></div>
+        <span class="org">엠플러스</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-                        {/* Desktop Menu */}
-                        <div className="hidden md:flex space-x-8">
-                            {navLinks.map((link) => (
-                                <a key={link.name} href={link.href} className="text-slate-500 hover:text-indigo-600 font-semibold transition-colors text-sm tracking-wide">
-                                    {link.name}
-                                </a>
-                            ))}
-                        </div>
+<!-- ═══════════════════════ Areas ═══════════════════════ -->
+<section id="areas" aria-labelledby="areas-title">
+  <div class="sec-aurora" style="width:520px;height:520px;background:rgba(47,212,238,.11);bottom:-200px;left:-180px"></div>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Core Capabilities</span>
+      <h2 id="areas-title">제도 · 시스템 · 현장을<br>함께 움직입니다</h2>
+      <p>인사와 총무를 나누어 맡기기 어려운 규모의 제조 사업장에서, 세 영역을 한 사람이 책임져 왔습니다.</p>
+    </div>
+    <div class="areas">
+      <div class="card area rv">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M12 20V4M18 20v-7"/></svg></span>
+        <h3>제도 설계</h3>
+        <p>KPI·MBO 평가 체계와 평가 연동 인상률 구간, 직무급(Pay Band) 임금 체계를 설계해 적용했습니다. 취업규칙과 사내 제규정을 법령 개정에 맞춰 정비했습니다.</p>
+        <ul><li>직무 분석 → 직무 평가 → 등급 → 급여 밴드</li><li>총액 인건비 관리 체계</li><li>사내 제규정 16건 제·개정</li></ul>
+      </div>
+      <div class="card area rv" style="--d:100ms">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 4l-4 16"/></svg></span>
+        <h3>시스템 구축</h3>
+        <p>400인 사업장에 근태 시스템을 새로 도입해 안정화하고, 그룹웨어(다우오피스)를 기획부터 안착까지 주관했습니다. 인사·총무 통합시스템은 직접 개발했습니다.</p>
+        <ul><li>근태(타임인아웃) · Jade ERP · 다우오피스</li><li>React·Firebase 통합 플랫폼 자체 개발</li><li>조직 건강도 대시보드</li></ul>
+      </div>
+      <div class="card area rv" style="--d:200ms">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+        <h3>안전 · 컴플라이언스</h3>
+        <p>중대재해처벌법 대응 체계를 구축해 경영책임자 9개 의무 이행을 관리하고 무재해 사업장을 유지했습니다. ISO 14001 내부심사와 DLP 정보보안을 운영했습니다.</p>
+        <ul><li>위험성 평가 · 영문 안전교육 표준화</li><li>근로감독 2회 대응 · 노무법인 협업</li><li>방사선 발생장치 판매 허가 취득</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-                        {/* Mobile Menu Button */}
-                        <div className="md:hidden">
-                            <button
-                                onClick={() => setIsOpen(!isOpen)}
-                                className="text-slate-800 focus:outline-none p-2"
-                                aria-label={isOpen ? "모바일 메뉴 닫기" : "모바일 메뉴 열기"}
-                                aria-expanded={isOpen}
-                                aria-controls={mobileMenuId}
-                                type="button"
-                            >
-                                {isOpen ? <i className="fa-solid fa-times text-2xl"></i> : <i className="fa-solid fa-bars text-2xl"></i>}
-                            </button>
-                        </div>
-                    </div>
+<!-- ═══════════════════════ Career ═══════════════════════ -->
+<section id="career" aria-labelledby="career-title">
+  <div class="sec-aurora" style="width:620px;height:620px;background:rgba(124,140,255,.12);top:20%;left:-260px"></div>
+  <div class="sec-aurora" style="width:520px;height:520px;background:rgba(47,212,238,.09);bottom:5%;right:-220px"></div>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Career</span>
+      <h2 id="career-title">경력 타임라인</h2>
+      <p>품질보증의 데이터 감각으로 시작해, 인사·총무 전문성과 IT 기반 DX 역량을 더했습니다. 한 회사에서 8년, 사원에서 과장까지.</p>
+    </div>
+    <div class="timeline">
 
-                    {/* Mobile Menu Dropdown */}
-                    <div
-                        id={mobileMenuId}
-                        className={`md:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-slate-100 py-4 px-6 flex flex-col space-y-4 ${isOpen ? '' : 'hidden'}`}
-                        aria-hidden={!isOpen}
-                    >
-                        {navLinks.map((link) => (
-                            <a
-                                key={link.name}
-                                href={link.href}
-                                className="text-slate-600 font-medium py-2 border-b border-slate-50 last:border-0"
-                                onClick={() => setIsOpen(false)}
-                                tabIndex={isOpen ? 0 : -1}
-                            >
-                                {link.name}
-                            </a>
-                        ))}
-                    </div>
-                </nav>
-            );
-        };
-
-        const Hero = () => {
-            return (
-                <section id="summary" className="relative min-h-[90vh] flex items-center pt-20 pb-24 hero-gradient overflow-hidden">
-                    {/* 도트 그리드 패턴 오버레이 */}
-                    <div className="absolute inset-0 dot-grid opacity-60" aria-hidden="true"></div>
-                    {/* 오른쪽 사선 패널 */}
-                    <div className="absolute top-0 right-0 w-5/12 h-full bg-indigo-50/60 skew-x-[-10deg] transform origin-top translate-x-24 hidden md:block" aria-hidden="true"></div>
-                    <div className="glow-orb w-72 h-72 bg-indigo-200/45 top-16 -left-16" aria-hidden="true"></div>
-                    <div className="glow-orb w-96 h-96 bg-violet-200/35 bottom-0 right-0" aria-hidden="true" style={{ animationDelay: '2s' }}></div>
-                    
-                    <div className="container mx-auto px-6 relative z-10">
-                        <div className="max-w-5xl mx-auto">
-                            <div className="flex flex-col md:flex-row items-center gap-12">
-                                <div className="flex-1 text-center md:text-left">
-                                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 text-indigo-600 border border-indigo-100 text-xs font-semibold uppercase tracking-wider mb-6 reveal" data-reveal style={{ '--reveal-delay': '40ms' }}>
-                                        <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse"></span>
-                                        구직 중 · Available
-                                    </div>
-                                    
-                                    <h1 className="text-4xl md:text-6xl font-bold text-slate-900 leading-tight mb-6 reveal" data-reveal style={{ '--reveal-delay': '100ms' }}>
-                                        데이터로 인사이트를 찾고<br />
-                                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-violet-600">기술로 업무를 혁신하는</span><br />
-                                        HR & GA 전문가입니다.
-                                    </h1>
-                                    
-                                    <p className="text-lg text-slate-600 mb-8 leading-relaxed max-w-2xl mx-auto md:mx-0 reveal" data-reveal style={{ '--reveal-delay': '160ms' }}>
-                                        인사/총무 11년 실무 경험에 개발 역량을 결합해,
-                                        <strong className="text-slate-900"> 반복 행정을 자동화하고 실행 가능한 시스템</strong>으로 전환합니다.
-                                    </p>
-
-                                    <div className="flex flex-wrap justify-center md:justify-start gap-4 reveal" data-reveal style={{ '--reveal-delay': '220ms' }}>
-                                        {/* 이력서 다운로드 대신 실용적인 이메일 문의하기로 변경 */}
-                                        <a href="mailto:bobgo9@naver.com" className="px-8 py-4 bg-indigo-600 text-white rounded-xl font-semibold hover:bg-indigo-700 transition-all flex items-center gap-2 shadow-lg shadow-indigo-200 hover:shadow-xl hover:shadow-indigo-200 hover:-translate-y-1">
-                                            <i className="fa-solid fa-envelope text-lg"></i>
-                                            이메일 문의하기
-                                        </a>
-                                        <a href="#dx" className="px-8 py-4 bg-white text-slate-600 border border-slate-200 rounded-xl font-semibold hover:bg-indigo-50 hover:border-indigo-200 hover:text-indigo-700 hover:shadow-md hover:-translate-y-1 transition-all flex items-center gap-2">
-                                            <i className="fa-solid fa-briefcase text-lg"></i>
-                                            업무 혁신 사례 보기
-                                        </a>
-                                    </div>
-                                </div>
-
-                                {/* Right Side Stats Card */}
-                                <div className="w-full md:w-80 bg-white p-6 rounded-2xl shadow-[0_4px_24px_rgba(79,70,229,0.1),0_1px_4px_rgba(0,0,0,0.04)] border border-indigo-50 relative mt-10 md:mt-0 card-lift reveal" data-reveal style={{ '--reveal-delay': '260ms' }}>
-                                    <div className="absolute -top-4 -right-4 w-20 h-20 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 shadow-sm">
-                                        <i className="fa-solid fa-award text-3xl"></i>
-                                    </div>
-                                    <h3 className="text-lg font-bold text-slate-800 mb-6 border-b pb-2">핵심 요약</h3>
-                                    <div className="space-y-4">
-                                        <div className="flex items-center gap-3">
-                                            <div className="p-2 bg-slate-100 rounded-lg w-10 h-10 flex items-center justify-center">
-                                                <i className="fa-solid fa-briefcase text-slate-600"></i>
-                                            </div>
-                                            <div>
-                                                <p className="text-xs text-slate-500 font-semibold uppercase">총 경력</p>
-                                                <p className="text-lg font-bold text-slate-900">11년 이상</p>
-                                            </div>
-                                        </div>
-                                        <div className="flex items-center gap-3">
-                                            <div className="p-2 bg-green-100 rounded-lg w-10 h-10 flex items-center justify-center">
-                                                <i className="fa-solid fa-user-shield text-green-600"></i>
-                                            </div>
-                                            <div>
-                                                <p className="text-xs text-slate-500 font-semibold uppercase">자격증</p>
-                                                <p className="text-sm font-bold text-slate-900">ISO 14001 심사원</p>
-                                            </div>
-                                        </div>
-                                        <div className="flex items-center gap-3">
-                                            <div className="p-2 bg-indigo-100 rounded-lg w-10 h-10 flex items-center justify-center">
-                                                <i className="fa-solid fa-code text-indigo-600"></i>
-                                            </div>
-                                            <div>
-                                                <p className="text-xs text-slate-500 font-semibold uppercase">기술 스택</p>
-                                                <p className="text-sm font-bold text-slate-900">React, Firebase, HTML/CSS</p>
-                                            </div>
-                                        </div>
-                                        <div className="flex items-center gap-3">
-                                            <div className="p-2 bg-pink-100 rounded-lg w-10 h-10 flex items-center justify-center">
-                                                <i className="fa-solid fa-heart text-pink-600"></i>
-                                            </div>
-                                            <div>
-                                                <p className="text-xs text-slate-500 font-semibold uppercase">취미/특기</p>
-                                                <p className="text-sm font-bold text-slate-900 leading-snug break-keep">영상 편집 (CapCut · Final Cut Pro · Filmora), 업무 자동화 툴 기획</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    {/* 하단 웨이브 — DX 섹션으로 부드럽게 연결 */}
-                    <div className="absolute bottom-0 left-0 w-full overflow-hidden" style={{ lineHeight: 0 }} aria-hidden="true">
-                        <svg viewBox="0 0 1440 56" preserveAspectRatio="none" className="section-wave" style={{ height: '56px' }}>
-                            <path d="M0,28 C240,56 480,0 720,28 C960,56 1200,0 1440,28 L1440,56 L0,56 Z" fill="#0c0b1a"/>
-                        </svg>
-                    </div>
-                </section>
-            );
-        };
-
-        const DxCapability = () => {
-            return (
-                <section id="dx" className="relative py-24 pb-32 bg-[#0c0b1a] text-white overflow-hidden">
-                    {/* 다크 그리드 라인 패턴 */}
-                    <div className="absolute inset-0 grid-lines-dark" aria-hidden="true"></div>
-                    <div className="container mx-auto px-6 relative z-10">
-                        <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12">
-                            <div>
-                                <span className="text-cyan-300 font-bold tracking-wider text-sm uppercase">강점 (Differentiator)</span>
-                                <h2 className="text-3xl md:text-4xl font-bold mt-2">IT 기반 업무 자동화 (DX)</h2>
-                                <p className="text-slate-400 mt-4 max-w-xl">
-                                    반복 업무를 자동화해 실행 시간을 줄이고, 
-                                    실무자가 바로 쓰는 도구를 직접 기획·개발합니다.
-                                </p>
-                            </div>
-                            <div className="mt-6 md:mt-0 flex gap-2">
-                                <span className="px-3 py-1 bg-white/8 rounded-full text-xs font-mono text-cyan-300 border border-white/15">React.js</span>
-                                <span className="px-3 py-1 bg-white/8 rounded-full text-xs font-mono text-yellow-300 border border-white/15">Firebase</span>
-                                <span className="px-3 py-1 bg-white/8 rounded-full text-xs font-mono text-orange-300 border border-white/15">HTML5/CSS3</span>
-                            </div>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-                            <div className="bg-white/5 border border-white/10 rounded-xl p-4 reveal card-lift" data-reveal style={{ '--reveal-delay': '40ms' }}>
-                                <p className="text-xs text-cyan-300 font-bold uppercase tracking-wider mb-1">자동화 도구</p>
-                                <p className="text-2xl font-extrabold text-white">20+</p>
-                                <p className="text-xs text-slate-400 mt-1">직접 기획 및 개발/운영</p>
-                                <p className="text-[11px] text-slate-500 mt-1.5 leading-relaxed">
-                                    예: 인사/급여/명세 자동화, 경조사·고정자산·교육 이수 관리, 공지문·보안점검 리포트 생성, 주간 운영 대시보드
-                                </p>
-                            </div>
-                            <div className="bg-white/5 border border-white/10 rounded-xl p-4 reveal card-lift" data-reveal style={{ '--reveal-delay': '110ms' }}>
-                                <p className="text-xs text-cyan-300 font-bold uppercase tracking-wider mb-1">업무 처리시간</p>
-                                <p className="text-2xl font-extrabold text-white">최대 70%</p>
-                                <p className="text-xs text-slate-400 mt-1">문서/집계 프로세스 단축</p>
-                            </div>
-                            <div className="bg-white/5 border border-white/10 rounded-xl p-4 reveal card-lift" data-reveal style={{ '--reveal-delay': '180ms' }}>
-                                <p className="text-xs text-cyan-300 font-bold uppercase tracking-wider mb-1">휴먼 에러</p>
-                                <p className="text-2xl font-extrabold text-white">대폭 감소</p>
-                                <p className="text-xs text-slate-400 mt-1">반복 입력/포맷 오류 최소화</p>
-                            </div>
-                        </div>
-
-                        <div className="mb-10 reveal" data-reveal style={{ '--reveal-delay': '220ms' }}>
-                            <p className="text-xs text-cyan-300 font-bold uppercase tracking-wider mb-3">대표 제작 앱 7선</p>
-                            <div className="flex flex-wrap gap-2">
-                                <span className="px-3 py-1.5 rounded-full bg-white/8 border border-white/15 text-xs text-slate-300 hover:bg-white/15 transition-colors">경조사 관리대장</span>
-                                <span className="px-3 py-1.5 rounded-full bg-white/8 border border-white/15 text-xs text-slate-300 hover:bg-white/15 transition-colors">고정자산 관리대장</span>
-                                <span className="px-3 py-1.5 rounded-full bg-white/8 border border-white/15 text-xs text-slate-300 hover:bg-white/15 transition-colors">교육 이수현황 보고</span>
-                                <span className="px-3 py-1.5 rounded-full bg-white/8 border border-white/15 text-xs text-slate-300 hover:bg-white/15 transition-colors">주간메뉴표 운영앱</span>
-                                <span className="px-3 py-1.5 rounded-full bg-white/8 border border-white/15 text-xs text-slate-300 hover:bg-white/15 transition-colors">보안점검 리포트 생성기</span>
-                                <span className="px-3 py-1.5 rounded-full bg-white/8 border border-white/15 text-xs text-slate-300 hover:bg-white/15 transition-colors">라이센스 관리대장</span>
-                                <span className="px-3 py-1.5 rounded-full bg-white/8 border border-white/15 text-xs text-slate-300 hover:bg-white/15 transition-colors">인건비 전략 대시보드</span>
-                            </div>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <div className="bg-white/5 p-8 rounded-2xl border border-white/10 hover:border-cyan-400/60 transition-colors group card-lift reveal" data-reveal style={{ '--reveal-delay': '70ms' }}>
-                                <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-cyan-500/80 transition-colors">
-                                    <i className="fa-solid fa-microchip text-2xl"></i>
-                                </div>
-                                <h3 className="text-xl font-bold mb-3">실무 맞춤형 솔루션 개발</h3>
-                                <p className="text-slate-400 text-sm leading-relaxed mb-4">
-                                    주간 플래너, 급여 계산기 등 현업의 병목 지점을 해소하는 도구를 직접 개발해 운영했습니다.
-                                </p>
-                            </div>
-                            
-                            <div className="bg-white/5 p-8 rounded-2xl border border-white/10 hover:border-cyan-400/60 transition-colors group card-lift reveal" data-reveal style={{ '--reveal-delay': '140ms' }}>
-                                <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-cyan-500/80 transition-colors">
-                                    <i className="fa-solid fa-file-circle-check text-2xl"></i>
-                                </div>
-                                <h3 className="text-xl font-bold mb-3">행정 프로세스 혁신</h3>
-                                <p className="text-slate-400 text-sm leading-relaxed mb-4">
-                                    발령문/증명서 자동생성 흐름을 구축해 수작업 시간을 줄이고 누락·오입력 위험을 낮췄습니다.
-                                </p>
-                            </div>
-
-                            <div className="bg-white/5 p-8 rounded-2xl border border-white/10 hover:border-cyan-400/60 transition-colors group card-lift reveal" data-reveal style={{ '--reveal-delay': '210ms' }}>
-                                <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-cyan-500/80 transition-colors">
-                                    <i className="fa-solid fa-chart-bar text-2xl"></i>
-                                </div>
-                                <h3 className="text-xl font-bold mb-3">데이터 인터페이스 설계</h3>
-                                <p className="text-slate-400 text-sm leading-relaxed mb-4">
-                                    복잡한 Excel 데이터를 웹 대시보드로 시각화해 보고 속도와 의사결정 정확도를 높였습니다.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    {/* 하단 웨이브 — Experience 섹션으로 연결 */}
-                    <div className="absolute bottom-0 left-0 w-full overflow-hidden" style={{ lineHeight: 0 }} aria-hidden="true">
-                        <svg viewBox="0 0 1440 56" preserveAspectRatio="none" className="section-wave" style={{ height: '56px' }}>
-                            <path d="M0,28 C360,0 1080,56 1440,28 L1440,56 L0,56 Z" fill="#f8f8ff"/>
-                        </svg>
-                    </div>
-                </section>
-            );
-        };
-
-        const ExperienceItem = ({ company, role, period, location, details, tags }) => (
-            <div className="relative pl-8 md:pl-0 reveal" data-reveal>
-                {/* Timeline Line (Desktop) */}
-                <div className="hidden md:block absolute left-[50%] top-0 bottom-0 w-px bg-slate-200 transform -translate-x-1/2"></div>
-                
-                <div className={`md:flex items-start justify-between group mb-12`}>
-                    
-                    {/* Date & Logo Side */}
-                    <div className="md:w-5/12 md:text-right mb-4 md:mb-0 md:pr-12">
-                        <h3 className="text-2xl font-bold text-slate-800">{company}</h3>
-                        <p className="text-lg text-indigo-600 font-medium mb-1">{role}</p>
-                        <div className="text-slate-500 text-sm flex md:justify-end items-center gap-2">
-                            <span>{period}</span>
-                            <span className="hidden md:inline">•</span>
-                            <span>{location}</span>
-                        </div>
-                    </div>
-
-                    {/* Center Dot */}
-                    <div className="absolute left-0 md:left-1/2 w-4 h-4 rounded-full bg-indigo-500 border-4 border-white shadow-[0_0_0_3px_rgba(99,102,241,0.2)] transform md:-translate-x-1/2 mt-2 z-10"></div>
-
-                    {/* Content Side */}
-                    <div className="md:w-5/12 md:pl-12">
-                        <div className="bg-white p-6 rounded-2xl shadow-[0_2px_16px_rgba(79,70,229,0.07),0_1px_4px_rgba(0,0,0,0.04)] border border-indigo-50 hover:shadow-[0_4px_24px_rgba(79,70,229,0.12)] transition-shadow card-lift">
-                            <ul className="space-y-4">
-                                {details.map((section, idx) => (
-                                    <li key={idx}>
-                                        <h4 className="font-bold text-slate-700 text-sm mb-2 flex items-center gap-2">
-                                            <span className="w-1.5 h-1.5 bg-indigo-400 rounded-full"></span>
-                                            {section.title}
-                                        </h4>
-                                        <p className="text-slate-600 text-sm leading-relaxed pl-3.5 desc-border">
-                                            {section.desc}
-                                        </p>
-                                    </li>
-                                ))}
-                            </ul>
-                            <div className="mt-6 flex flex-wrap gap-2">
-                                {tags.map((tag, idx) => (
-                                    <span key={idx} className="px-2.5 py-1 bg-indigo-50 text-indigo-700 text-xs rounded-full font-medium">
-                                        {tag}
-                                    </span>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      <article class="job rv">
+        <div class="when"><b>2025.04 – 2026.05</b><span>충북</span><span class="dur">1년 2개월</span></div>
+        <div class="node" aria-hidden="true"></div>
+        <div class="card">
+          <div class="job-head">
+            <div><h3>유진테크놀로지</h3><p class="role">경영기획팀 차장 · 인사·총무·EHS 전담</p></div>
+          </div>
+          <p class="scope">200인 사업장의 인사제도·시스템·안전 체계 설계 및 운영 총괄</p>
+          <div class="tags"><span>KPI·MBO</span><span>직무급 Pay Band</span><span>React·Firebase</span><span>중대재해처벌법</span><span>그룹웨어 도입</span><span>DLP</span></div>
+          <ul class="hl">
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><span><b>인사·총무 통합시스템 자체 구축.</b> 인사정보·교육 이력·고충처리·출장자·인사발령·고정자산·차량·보험·동호회를 단일 웹 앱으로 통합해 2025년 8월부터 전사 운영. 연 5천만원 절감, 인사 행정 처리 시간 60% 단축.</span></li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><span><b>KPI·MBO 평가 제도와 직무급 체계 설계.</b> 직무 분석부터 직무 평가·등급 분류·급여 밴드 설정까지 주관해 2026년 3월 적용. 평가 등급별 인상률 구간과 총액 인건비 관리 체계 운영.</span></li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><span><b>중대재해처벌법 대응 안전보건 경영체계 구축.</b> 경영책임자 9개 의무 이행 관리, 영문 안전교육 콘텐츠로 해외 법인 표준화, 법정 교육 이수율 100%.</span></li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><span><b>그룹웨어(다우오피스) 도입 주관.</b> 기획부터 사용자 교육·안착까지. 취업규칙·사내 규정 6건 법적 준거성 검토·개정, DLP 시스템 도입·운영.</span></li>
+          </ul>
+          <details class="more">
+            <summary>나머지 업무 보기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+            <div class="more-body">
+              <div><h4>인사 운영</h4><ul><li>조직 건강도 대시보드: 이직률·결근율·고충 접수 건수 시각화, 경영진 보고</li><li>JD 기반 채용 기준·선발 절차 체계화, 연간 40명 채용</li><li>직장 내 괴롭힘·성희롱 예방, 고충 처리 매뉴얼·상담 창구 일원화</li><li>명절 지원·동호회 등 복리후생 기획, 수요 조사 기반 개선</li></ul></div>
+              <div><h4>총무·자산·안전</h4><ul><li>법인차량·기업보험 등 고정자산 이력 관리 표준화, 시스템 연동</li><li>보안 정책 수립, 사내 준법 점검 체계 운영</li><li>전사 안전보건·환경경영방침 수립, 위험성 평가 프로세스 설계</li></ul></div>
             </div>
-        );
+          </details>
+        </div>
+      </article>
 
-        const Experience = () => {
-            const careers = [
-                {
-                    company: "유진테크놀로지",
-                    role: "경영기획팀 · 인사/총무 과장",
-                    period: "2025.04 ~ 현재",
-                    location: "충북",
-                    tags: ["HRM/KPI·MBO", "EHS·중대재해대응", "React/Firebase DX", "그룹웨어·DLP"],
-                    details: [
-                        {
-                            title: "경영관리 DX — 인사·총무 통합 플랫폼 구축",
-                            desc: "React·Firebase 기반으로 인사정보·교육이력·고충처리·출장자·고정자산 등 경영관리 전 영역을 단일 웹 앱으로 통합. 인사발령문·관리대장 자동 생성으로 반복 행정 업무 자동화 및 오류 감소."
-                        },
-                        {
-                            title: "KPI 기반 성과 평가 및 직무급 보상 체계",
-                            desc: "부서·직급별 KPI 설계 및 MBO 전 주기(목표 설정→중간 점검→최종 평가) 운영. 직무 가치 평가 기반 Pay Band 설계로 호봉급에서 직무급으로 전환, 내부 형평성과 외부 경쟁력 동시 확보."
-                        },
-                        {
-                            title: "EHS 경영체계 구축 및 글로벌 표준화",
-                            desc: "전사 안전보건방침 수립 및 중대재해처벌법 9개 의무 조치 이행 관리. 영문 안전교육 콘텐츠 개발로 해외 법인 표준화, DLP 시스템 도입·운영으로 정보 유출 방지 체계 구축."
-                        },
-                        {
-                            title: "그룹웨어 도입 및 자산·규정 관리",
-                            desc: "다우오피스 그룹웨어 신규 도입 및 전사 확산 주도(기획~사용자 교육 전 과정). 법인차량·기업보험 자산 이력 표준화 및 취업규칙 법적 준거성 검토·개정."
-                        }
-                    ]
-                },
-                {
-                    company: "엠플러스 (M Plus)",
-                    role: "인사총무팀 과장 (총 8년)",
-                    period: "2016.05 ~ 2024.04",
-                    location: "충북",
-                    tags: ["HR 기획·노무", "ISO 14001", "ESG·장애인고용", "정부지원사업"],
-                    details: [
-                        {
-                            title: "HR 시스템 고도화 및 노무 리스크 관리",
-                            desc: "Jade ERP 기반 입·퇴사·발령 데이터 정합성 관리 및 경영 리포팅. 300인 이상 규모 근태 시스템(타임인아웃) 도입·안정화 총괄. 노사협의회 사측 간사로 안건 조율 및 고용노동부 감독 대응."
-                        },
-                        {
-                            title: "전략적 채용 및 교육·온보딩 체계 수립",
-                            desc: "헤드헌터·서치펌 등 채용 채널 다각화 및 JD 기반 직무별 선발 절차 표준화. 장애인 체육선수 채용으로 법정 고용률 충족 및 ESG 경영 기여. 신규 입사자 온보딩 및 직급별 리더십·역량 교육 프로그램 운영."
-                        },
-                        {
-                            title: "환경안전(EHS) 및 특수 인허가 관리",
-                            desc: "ISO 14001 내부심사원 자격 기반 정기 심사 수행 및 부적합 개선 주도. 방사선 발생장치 판매 허가 신규 취득 총괄. 소방안전 대행 감독 및 위험성 평가로 무재해 사업장 유지."
-                        },
-                        {
-                            title: "총무·시설·보안 및 정부지원사업",
-                            desc: "에스원 출입통제·CCTV 및 보안구역 계획 수립. 기숙사·임대공장 임대차 계약 관리 및 해외출장 행정 지원. 기숙사 임차비·반도체 정부 지원사업 발굴·정산으로 연간 비용 절감 직접 기여."
-                        }
-                    ]
-                },
-                {
-                    company: "윤우케미칼",
-                    role: "품질보증팀(QA) 주임",
-                    period: "2013.05 ~ 2015.07",
-                    location: "충남",
-                    tags: ["품질 보증(QA)", "ISO 9001/14001", "SQC·Cpk 분석", "공급망 감사"],
-                    details: [
-                        {
-                            title: "전사 품질경영시스템(QMS) 구축 및 인증",
-                            desc: "ISO 9001·14001 인증 취득 프로젝트 주도(시스템 구축~인증 취득 전 과정 총괄). IQC·IPQC·OQC 단계별 품질 기준 수립 및 협력사 품질 등급 체계 운영으로 공급망 리스크 사전 관리."
-                        },
-                        {
-                            title: "정밀 계측·신뢰성 검증 및 통계적 품질 관리",
-                            desc: "3차원 투영기·Instron·XRF·항온항습기 등 직접 운용. Cp/Cpk 분석으로 공정 산포 정량 관리 및 불안정 요소 제거. 관리도(Control Chart) 기반 이상 징후 조기 감지 체계 구축."
-                        },
-                        {
-                            title: "고객 클레임(VOC) 대응 및 기술 문서 관리",
-                            desc: "4M·5-Why·특성요인도 등을 활용한 신속한 원인 분석 및 재발 방지 대책 수립·이행. 제품승인원·변경점 관리 등 핵심 기술 문서 제·개정 및 고객 감사 대응 기반 마련."
-                        }
-                    ]
-                }
-            ];
-
-            return (
-                <section id="experience" className="py-24 exp-bg-accent relative overflow-hidden">
-                    <div className="absolute inset-0 pointer-events-none">
-                        <div className="glow-orb w-80 h-80 bg-blue-200/50 -top-16 -left-12" aria-hidden="true"></div>
-                        <div className="glow-orb w-96 h-96 bg-cyan-200/50 bottom-0 -right-16" aria-hidden="true" style={{ animationDelay: '1.6s' }}></div>
-                    </div>
-                    <div className="container mx-auto px-6">
-                        <div className="text-center mb-16">
-                            <h2 className="text-xs font-bold text-indigo-500 tracking-widest uppercase mb-3">Career Timeline</h2>
-                            <h3 className="text-3xl md:text-4xl font-bold text-slate-900">경력 타임라인</h3>
-                            <p className="text-slate-500 mt-4">
-                                품질 관리(QA)의 데이터 감각으로 시작하여,<br className="md:hidden"/> 인사/총무(HR/GA) 전문성과 IT 기반 DX 역량을 더했습니다.
-                            </p>
-                        </div>
-                        
-                        <div className="relative">
-                            <div className="timeline-glow"></div>
-                            {careers.map((career, idx) => (
-                                <ExperienceItem key={idx} {...career} />
-                            ))}
-                        </div>
-                    </div>
-                </section>
-            );
-        };
-
-        const ExpertiseCard = ({ iconClass, title, items, colorClass }) => (
-            <div className="relative bg-white pt-8 pb-6 px-6 rounded-2xl border border-slate-100/80 shadow-[0_2px_12px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_36px_rgba(79,70,229,0.12)] transition-all duration-300 group card-lift reveal overflow-hidden" data-reveal>
-                {/* 상단 컬러 accent bar */}
-                <div className={`card-accent-bar ${colorClass}`}></div>
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 ${colorClass} bg-opacity-10 group-hover:bg-opacity-20 transition-colors`}>
-                    <i className={`${iconClass} ${colorClass.replace('bg-', 'text-')} text-xl`}></i>
-                </div>
-                <h3 className="text-base font-bold text-slate-800 mb-4 leading-snug">{title}</h3>
-                <ul className="space-y-2.5">
-                    {items.map((item, idx) => (
-                        <li key={idx} className="flex items-start text-sm text-slate-500 whitespace-pre-line leading-relaxed">
-                            <span className={`mr-2 mt-[7px] w-1 h-1 rounded-full flex-shrink-0 ${colorClass} opacity-70`}></span>
-                            {item}
-                        </li>
-                    ))}
-                </ul>
+      <article class="job rv">
+        <div class="when"><b>2016.05 – 2024.04</b><span>충북</span><span class="dur">8년</span></div>
+        <div class="node" aria-hidden="true"></div>
+        <div class="card">
+          <div class="job-head">
+            <div><h3>엠플러스</h3><p class="role">인사총무팀 과장 · 노사협의회 사측 간사</p></div>
+          </div>
+          <p class="scope">400인 사업장(본사·공장)의 인사·총무·안전·자산 실무 총괄</p>
+          <div class="tags"><span>근로감독 대응</span><span>노사협의회</span><span>근태시스템 도입</span><span>Jade ERP</span><span>ISO 14001</span><span>정부지원사업</span><span>임대차·보안</span></div>
+          <ul class="hl">
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><span><b>노무 리스크 관리.</b> 고용노동부 정기 근로감독 2회를 소명 자료로 대응해 지적사항 2건으로 마무리. 분기별 노사협의회 안건 조율·운영·이행 관리 4년 주도.</span></li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><span><b>근태 시스템 신규 도입·안정화.</b> 300인 이상 사업장용 프로그램(타임인아웃) 선정부터 전사 교육까지 총괄, 급여 마감 시간 단축. Jade 인사정보시스템 기반 인원·이직률·인건비 경영 리포팅.</span></li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><span><b>채용·육성.</b> 연간 90명 채용 운영, 장애인 체육선수 채용으로 의무고용률 충족(고용부담금 연 1억 8천만원 절감). 온보딩과 직급별 리더십·역량 교육 설계.</span></li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><span><b>재무 기여.</b> 정부 지원 사업 발굴·정산으로 연 1억 6천만원 수령, 기업성 보험 요율 협의로 보험료 연 15% 절감.</span></li>
+          </ul>
+          <details class="more">
+            <summary>나머지 업무 보기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+            <div class="more-body">
+              <div><h4>인사기획·제도</h4><ul><li>연간 인력운영계획 수립, 여비·기숙사·경조·비품 등 사내 제규정 10건 제·개정</li><li>법정 의무교육 이수율 100% 관리</li><li>복리후생 제도 신설·운영, 만족도 조사 기반 개선, GWP 활동</li></ul></div>
+              <div><h4>환경·안전·인허가</h4><ul><li>ISO 14001 내부심사원으로 정기 내부심사 수행, 부적합 개선 주도</li><li>원자력안전법에 따른 방사선 발생장치 판매 허가 신규 취득 총괄</li><li>소방안전관리 대행 감독, 위험성 평가, 안전보건 인증 심사 수검</li></ul></div>
+              <div><h4>자산·시설·보안</h4><ul><li>고정자산·비품 구매·실사·폐기 전 주기 관리 프로세스 정립</li><li>임대 공장·기숙사 임대차 계약 체결·갱신·정산, 입주자 민원 대응</li><li>에스원 출입통제·CCTV 운영, 보안구역 계획, 경비 도급사 관리</li></ul></div>
+              <div><h4>총무 행정</h4><ul><li>해외 출장 지원(항공·비자) 체계 표준화</li><li>여비·비품 신청 등 전사 공통 행정 프로세스 매뉴얼화</li><li>법인차량 운행·정비 이력 관리 기준 수립</li></ul></div>
             </div>
-        );
+          </details>
+        </div>
+      </article>
 
-        const Expertise = () => {
-            const areas = [
-                {
-                    iconClass: "fa-solid fa-users",
-                    title: "인사 기획 및 운영 (HRM)",
-                    colorClass: "bg-indigo-600",
-                    items: [
-                        "채용/평가/보상/교육(HRD) 전반 운영",
-                        "KPI 기반 성과 평가 시스템 운영",
-                        "노사협의회 운영 및 노무 리스크 관리",
-                        "직무 분석 및 R&R 재설계"
-                    ]
-                },
-                {
-                    iconClass: "fa-solid fa-user-shield",
-                    title: "EHS & 컴플라이언스",
-                    colorClass: "bg-emerald-600",
-                    items: [
-                        "ISO 14001 / 45001 시스템 운영",
-                        "위험성 평가 및 안전보건 교육",
-                        "중대재해처벌법 대응 체계 구축",
-                        "특수 인허가(방사선, 소방 등) 관리"
-                    ]
-                },
-                {
-                    iconClass: "fa-solid fa-building",
-                    title: "총무 및 자산관리 (GA)",
-                    colorClass: "bg-violet-600",
-                    items: [
-                        "자산/시설/부동산(임대차) 관리",
-                        "전사 행사 기획 및 복리후생 운영",
-                        "보안 시스템(물리/정보) 총괄",
-                        "정부 지원 사업 발굴 및 예산 절감"
-                    ]
-                },
-                {
-                    iconClass: "fa-solid fa-database",
-                    title: "데이터 분석 & 품질 관리",
-                    colorClass: "bg-blue-600",
-                    items: [
-                        "데이터 기반 의사결정 지원",
-                        "품질/공정 데이터 통계적 분석",
-                        "업무 프로세스 표준화 및 매뉴얼화",
-                        "내부 심사 및 감사(Audit) 대응",
-                        "영상 편집 (CapCut · Final Cut Pro · Filmora)\n— 사내 교육자료·콘텐츠 제작"
-                    ]
-                }
-            ];
+      <article class="job rv">
+        <div class="when"><b>2013.05 – 2015.07</b><span>충남</span><span class="dur">2년 3개월</span></div>
+        <div class="node" aria-hidden="true"></div>
+        <div class="card">
+          <div class="job-head">
+            <div><h3>윤우케미칼</h3><p class="role">품질보증팀 주임</p></div>
+          </div>
+          <p class="scope">절연테이프 제조사 품질경영시스템 구축 및 검사·통계 품질 관리</p>
+          <div class="tags"><span>ISO 9001·14001</span><span>IQC·IPQC·OQC</span><span>Cp/Cpk·관리도</span><span>협력사 감사</span><span>VOC 대응</span></div>
+          <ul class="hl">
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><span><b>ISO 9001·14001 인증 취득 프로젝트 주도.</b> 시스템 구축부터 인증, 사후 심사 부적합 시정까지 책임 대응. 이후 인사총무에서 ISO 내부심사와 안전보건 체계 구축의 기반이 됨.</span></li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><span><b>데이터 기반 품질 관리.</b> 공정별 불량률·클레임 KPI 수립, Cp/Cpk·관리도로 공정 산포 정량 관리, 파레토 분석으로 개선 우선순위 설정.</span></li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><span><b>공급망·고객 대응.</b> 협력사 품질 감사·등급 관리, 고객 클레임 시 4M·5-Why·특성요인도 기반 원인 분석과 재발 방지.</span></li>
+          </ul>
+          <details class="more">
+            <summary>나머지 업무 보기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+            <div class="more-body">
+              <div><h4>검사·계측</h4><ul><li>수입·공정·출하 단계별 검사 기준 수립, 관문(Gate) 기능 강화</li><li>3차원 투영기, Instron, XRF, 항온항습기 직접 운용</li></ul></div>
+              <div><h4>기술 문서</h4><ul><li>제품 승인원·변경점·제품 표준서 제·개정 및 이력 관리, 추적성 확보</li></ul></div>
+            </div>
+          </details>
+        </div>
+      </article>
 
-            return (
-                <section id="expertise" className="relative py-24 bg-white overflow-hidden">
-                    <div className="absolute inset-0 dot-grid opacity-40" aria-hidden="true"></div>
-                    <div className="container mx-auto px-6 relative z-10">
-                        <div className="mb-12">
-                            <h2 className="text-xs font-bold text-indigo-500 tracking-widest uppercase mb-3">Core Competencies</h2>
-                            <h3 className="text-3xl font-bold text-slate-900">직무 전문성 요약</h3>
-                        </div>
-                        
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                            {areas.map((area, idx) => (
-                                <ExpertiseCard key={idx} {...area} />
-                            ))}
-                        </div>
-                    </div>
-                </section>
-            );
-        };
+    </div>
+  </div>
+</section>
 
-        const Footer = () => {
-            const tel = ["010", "5442", "4404"].join("-");
-            return (
-            <footer className="bg-[#0c0b1a] text-slate-400 py-12 border-t border-white/5">
-                <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-                    <div className="text-center md:text-left">
-                        <h4 className="text-white font-bold text-lg mb-2">연락처 (Contact Info)</h4>
-                        <p>이메일: bobgo9@naver.com</p>
-                        <p>연락처: {tel}</p>
-                    </div>
-                    <div className="text-center md:text-right text-sm">
-                        <p className="mb-2">정지원 Portfolio</p>
-                        <p>&copy; 2026 Jeong Jiwon. All rights reserved.</p>
-                    </div>
-                </div>
-            </footer>
-            );
-        };
+<!-- ═══════════════════════ System showcase ═══════════════════════ -->
+<section id="system" class="showcase" aria-labelledby="system-title">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Built by me</span>
+      <h2 id="system-title">직접 만든 인사·총무 통합시스템</h2>
+      <p>반복되는 행정은 사람이 아니라 시스템이 하게 만듭니다. 회사 여건에 따라 기존 솔루션을 쓸 수도, 직접 만들 수도 있습니다.</p>
+    </div>
+    <div class="sys">
+      <div class="browser rv" role="img" aria-label="인사·총무 통합시스템 화면 구성 예시">
+        <div class="browser-bar"><i></i><i></i><i></i><span class="url">hr-system.internal / 인사발령</span></div>
+        <div class="app">
+          <div class="app-side">
+            <div class="logo"><i></i>경영관리</div>
+            <a>대시보드</a><a class="on">인사발령</a><a>인사정보</a><a>교육 이력</a><a>고충처리</a><a>출장자</a><a>고정자산</a><a>차량 · 보험</a><a>동호회</a>
+          </div>
+          <div class="app-main">
+            <div class="hd">인사발령 · 2026년 3월 <span>발령문 자동 생성</span></div>
+            <div class="app-kpis">
+              <div>이번 달 발령<b>12건</b></div>
+              <div>자동 생성 문서<b>48건</b></div>
+              <div>처리 시간<b>−60%</b></div>
+            </div>
+            <div class="doc">
+              <div class="paper">
+                <b>인 사 발 령</b>
+                <div class="row"><span>성명</span><span>홍○○</span></div>
+                <div class="row"><span>소속</span><span>생산1팀</span></div>
+                <div class="row"><span>발령</span><span>주임 → 대리</span></div>
+                <div class="row"><span>시행일</span><span>2026.03.01</span></div>
+                <div class="stamp">대표이사 (인)</div>
+              </div>
+              <div class="list">
+                <div><span>법정교육 이수율</span><em>100%</em></div>
+                <div><span>고정자산 실사</span><em>완료</em></div>
+                <div><span>고충 접수</span><em class="w">2건 처리중</em></div>
+                <div><span>출장자 현황</span><em>3명</em></div>
+                <div><span>차량 정비 예정</span><em class="w">1대</em></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sys-copy rv" style="--d:120ms">
+        <h3>외부 솔루션 없이,<br>경영관리 전 영역을 <span class="grad-text">하나의 앱</span>으로</h3>
+        <p>유진테크놀로지에서 React·Firebase 기반 경영관리 통합 플랫폼을 혼자 설계·개발했습니다. 인사발령문·내부 보고서·관리대장이 자동으로 생성되고, 교육 이력은 법정 교육 이수율 관리와 연동됩니다. 이직률·결근율·고충 접수 건수를 시각화한 조직 건강도 대시보드로 경영진 보고를 선행합니다.</p>
+        <div class="sys-facts">
+          <div><b>2025.08</b><span>전사 운영 시작, 현재까지 운영 중</span></div>
+          <div><b class="g">연 5,000만원</b><span>상용 HR SaaS 대비 절감</span></div>
+          <div><b class="g">60% 단축</b><span>인사 행정 처리 시간</span></div>
+          <div><b>9개 모듈</b><span>인사정보 · 발령 · 교육 · 고충 · 출장 · 자산 · 차량 · 보험 · 동호회</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="tools rv">
+      <h4>그 밖에 기획·개발해 운영한 도구<small>현업 병목을 푸는 소규모 웹앱</small></h4>
+      <ul>
+        <li>경조사 관리대장</li><li>고정자산 관리대장</li><li>교육 이수현황 보고</li><li>주간메뉴표 운영앱</li><li>보안점검 리포트 생성기</li><li>라이센스 관리대장</li><li>인건비 전략 대시보드</li><li>급여 계산기</li><li>주간 플래너</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-        const App = () => {
-            useEffect(() => {
-                const nodes = document.querySelectorAll("[data-reveal]");
-                if (!nodes.length) return;
+<!-- ═══════════════════════ Skills ═══════════════════════ -->
+<section id="skills" aria-labelledby="skills-title">
+  <div class="sec-aurora" style="width:520px;height:520px;background:rgba(255,200,92,.08);top:-120px;right:-160px"></div>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Expertise</span>
+      <h2 id="skills-title">직무 전문성</h2>
+      <p>인사와 총무, 노무와 안전, 데이터와 개발까지 한 자리에서 맡아 온 범위입니다.</p>
+    </div>
+    <div class="skills">
+      <div class="card skill rv">
+        <div class="top"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4a3.5 3.5 0 0 1 0 7M21.5 20a6.5 6.5 0 0 0-5-6.3"/></svg></i><h3>인사 기획·운영</h3></div>
+        <ul><li>KPI·MBO 성과 평가 설계·전 주기 운영</li><li>직무 분석·평가·직무급 설계</li><li>총액 인건비 관리, 인상률 구간</li><li>채용 채널 다각화, JD 기반 선발</li><li>온보딩·직급별 교육 체계</li></ul>
+      </div>
+      <div class="card skill rv" style="--d:80ms">
+        <div class="top"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H8l-4 4V4Z"/><path d="M8 9h8M8 12h5"/></svg></i><h3>노무·노사관계</h3></div>
+        <ul><li>취업규칙·제규정 법적 준거성 개정</li><li>불이익 변경 시 의견 수렴 절차</li><li>노사협의회 사측 간사, 고충 처리</li><li>근로감독 대응, 노무법인 협업</li><li>괴롭힘·성희롱 예방·조사 프로세스</li></ul>
+      </div>
+      <div class="card skill rv" style="--d:160ms">
+        <div class="top"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/></svg></i><h3>EHS·컴플라이언스</h3></div>
+        <ul><li>중대재해처벌법 의무 이행 관리</li><li>위험성 평가, 안전보건 교육</li><li>ISO 9001·14001 구축·인증·내부심사</li><li>방사선 발생장치 등 특수 인허가</li><li>DLP 정보보안, 물리 보안 총괄</li></ul>
+      </div>
+      <div class="card skill rv" style="--d:240ms">
+        <div class="top"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></i><h3>총무·자산·데이터</h3></div>
+        <ul><li>고정자산·차량·보험 전 주기 관리</li><li>부동산·임대차·기숙사 운영</li><li>정부 지원 사업 발굴·신청·정산</li><li>근태·ERP·그룹웨어 도입, HR 리포팅</li><li>Cp/Cpk·관리도 통계적 품질 관리</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add("show");
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+<!-- ═══════════════════════ Principles ═══════════════════════ -->
+<section id="principles" aria-labelledby="principles-title">
+  <div class="sec-aurora" style="width:600px;height:600px;background:rgba(124,140,255,.13);top:-220px;left:30%"></div>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">How I work</span>
+      <h2 id="principles-title">일하는 원칙</h2>
+      <p>인사·총무·안전을 동시에 맡으면서도 큰 사고 없이 운영해 온 이유입니다.</p>
+    </div>
+    <div class="principles">
+      <div class="card principle rv"><div class="q">“</div><h3>제도는 문서가 아니라<br>현장에서 돌아갈 때 완성됩니다.</h3><p>설계 전에 현장 관리자와 먼저 이야기합니다. 규정 공백으로 생기는 현장 혼선을 줄이는 것이 제도의 목적입니다.</p></div>
+      <div class="card principle rv" style="--d:100ms"><div class="q">“</div><h3>반복되는 행정은<br>사람이 아니라 시스템이 합니다.</h3><p>수기 근태를 시스템으로 바꾸고, 발령문과 대장을 자동 생성하게 만들어 담당자가 제도와 사람에 집중하게 합니다.</p></div>
+      <div class="card principle rv" style="--d:200ms"><div class="q">“</div><h3>법이 걸린 영역은 “아마 괜찮을 것”으로<br>넘기지 않습니다.</h3><p>노무·안전은 법령과 노무법인 자문으로 근거를 확인한 뒤 움직입니다. 근로감독에서 문제가 나오지 않는 상태가 성과입니다.</p></div>
+    </div>
+  </div>
+</section>
 
-                nodes.forEach((node, idx) => {
-                    if (!node.style.getPropertyValue("--reveal-delay")) {
-                        node.style.setProperty("--reveal-delay", `${Math.min(idx * 35, 260)}ms`);
-                    }
-                    observer.observe(node);
-                });
+<!-- ═══════════════════════ Contact ═══════════════════════ -->
+<section id="contact" aria-labelledby="contact-title">
+  <div class="wrap">
+    <div class="contact-box rv">
+      <div class="aurora c1"></div><div class="aurora c2"></div>
+      <h2 id="contact-title">안녕하세요,<br>인사·총무 담당자 <span class="grad-text">정지원</span>입니다.</h2>
+      <p>끝까지 읽어 주셔서 감사합니다. 인사와 총무를 함께 책임질 사람을 찾고 계신 제조 사업장이라면, 편하게 연락 주세요. 첫 3개월은 진단, 1년 안에 데이터 기반 운영 체계 정착을 목표로 함께 만들겠습니다.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="mailto:bobgo9@naver.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          이메일 보내기
+        </a>
+        <a class="btn btn-ghost" href="tel:010-5442-4404">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>
+          전화 문의
+        </a>
+      </div>
+      <div class="contact-info">
+        <a href="mailto:bobgo9@naver.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>bobgo9@naver.com</a>
+        <a href="tel:010-5442-4404"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>010-5442-4404</a>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;color:var(--a2);vertical-align:-3px;margin-right:6px"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>충남 아산</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-                return () => observer.disconnect();
-            }, []);
+</main>
 
-            return (
-                <div className="font-sans text-slate-900 bg-white antialiased selection:bg-blue-100 selection:text-blue-900">
-                    <Navigation />
-                    <main>
-                        <Hero />
-                        <DxCapability />
-                        <Experience />
-                        <Expertise />
-                    </main>
-                    <Footer />
-                </div>
-            );
-        };
+<footer>
+  <div class="wrap">
+    <span>정지원 · HR &amp; DX Portfolio</span>
+    <span>중부대학교 환경조경학과 졸업 · ISO 14001 내부심사원</span>
+    <span>© 2026 Jeong Jiwon</span>
+  </div>
+</footer>
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
+<button class="to-top" id="toTop" aria-label="맨 위로">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Nav: scrolled state, progress, active link, to-top
+  const nav = document.getElementById('nav'), prog = document.getElementById('progress'), toTop = document.getElementById('toTop');
+  const links = [...document.querySelectorAll('.nav-links a')];
+  const secs = links.map(a => document.querySelector(a.getAttribute('href')));
+  const onScroll = () => {
+    const y = scrollY, h = document.documentElement.scrollHeight - innerHeight;
+    nav.classList.toggle('scrolled', y > 40);
+    prog.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
+    toTop.classList.toggle('show', y > 600);
+    let cur = -1; secs.forEach((s, i) => { if (s && s.getBoundingClientRect().top <= 140) cur = i; });
+    links.forEach((a, i) => a.classList.toggle('active', i === cur));
+  };
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }));
+
+  // Mobile sheet
+  const burger = document.getElementById('burger'), sheet = document.getElementById('sheet');
+  const setSheet = (o) => { sheet.classList.toggle('open', o); burger.setAttribute('aria-expanded', o); burger.setAttribute('aria-label', o ? '메뉴 닫기' : '메뉴 열기'); document.body.style.overflow = o ? 'hidden' : ''; };
+  burger.addEventListener('click', () => setSheet(!sheet.classList.contains('open')));
+  sheet.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setSheet(false)));
+  addEventListener('keydown', e => { if (e.key === 'Escape') setSheet(false); });
+
+  // Reveal + counters
+  const fmt = (v, dec, sep) => { const s = v.toFixed(dec); return sep ? s.replace(/\B(?=(\d{3})+(?!\d))/g, ',') : s; };
+  const count = (el) => {
+    const target = parseFloat(el.dataset.count), dec = +(el.dataset.dec || 0), sep = 'sep' in el.dataset;
+    if (reduce) { el.textContent = fmt(target, dec, sep); return; }
+    const t0 = performance.now(), dur = 1400;
+    const step = (t) => { const p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 4); el.textContent = fmt(target * e, dec, sep); if (p < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  };
+  const io = new IntersectionObserver((es) => es.forEach(en => {
+    if (!en.isIntersecting) return;
+    en.target.classList.add('in');
+    en.target.querySelectorAll('[data-count]').forEach(count);
+    io.unobserve(en.target);
+  }), { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+  // Spotlight on cards
+  document.querySelectorAll('.card').forEach(c => c.addEventListener('pointermove', e => {
+    const r = c.getBoundingClientRect(); c.style.setProperty('--mx', (e.clientX - r.left) + 'px'); c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+  }));
+
+  // Rotating word
+  const words = [...document.querySelectorAll('#rotator span')]; let wi = 0;
+  if (!reduce && words.length > 1) setInterval(() => {
+    words[wi].classList.remove('in'); words[wi].classList.add('out');
+    const prev = wi; wi = (wi + 1) % words.length;
+    words[wi].classList.remove('out'); words[wi].classList.add('in');
+    setTimeout(() => words[prev].classList.remove('out'), 500);
+  }, 2600);
+
+  // Starfield + occasional shooting stars (background layer only)
+  const sky = document.getElementById('sky');
+  if (sky && !reduce && matchMedia('(min-width: 720px)').matches) {
+    const ctx = sky.getContext('2d');
+    let W, H, stars = [], meteors = [], nextMeteor = 0, dpr = Math.min(devicePixelRatio || 1, 2);
+    const resize = () => {
+      W = innerWidth; H = innerHeight; sky.width = W * dpr; sky.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      stars = Array.from({ length: Math.round(W * H / 14000) }, () => ({ x: Math.random() * W, y: Math.random() * H, r: Math.random() * 1.1 + 0.3, p: Math.random() * Math.PI * 2, s: 0.4 + Math.random() * 0.8 }));
+    };
+    const spawn = (t) => {
+      const fromLeft = Math.random() < 0.5;
+      meteors.push({ x: fromLeft ? Math.random() * W * 0.5 : W * 0.4 + Math.random() * W * 0.6, y: -20 - Math.random() * H * 0.3,
+        vx: (fromLeft ? 1 : -1) * (5 + Math.random() * 3), vy: 4 + Math.random() * 2, len: 140 + Math.random() * 120, life: 0, max: 110 + Math.random() * 60 });
+      nextMeteor = t + 5000 + Math.random() * 7000;
+    };
+    const draw = (t) => {
+      ctx.clearRect(0, 0, W, H);
+      for (const st of stars) {
+        const a = 0.25 + 0.45 * (0.5 + 0.5 * Math.sin(t / 1000 * st.s + st.p));
+        ctx.globalAlpha = a; ctx.fillStyle = '#DCE6FF'; ctx.beginPath(); ctx.arc(st.x, st.y, st.r, 0, Math.PI * 2); ctx.fill();
+      }
+      if (t > nextMeteor && meteors.length === 0) spawn(t);
+      meteors = meteors.filter(m => m.life < m.max && m.y < H + 50);
+      for (const m of meteors) {
+        m.x += m.vx; m.y += m.vy; m.life++;
+        const fade = Math.sin(Math.PI * Math.min(1, m.life / m.max));
+        const nx = m.vx / Math.hypot(m.vx, m.vy), ny = m.vy / Math.hypot(m.vx, m.vy);
+        const g = ctx.createLinearGradient(m.x, m.y, m.x - nx * m.len, m.y - ny * m.len);
+        g.addColorStop(0, `rgba(220,235,255,${0.9 * fade})`); g.addColorStop(0.3, `rgba(124,140,255,${0.5 * fade})`); g.addColorStop(1, 'rgba(124,140,255,0)');
+        ctx.globalAlpha = 1; ctx.strokeStyle = g; ctx.lineWidth = 1.4; ctx.lineCap = 'round';
+        ctx.beginPath(); ctx.moveTo(m.x, m.y); ctx.lineTo(m.x - nx * m.len, m.y - ny * m.len); ctx.stroke();
+        ctx.fillStyle = `rgba(255,255,255,${fade})`; ctx.beginPath(); ctx.arc(m.x, m.y, 1.6, 0, Math.PI * 2); ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+      if (!document.hidden) requestAnimationFrame(draw);
+    };
+    resize(); addEventListener('resize', resize); nextMeteor = performance.now() + 2500;
+    document.addEventListener('visibilitychange', () => { if (!document.hidden) requestAnimationFrame(draw); });
+    requestAnimationFrame(draw);
+  }
+
+  // Dashboard parallax tilt (desktop only)
+  const dash = document.getElementById('dash');
+  if (!reduce && matchMedia('(min-width: 1024px)').matches) {
+    dash.addEventListener('pointermove', e => { const r = dash.getBoundingClientRect(); const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5; dash.style.transform = `perspective(1400px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg)`; });
+    dash.addEventListener('pointerleave', () => { dash.style.transform = ''; });
+  }
+})();
+</script>
 </body>
 </html>
