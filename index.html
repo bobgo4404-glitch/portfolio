@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>정지원 | HR & DX 전문가 포트폴리오</title>
-<meta name="description" content="300~400인 제조 사업장 인사·총무·EHS 총괄 11년. KPI·직무급 제도 설계, 근태·그룹웨어 도입, React·Firebase 기반 인사총무 통합시스템 자체 개발. 데이터로 인사이트를 찾고 기술로 업무를 혁신하는 HR & GA 전문가 정지원의 포트폴리오.">
+<meta name="description" content="200~400인 제조 사업장 인사·총무·EHS 총괄 11년. KPI·직무급 제도 설계, 근태·그룹웨어 도입, React·Firebase 기반 인사총무 통합시스템 자체 개발. 데이터로 인사이트를 찾고 기술로 업무를 혁신하는 HR & GA 전문가 정지원의 포트폴리오.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="정지원 | HR & DX 전문가 포트폴리오">
 <meta property="og:description" content="인사·총무·EHS 11년 + 직접 개발한 통합시스템. 제도·시스템·현장을 함께 움직입니다.">
@@ -19,382 +19,361 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-<meta name="theme-color" content="#070B14">
+<meta name="theme-color" content="#070806">
 
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&display=swap">
 
 <style>
-/* ═══════════════════════ Tokens ═══════════════════════ */
+/* ═════════════ System ═════════════
+   Type   : Display = Unbounded(숫자·영문) / Korean = Pretendard 800~900, body 16~17px
+   Scale  : 13 / 15 / 17 / 22 / 32 / 56 / 96 / clamp 대형 숫자
+   Color  : 애시드 — 배경 2단(bg, bg2) + 강조 라임(--a)과 같은 계열 민트(--b). 그라데이션은 글자·선에만
+   Rhythm : 섹션마다 다른 배치(가로 스크롤 숫자 → 번호 행 → 고정 연도 타임라인 → 풀블리드 밴드 → 탭 → 대형 문장)
+   Header : 번호 + 영문 eyebrow(Unbounded) + 한글 제목
+   ══════════════════════════════════ */
 :root {
-  --bg: #070B14;
-  --bg-2: #0B1120;
-  --bg-3: #0F172A;
-  --surface: rgba(255,255,255,0.035);
-  --surface-2: rgba(255,255,255,0.06);
-  --border: rgba(255,255,255,0.09);
-  --border-strong: rgba(255,255,255,0.16);
-  --text: #EEF1F7;
-  --text-2: #B4BCCC;
-  --muted: #7D879C;
-  --a1: #7C8CFF;
-  --a2: #2FD4EE;
-  --a3: #FFC85C;
-  --grad: linear-gradient(135deg, #8B96FF 0%, #5EC8F5 55%, #2FD4EE 100%);
-  --grad-soft: linear-gradient(135deg, rgba(124,140,255,0.22), rgba(47,212,238,0.14));
-  --shadow: 0 30px 80px -20px rgba(0,0,0,0.6);
-  --r-lg: 24px; --r-md: 16px; --r-sm: 10px;
+  --bg: #070806; --bg2: #0F120D; --ink: #F2F6EC; --ink2: #BFC8B6; --mute: #808A78;
+  --a: #C6FF3D; --b: #62F5A8; --on-a: #0B1203;
+  --line: rgba(235,255,220,.12); --line2: rgba(235,255,220,.24);
+  --a-rgb: 198,255,61;
+}
+:root {
+  --grad: linear-gradient(100deg, var(--a), var(--b));
   --font: "Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --disp: "Unbounded", "Pretendard Variable", sans-serif;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --pad: clamp(20px, 5vw, 72px);
 }
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 90px; overflow-x: clip; }
-body {
-  margin: 0; background: var(--bg); color: var(--text);
-  font-family: var(--font); font-size: 16px; line-height: 1.7;
-  -webkit-font-smoothing: antialiased; word-break: keep-all; overflow-x: clip;
-}
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font); font-size: 16px; line-height: 1.7;
+  -webkit-font-smoothing: antialiased; word-break: keep-all; overflow-x: clip; transition: background .5s; }
 a { color: inherit; text-decoration: none; }
 h1,h2,h3,h4,p,ul { margin: 0; }
+h1,h2,h3 { text-wrap: balance; }
 ul { padding: 0; list-style: none; }
-:focus-visible { outline: 2px solid var(--a2); outline-offset: 3px; border-radius: 6px; }
-::selection { background: rgba(124,140,255,0.35); }
-html { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.3) #0B1120; }
-::-webkit-scrollbar { width: 11px; }
-::-webkit-scrollbar-track { background: #0B1120; }
-::-webkit-scrollbar-thumb { background: rgba(255,255,255,.26); border-radius: 8px; border: 2px solid #0B1120; }
-::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,.42); }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--a); outline-offset: 3px; border-radius: 6px; }
+::selection { background: var(--a); color: var(--on-a); }
+.wrap { max-width: 1280px; margin: 0 auto; padding: 0 var(--pad); }
+.gt { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
-.wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
-.wrap > *, .card, .kpi, .tile { min-width: 0; }
-.grad-text { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+/* grain + cursor glow */
+.grain { position: fixed; inset: -50%; z-index: 90; pointer-events: none; opacity: .07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain 1s steps(4) infinite; }
+@keyframes grain { 0%{transform:translate(0,0)} 25%{transform:translate(-3%,2%)} 50%{transform:translate(2%,-3%)} 75%{transform:translate(-2%,-1%)} 100%{transform:translate(1%,3%)} }
+.glow { position: fixed; left: 0; top: 0; width: 520px; height: 520px; margin: -260px 0 0 -260px; border-radius: 50%; pointer-events: none; z-index: 0;
+  background: radial-gradient(circle, rgba(var(--a-rgb),.14), transparent 62%); transform: translate(-999px,-999px); }
+.progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: var(--grad); z-index: 100; }
 
-/* ═══════════════════════ Background ═══════════════════════ */
-.bg-noise { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: .5;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
-.bg-grid { position: fixed; inset: 0; pointer-events: none; z-index: 0;
-  background-image: linear-gradient(rgba(255,255,255,0.028) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.028) 1px, transparent 1px);
-  background-size: 64px 64px; }
-.bg-glow { position: fixed; inset: 0; pointer-events: none; z-index: 0;
-  background: radial-gradient(700px 520px at 12% 20%, rgba(124,140,255,.13), transparent 70%), radial-gradient(800px 600px at 88% 75%, rgba(47,212,238,.09), transparent 70%), radial-gradient(500px 400px at 60% 50%, rgba(255,200,92,.045), transparent 70%);
-  animation: glowShift 24s ease-in-out infinite alternate; }
-@keyframes glowShift { to { transform: translate(-3%, 4%) scale(1.06); } }
-.bg-sky { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
-.sec-aurora { position: absolute; border-radius: 50%; filter: blur(100px); pointer-events: none; z-index: 0; }
-section > .wrap { position: relative; z-index: 1; }
-.aurora { position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none; will-change: transform; }
-.progress { position: fixed; top: 0; left: 0; height: 2px; width: 0; background: var(--grad); z-index: 100; transition: width .1s linear; }
-
-/* ═══════════════════════ Nav ═══════════════════════ */
-.nav { position: fixed; top: 18px; left: 0; right: 0; z-index: 50; display: flex; justify-content: center; padding: 0 20px; pointer-events: none; }
-.nav-pill { pointer-events: auto; display: flex; align-items: center; gap: 6px; padding: 8px 8px 8px 18px;
-  background: rgba(11,17,32,0.55); border: 1px solid var(--border); backdrop-filter: blur(18px) saturate(1.4); -webkit-backdrop-filter: blur(18px) saturate(1.4);
-  border-radius: 999px; box-shadow: 0 10px 40px -10px rgba(0,0,0,.6); transition: background .3s, border-color .3s; }
-.nav.scrolled .nav-pill { background: rgba(11,17,32,0.82); border-color: var(--border-strong); }
-.brand { font-weight: 800; letter-spacing: -0.01em; font-size: 15.5px; margin-right: 14px; display: flex; align-items: center; gap: 9px; }
-.brand i { width: 8px; height: 8px; border-radius: 50%; background: var(--grad); box-shadow: 0 0 12px rgba(47,212,238,.8); }
-.nav-links { display: flex; gap: 2px; }
-.nav-links a { font-size: 13.5px; font-weight: 500; color: var(--text-2); padding: 8px 13px; border-radius: 999px; transition: color .2s, background .2s; }
-.nav-links a:hover { color: var(--text); background: var(--surface-2); }
-.nav-links a.active { color: var(--text); background: var(--surface-2); }
-.nav-cta { font-size: 13.5px; font-weight: 700; color: #0A0E1A; background: var(--text); padding: 9px 16px; border-radius: 999px; margin-left: 6px; transition: transform .2s var(--ease), box-shadow .2s; }
-.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px -6px rgba(255,255,255,.35); }
-.nav-burger { display: none; background: none; border: 0; color: var(--text); padding: 8px; cursor: pointer; }
+/* nav */
+.nav { position: fixed; top: 16px; left: 0; right: 0; z-index: 60; display: flex; justify-content: center; padding: 0 16px; pointer-events: none; }
+.nav-pill { pointer-events: auto; display: flex; align-items: center; gap: 4px; padding: 7px 7px 7px 18px; border-radius: 999px;
+  background: rgba(0,0,0,.45); border: 1px solid var(--line); backdrop-filter: blur(18px) saturate(1.3); -webkit-backdrop-filter: blur(18px) saturate(1.3); }
+.brand { font-weight: 800; font-size: 15px; margin-right: 12px; display: flex; align-items: center; gap: 9px; }
+.brand i { width: 9px; height: 9px; border-radius: 50%; background: var(--a); box-shadow: 0 0 14px var(--a); }
+.nav-links { display: flex; }
+.nav-links a { font-size: 13.5px; font-weight: 600; color: var(--ink2); padding: 9px 13px; border-radius: 999px; transition: color .2s, background .2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--ink); background: rgba(255,255,255,.07); }
+.nav-cta { font-size: 13.5px; font-weight: 800; color: var(--on-a); background: var(--a); padding: 10px 17px; border-radius: 999px; margin-left: 6px; transition: transform .2s var(--ease), box-shadow .2s; }
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -8px rgba(var(--a-rgb),.8); }
+.nav-burger { display: none; background: none; border: 0; padding: 10px; cursor: pointer; }
 .nav-sheet { display: none; }
-.nav-sheet.open { display: block; position: fixed; inset: 0; z-index: 49; background: rgba(7,11,20,.92); backdrop-filter: blur(20px); padding: 100px 28px 40px; }
-.nav-sheet a { display: block; font-size: 26px; font-weight: 700; padding: 14px 0; border-bottom: 1px solid var(--border); }
+.nav-sheet.open { display: flex; flex-direction: column; position: fixed; inset: 0; z-index: 55; background: rgba(7,8,6,.94); backdrop-filter: blur(20px); padding: 100px 28px 40px; }
+.nav-sheet a { font-size: 30px; font-weight: 800; padding: 14px 0; border-bottom: 1px solid var(--line); }
 
-/* ═══════════════════════ Hero ═══════════════════════ */
-.hero { position: relative; min-height: 100vh; display: flex; align-items: center; padding: 140px 0 100px; overflow: hidden; }
-.hero .a1 { width: 620px; height: 620px; background: rgba(124,140,255,.28); top: -180px; left: -160px; animation: drift 18s ease-in-out infinite; }
-.hero .a2 { width: 560px; height: 560px; background: rgba(47,212,238,.18); bottom: -200px; right: -120px; animation: drift 22s ease-in-out infinite reverse; }
-.hero .a3 { width: 320px; height: 320px; background: rgba(255,200,92,.10); top: 30%; left: 55%; animation: drift 26s ease-in-out infinite; }
-@keyframes drift { 0%,100% { transform: translate(0,0) scale(1);} 50% { transform: translate(40px,-30px) scale(1.08);} }
-.hero .wrap { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(0,1.25fr) minmax(0,.75fr); gap: 56px; align-items: center; }
-
-.badge { display: inline-flex; align-items: center; gap: 9px; padding: 7px 14px 7px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; color: var(--text-2);
-  background: var(--surface); border: 1px solid var(--border); backdrop-filter: blur(8px); }
-.badge .dot { width: 8px; height: 8px; border-radius: 50%; background: #34D399; box-shadow: 0 0 0 0 rgba(52,211,153,.6); animation: ping 2s infinite; }
-@keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(52,211,153,.6);} 70% { box-shadow: 0 0 0 10px rgba(52,211,153,0);} 100% { box-shadow: 0 0 0 0 rgba(52,211,153,0);} }
-
-.hero h1 { margin-top: 26px; font-size: clamp(36px, 4.1vw, 58px); font-weight: 800; line-height: 1.16; letter-spacing: -0.035em; }
-.hero h1 .line { display: block; }
-.rotator { margin-top: 22px; font-size: clamp(17px, 1.8vw, 21px); font-weight: 500; color: var(--text-2); display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-.rotator .word { position: relative; display: inline-grid; height: 1.5em; overflow: hidden; vertical-align: bottom; }
-.rotator .word span { grid-area: 1/1; font-weight: 700; color: var(--text); opacity: 0; transform: translateY(100%); transition: opacity .5s var(--ease), transform .5s var(--ease); white-space: nowrap; }
-.rotator .word span.in { opacity: 1; transform: translateY(0); }
-.rotator .word span.out { opacity: 0; transform: translateY(-100%); }
-.hero p.lede { margin-top: 22px; font-size: 17px; color: var(--text-2); max-width: 36em; line-height: 1.8; }
-.hero p.lede strong { color: var(--text); font-weight: 600; }
-.cta-row { margin-top: 36px; display: flex; gap: 12px; flex-wrap: wrap; }
-.btn { position: relative; display: inline-flex; align-items: center; gap: 10px; padding: 15px 26px; border-radius: 14px; font-weight: 700; font-size: 15px; transition: transform .25s var(--ease), box-shadow .25s, background .25s, border-color .25s; overflow: hidden; }
+/* ═════════════ Hero ═════════════ */
+.hero { position: relative; min-height: 100svh; display: flex; align-items: center; padding: 130px 0 90px; overflow: hidden; }
+.hero::before { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(55% 65% at 76% 46%, rgba(var(--a-rgb),.14), transparent 70%); }
+#net { position: absolute; top: 0; right: -4vw; width: 62vw; height: 100%; display: block; }
+.hero .wrap { position: relative; z-index: 2; width: 100%; }
+.status { display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px 8px 12px; border-radius: 999px; font-size: 13px; font-weight: 700; color: var(--ink2);
+  border: 1px solid var(--line2); background: rgba(255,255,255,.03); backdrop-filter: blur(6px); }
+.status i { width: 8px; height: 8px; border-radius: 50%; background: #3BE38B; animation: ping 2s infinite; }
+@keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(59,227,139,.6);} 70% { box-shadow: 0 0 0 10px rgba(59,227,139,0);} 100% { box-shadow: 0 0 0 0 rgba(59,227,139,0);} }
+.hero h1 { margin-top: 28px; font-size: clamp(44px, 5.6vw, 88px); font-weight: 900; line-height: 1.06; letter-spacing: -0.055em; }
+.hero h1 .ln { display: block; overflow: hidden; padding-bottom: .06em; }
+.hero h1 .ln > span { display: inline-block; transform: translateY(105%); animation: rise 1.1s var(--ease) forwards; }
+.hero h1 .ln:nth-child(2) > span { animation-delay: .12s; } .hero h1 .ln:nth-child(3) > span { animation-delay: .24s; }
+@keyframes rise { to { transform: none; } }
+.hero h1 .shine { background-image: linear-gradient(100deg, var(--a), var(--b), var(--a)); background-size: 200% 100%; -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: rise 1.1s var(--ease) .12s forwards, shimmer 6s linear 1.3s infinite; }
+@keyframes shimmer { to { background-position: -200% 0; } }
+.hero .lede { margin-top: 30px; font-size: clamp(16px, 1.35vw, 19px); color: var(--ink2); max-width: 30em; text-shadow: 0 1px 12px var(--bg); line-height: 1.8; opacity: 0; animation: fade 1s var(--ease) .5s forwards; }
+.hero .lede strong { color: var(--ink); }
+@keyframes fade { to { opacity: 1; } }
+.cta-row { margin-top: 38px; display: flex; gap: 12px; flex-wrap: wrap; }
+.hero .cta-row, .hero-meta { opacity: 0; animation: fade 1s var(--ease) .7s forwards; }
+.btn { display: inline-flex; align-items: center; gap: 10px; min-height: 54px; padding: 0 26px; border-radius: 999px; font-weight: 800; font-size: 15px; transition: transform .25s var(--ease), box-shadow .25s, background .25s; }
 .btn svg { width: 18px; height: 18px; }
-.btn-primary { color: #06101C; background: var(--grad); box-shadow: 0 12px 34px -10px rgba(94,200,245,.6); }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 18px 44px -10px rgba(94,200,245,.75); }
-.btn-ghost { color: var(--text); background: var(--surface); border: 1px solid var(--border-strong); backdrop-filter: blur(8px); }
-.btn-ghost:hover { transform: translateY(-2px); background: var(--surface-2); border-color: rgba(255,255,255,.28); }
-.hero-meta { margin-top: 44px; display: flex; gap: 34px; flex-wrap: wrap; }
-.hero-meta div b { display: block; font-size: 22px; font-weight: 800; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
-.hero-meta div span { font-size: 13px; color: var(--muted); }
+.btn-a { color: var(--on-a); background: var(--a); box-shadow: 0 14px 40px -12px rgba(var(--a-rgb),.9); }
+.btn-a:hover { box-shadow: 0 20px 50px -10px rgba(var(--a-rgb),1); }
+.btn-o { border: 1px solid var(--line2); background: rgba(255,255,255,.03); backdrop-filter: blur(6px); }
+.btn-o:hover { background: rgba(255,255,255,.08); }
+.hero-meta { margin-top: 56px; display: flex; flex-wrap: wrap; border-top: 1px solid var(--line); max-width: 760px; }
+.hero-meta div { padding: 18px 30px 0 0; margin-right: 30px; }
+.hero-meta div + div { border-left: 1px solid var(--line); padding-left: 30px; }
+.hero-meta b { display: block; font-family: var(--disp); font-size: 20px; font-weight: 700; letter-spacing: -0.02em; }
+.hero-meta span { font-size: 13px; color: var(--mute); }
+.scroll-hint { position: absolute; left: 50%; bottom: 26px; z-index: 2; transform: translateX(-50%); font: 600 11px/1 var(--disp); letter-spacing: .3em; color: var(--mute); display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.scroll-hint i { width: 1px; height: 44px; background: linear-gradient(var(--a), transparent); animation: drop 1.8s var(--ease) infinite; transform-origin: top; }
+@keyframes drop { 0% { transform: scaleY(0); } 60% { transform: scaleY(1); opacity: 1; } 100% { transform: scaleY(1); opacity: 0; } }
 
-/* Dashboard mock */
-.dash-wrap { position: relative; }
-.dash { position: relative; border-radius: var(--r-lg); padding: 1px; background: linear-gradient(160deg, rgba(255,255,255,.22), rgba(255,255,255,.04) 40%, rgba(47,212,238,.25)); box-shadow: var(--shadow); transform: perspective(1400px) rotateY(-6deg) rotateX(3deg); transition: transform .6s var(--ease); }
-.dash:hover { transform: perspective(1400px) rotateY(0) rotateX(0); }
-.dash-in { border-radius: calc(var(--r-lg) - 1px); background: linear-gradient(180deg, #0F1729 0%, #0B1120 100%); padding: 22px 22px 20px; }
-.dash-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
-.dash-top .t { font-weight: 700; font-size: 14.5px; display: flex; align-items: center; gap: 9px; }
-.dash-top .t i { width: 22px; height: 22px; border-radius: 7px; background: var(--grad); display: inline-block; }
-.dash-top .stack { font-size: 11.5px; color: var(--muted); display: flex; gap: 6px; }
-.dash-top .stack span { padding: 3px 8px; border: 1px solid var(--border); border-radius: 999px; }
-.kpis { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
-.kpi { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 12px 13px; }
-.kpi small { display: block; font-size: 11px; color: var(--muted); font-weight: 500; }
-.kpi b { display: block; margin-top: 4px; font-size: 20px; font-weight: 800; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
-.kpi b.c1 { color: var(--a2); } .kpi b.c2 { color: var(--a3); } .kpi b.c3 { color: #34D399; }
-.chart { margin-top: 12px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 14px 10px; }
-.chart .lbl { font-size: 11.5px; color: var(--muted); display: flex; justify-content: space-between; margin-bottom: 8px; }
-.chart svg { width: 100%; height: 86px; display: block; }
-.chart rect { fill: url(#barGrad); transform-origin: bottom; transform: scaleY(0); animation: grow 1s var(--ease) forwards; }
-.chart rect:nth-child(1){animation-delay:.9s}.chart rect:nth-child(2){animation-delay:1s}.chart rect:nth-child(3){animation-delay:1.1s}.chart rect:nth-child(4){animation-delay:1.2s}.chart rect:nth-child(5){animation-delay:1.3s}.chart rect:nth-child(6){animation-delay:1.4s}.chart rect:nth-child(7){animation-delay:1.5s}.chart rect:nth-child(8){animation-delay:1.6s}
-@keyframes grow { to { transform: scaleY(1);} }
-.modules { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
-.modules span { font-size: 11.5px; padding: 5px 10px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--border); color: var(--text-2); }
-.dash-hl { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-.dash-hl > div { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 12px; background: var(--surface); border: 1px solid var(--border); min-width: 0; }
-.dash-hl .ic { width: 32px; height: 32px; border-radius: 9px; display: grid; place-items: center; flex: none; }
-.dash-hl small { display: block; font-size: 11px; color: var(--muted); font-weight: 500; }
-.dash-hl b { display: block; font-size: 14px; font-weight: 800; letter-spacing: -0.01em; }
+/* big outline marquee */
+.mq { position: relative; z-index: 2; overflow: hidden; padding: 20px 0; border-block: 1px solid var(--line); background: var(--bg2); }
+.mq-track { display: flex; width: max-content; animation: mq 38s linear infinite; }
+.mq-track span { display: inline-flex; align-items: center; gap: 1.1em; padding-right: 1.1em; font: 800 clamp(20px, 2.2vw, 30px)/1.3 var(--disp); letter-spacing: -0.02em; white-space: nowrap; color: var(--ink2); }
+.mq-track span::after { content: ""; width: .32em; height: .32em; border-radius: 50%; background: var(--a); }
+.mq-track span:nth-child(3n+2) { color: var(--a); }
+@keyframes mq { to { transform: translateX(-50%); } }
 
-/* Marquee */
-.marquee { position: relative; z-index: 2; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: rgba(255,255,255,.02); overflow: hidden; padding: 16px 0; mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
-.marquee-track { display: flex; gap: 48px; width: max-content; animation: marquee 40s linear infinite; }
-.marquee:hover .marquee-track { animation-play-state: paused; }
-.marquee-track span { font-size: 14px; font-weight: 600; color: var(--muted); white-space: nowrap; display: flex; align-items: center; gap: 48px; }
-.marquee-track span::after { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--a1); opacity: .7; }
-@keyframes marquee { to { transform: translateX(-50%); } }
-
-/* ═══════════════════════ Sections ═══════════════════════ */
-section { position: relative; z-index: 1; padding: 120px 0; }
-.sec-head { max-width: 640px; margin-bottom: 56px; }
-.sec-head .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; color: var(--a2); letter-spacing: .02em; }
-.sec-head .eyebrow::before { content: ""; width: 24px; height: 2px; background: var(--grad); border-radius: 2px; }
-.sec-head h2 { margin-top: 16px; font-size: clamp(30px, 3.6vw, 44px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; }
-.sec-head p { margin-top: 16px; color: var(--text-2); font-size: 16.5px; }
-
-/* reveal */
-.rv { opacity: 0; transform: translateY(24px); transition: opacity .8s var(--ease), transform .8s var(--ease); transition-delay: var(--d, 0ms); }
+/* section heads */
+section { position: relative; z-index: 1; }
+.sec { padding: 130px 0; }
+.head { display: grid; grid-template-columns: auto minmax(0,1fr); gap: 10px 26px; margin-bottom: 64px; }
+.head .no { font: 700 14px/1 var(--disp); color: var(--a); letter-spacing: .1em; grid-row: span 3; padding-top: 2px; }
+.head .eb { font: 600 12px/1 var(--disp); color: var(--mute); letter-spacing: .28em; text-transform: uppercase; }
+.head h2 { font-size: clamp(30px, 3.4vw, 46px); font-weight: 900; letter-spacing: -0.045em; line-height: 1.1; }
+.head p { margin-top: 6px; font-size: 17px; color: var(--ink2); max-width: 40em; }
+.rv { opacity: 0; transform: translateY(32px); transition: opacity .9s var(--ease), transform .9s var(--ease); transition-delay: var(--d, 0ms); }
 .rv.in { opacity: 1; transform: none; }
 
-/* glass card w/ spotlight */
-.card { position: relative; border-radius: var(--r-md); background: var(--surface); border: 1px solid var(--border); overflow: hidden; transition: transform .35s var(--ease), border-color .35s, background .35s; }
-.card::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: radial-gradient(520px circle at var(--mx, 50%) var(--my, 50%), rgba(124,140,255,.18), transparent 45%); opacity: 0; transition: opacity .4s; pointer-events: none; }
-.card:hover { border-color: var(--border-strong); background: var(--surface-2); transform: translateY(-4px); }
-.card:hover::before { opacity: 1; }
+/* ═════════════ Impact: line grid ═════════════ */
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.stat { position: relative; padding: 30px 28px 28px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); transition: background .4s; }
+.stat:hover { background: rgba(var(--a-rgb),.06); }
+.stat .k { font: 600 11px/1 var(--disp); letter-spacing: .2em; color: var(--mute); }
+.stat .n { margin-top: 18px; font: 800 clamp(38px, 3.4vw, 54px)/1 var(--disp); letter-spacing: -0.05em; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.stat .n small { font-family: var(--font); font-size: .36em; font-weight: 800; letter-spacing: -0.02em; margin-left: .15em; color: var(--ink2); }
+.stat .n.sm { font-size: clamp(28px, 2.5vw, 40px); }
+.stat p { margin-top: 16px; font-size: 14.5px; color: var(--ink2); line-height: 1.6; }
+.stat .org { margin-top: 14px; display: inline-flex; align-items: center; gap: 8px; font-size: 12.5px; font-weight: 700; color: var(--mute); }
+.stat .org::before { content: ""; width: 14px; height: 2px; background: var(--a); }
+.stat.big { grid-column: span 2; grid-row: span 2; display: flex; flex-direction: column; justify-content: flex-end; padding: 40px;
+  background: radial-gradient(90% 90% at 0% 0%, rgba(var(--a-rgb),.16), transparent 70%); }
+.stat.big .n { font-size: clamp(64px, 6.6vw, 108px); }
+.stat.big p { font-size: 16px; max-width: 30em; }
 
-/* ═══════════════════════ Bento / Impact ═══════════════════════ */
-.bento { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 168px; gap: 14px; }
-.tile { padding: 24px; display: flex; flex-direction: column; justify-content: space-between; }
-.tile.big { grid-column: span 2; grid-row: span 2; background: var(--grad-soft); border-color: rgba(124,140,255,.35); }
-.tile.wide { grid-column: span 2; }
-.tile .n { font-size: 40px; font-weight: 800; letter-spacing: -0.035em; line-height: 1; font-variant-numeric: tabular-nums; }
-.tile.big .n { font-size: clamp(56px, 6vw, 84px); }
-.tile .n .u { font-size: .5em; font-weight: 700; margin-left: 2px; }
-.tile .l { font-size: 14.5px; color: var(--text-2); line-height: 1.5; margin-top: 10px; }
-.tile.big .l { font-size: 16px; max-width: 30em; }
-.tile .org { font-size: 12px; color: var(--muted); font-weight: 600; display: flex; align-items: center; gap: 8px; }
-.tile .org::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--a3); }
-.tile .ic { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: rgba(255,255,255,.06); border: 1px solid var(--border); margin-bottom: auto; }
-.tile .ic svg { width: 20px; height: 20px; }
+/* ═════════════ Areas: numbered rows ═════════════ */
+.rows { border-top: 1px solid var(--line); }
+.row { position: relative; display: grid; grid-template-columns: 140px minmax(0,1.1fr) minmax(0,1fr); gap: 40px; padding: 48px 0; border-bottom: 1px solid var(--line); isolation: isolate; }
+.row::before { content: ""; position: absolute; inset: 0 calc(var(--pad) * -1); z-index: -1; background: linear-gradient(90deg, rgba(var(--a-rgb),.12), transparent 70%); transform: scaleX(0); transform-origin: left; transition: transform .7s var(--ease); }
+.row:hover::before { transform: scaleX(1); }
+.row .rn { font: 800 56px/1 var(--disp); color: var(--line2); transition: color .4s; }
+.row:hover .rn { color: var(--a); }
+.row h3 { font-size: clamp(22px, 2vw, 28px); font-weight: 900; letter-spacing: -0.035em; }
+.row .desc { margin-top: 14px; color: var(--ink2); font-size: 16px; }
+.row ul { align-self: center; }
+.row li { padding: 11px 0; border-bottom: 1px dashed var(--line); font-size: 15px; color: var(--ink2); display: flex; gap: 12px; }
+.row li:last-child { border: 0; }
+.row li::before { content: "→"; color: var(--a); font-weight: 800; }
 
-/* ═══════════════════════ Areas ═══════════════════════ */
-.areas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-.area { padding: 30px 28px 28px; }
-.area .ic { width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; background: var(--grad); color: #06101C; box-shadow: 0 10px 26px -8px rgba(94,200,245,.6); }
-.area .ic svg { width: 24px; height: 24px; }
-.area h3 { margin-top: 22px; font-size: 21px; font-weight: 800; letter-spacing: -0.02em; }
-.area p { margin-top: 12px; color: var(--text-2); font-size: 15px; }
-.area ul { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--border); }
-.area li { font-size: 13.5px; color: var(--muted); padding: 4px 0 4px 16px; position: relative; }
-.area li::before { content: ""; position: absolute; left: 0; top: 13px; width: 6px; height: 6px; border-radius: 2px; background: var(--a1); transform: rotate(45deg); }
-
-/* ═══════════════════════ Career ═══════════════════════ */
-.timeline { position: relative; }
-.timeline::before { content: ""; position: absolute; left: 190px; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, transparent, var(--border-strong) 8%, var(--border-strong) 92%, transparent); }
-.job { position: relative; display: grid; grid-template-columns: 150px 1fr; gap: 80px; padding: 8px 0 56px; }
-.job:last-child { padding-bottom: 0; }
-.job .when { position: sticky; top: 110px; align-self: start; }
-.job .when b { display: block; font-size: 15px; font-weight: 700; font-variant-numeric: tabular-nums; }
-.job .when span { display: block; font-size: 13px; color: var(--muted); margin-top: 4px; }
-.job .when .dur { display: inline-block; margin-top: 10px; font-size: 12px; font-weight: 700; color: var(--a2); padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(47,212,238,.35); background: rgba(47,212,238,.08); }
-.job .node { position: absolute; left: 190px; top: 14px; width: 14px; height: 14px; border-radius: 50%; background: var(--bg); border: 2px solid var(--a1); transform: translateX(-50%); box-shadow: 0 0 0 6px rgba(124,140,255,.15), 0 0 24px rgba(124,140,255,.6); }
-.job .card { padding: 30px 32px; }
-.job .card:hover { transform: none; }
-.job-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; flex-wrap: wrap; }
-.job h3 { font-size: 24px; font-weight: 800; letter-spacing: -0.02em; }
-.job .role { margin-top: 5px; font-size: 15px; color: var(--a2); font-weight: 600; }
-.job .scope { margin-top: 12px; color: var(--text-2); font-size: 15px; }
-.job .tags { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 6px; }
-.job .tags span { font-size: 12.5px; font-weight: 600; padding: 5px 11px; border-radius: 999px; background: rgba(124,140,255,.12); border: 1px solid rgba(124,140,255,.25); color: #C3CAFF; }
-.hl { margin-top: 24px; display: grid; gap: 14px; }
-.hl li { display: grid; grid-template-columns: 26px 1fr; gap: 12px; font-size: 15px; color: var(--text-2); }
-.hl li i { width: 26px; height: 26px; border-radius: 8px; background: var(--surface-2); border: 1px solid var(--border); display: grid; place-items: center; color: var(--a2); margin-top: 1px; }
-.hl li i svg { width: 14px; height: 14px; }
-.hl li b { color: var(--text); font-weight: 700; }
-details.more { margin-top: 20px; }
-details.more summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: var(--a1); padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(124,140,255,.3); transition: background .2s; }
+/* ═════════════ Career: sticky year ═════════════ */
+.career { display: grid; grid-template-columns: minmax(0, .82fr) minmax(0, 1.5fr); gap: 64px; }
+.yr-stick { position: sticky; top: 110px; }
+.yr { position: relative; font: 800 clamp(56px, 5.6vw, 92px)/.95 var(--disp); letter-spacing: -0.06em; color: var(--line2); }
+.yr span { position: absolute; inset: 0; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; clip-path: inset(var(--yclip, 100%) 0 0 0); }
+.yr-co { margin-top: 22px; font-size: 24px; font-weight: 900; letter-spacing: -0.03em; }
+.yr-per { margin-top: 6px; font-size: 14px; color: var(--mute); font-weight: 600; }
+.yr-dots { margin-top: 30px; display: flex; flex-direction: column; gap: 6px; }
+.yr-dots button { all: unset; cursor: pointer; display: flex; align-items: center; gap: 12px; font-size: 13.5px; font-weight: 700; color: var(--mute); min-height: 34px; transition: color .3s; }
+.yr-dots button i { width: 22px; height: 2px; background: var(--line2); transition: width .4s var(--ease), background .3s; }
+.yr-dots button.on { color: var(--ink); } .yr-dots button.on i { width: 48px; background: var(--a); }
+.job { padding: 0 0 80px; margin-bottom: 80px; border-bottom: 1px solid var(--line); }
+.job:last-child { margin-bottom: 0; border: 0; padding-bottom: 0; }
+.job .mhead { display: none; }
+.job h3 { font-size: clamp(26px, 2.4vw, 34px); font-weight: 900; letter-spacing: -0.04em; line-height: 1.15; }
+.job .role { margin-top: 8px; font-size: 16px; font-weight: 800; color: var(--a); }
+.job .scope { margin-top: 14px; color: var(--ink2); font-size: 16px; }
+.tags { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 6px; }
+.tags span { font-size: 12.5px; font-weight: 700; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line2); color: var(--ink2); }
+.hl { margin-top: 30px; counter-reset: h; }
+.hl li { counter-increment: h; display: grid; grid-template-columns: 44px minmax(0,1fr); gap: 6px; padding: 18px 0; border-top: 1px solid var(--line); font-size: 15.5px; color: var(--ink2); }
+.hl li::before { content: counter(h, decimal-leading-zero); font: 700 13px/1.9 var(--disp); color: var(--a); }
+.hl li b { color: var(--ink); font-weight: 800; }
+.hl li em { font-style: normal; font-weight: 800; color: var(--a); white-space: nowrap; }
+details.more { margin-top: 18px; }
+details.more summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 14px; font-weight: 800; padding: 0 18px; border-radius: 999px; border: 1px solid var(--line2); transition: border-color .2s; }
 details.more summary::-webkit-details-marker { display: none; }
-details.more summary:hover { background: rgba(124,140,255,.12); }
+details.more summary:hover { border-color: var(--a); }
 details.more summary svg { width: 14px; height: 14px; transition: transform .3s var(--ease); }
 details.more[open] summary svg { transform: rotate(180deg); }
-.more-body { margin-top: 18px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px 28px; padding-top: 18px; border-top: 1px solid var(--border); }
-.more-body h4 { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
-.more-body li { font-size: 13.5px; color: var(--muted); padding: 3px 0 3px 12px; position: relative; }
-.more-body li::before { content: ""; position: absolute; left: 0; top: 12px; width: 4px; height: 4px; border-radius: 50%; background: var(--muted); }
+.more-body { margin-top: 22px; display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 22px 32px; }
+.more-body h4 { font-size: 13.5px; font-weight: 800; margin-bottom: 8px; }
+.more-body li { font-size: 14px; color: var(--mute); padding: 3px 0 3px 14px; position: relative; }
+.more-body li::before { content: ""; position: absolute; left: 0; top: 13px; width: 5px; height: 5px; background: var(--a); border-radius: 1px; }
 
-/* ═══════════════════════ System showcase ═══════════════════════ */
-.showcase { background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(124,140,255,.12), transparent 70%); }
-.sys { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 48px; align-items: center; }
-.browser { border-radius: 18px; border: 1px solid var(--border-strong); background: #0B1120; box-shadow: var(--shadow), 0 0 0 1px rgba(124,140,255,.15), 0 0 120px -30px rgba(124,140,255,.5); overflow: hidden; }
-.browser-bar { display: flex; align-items: center; gap: 8px; padding: 12px 14px; border-bottom: 1px solid var(--border); background: rgba(255,255,255,.02); }
-.browser-bar i { width: 10px; height: 10px; border-radius: 50%; background: #2A3550; }
-.browser-bar i:nth-child(1){background:#FF5F57}.browser-bar i:nth-child(2){background:#FEBC2E}.browser-bar i:nth-child(3){background:#28C840}
-.browser-bar .url { margin-left: 10px; flex: 1; font-size: 11.5px; color: var(--muted); background: var(--surface); border: 1px solid var(--border); border-radius: 7px; padding: 5px 10px; }
-.app { display: grid; grid-template-columns: 150px 1fr; min-height: 340px; }
-.app-side { border-right: 1px solid var(--border); padding: 14px 10px; background: rgba(255,255,255,.015); }
+/* ═════════════ System: full-bleed band ═════════════ */
+.band { background: var(--bg2); border-block: 1px solid var(--line); overflow: hidden; }
+.band::before { content: ""; position: absolute; width: 900px; height: 900px; left: -300px; top: -400px; border-radius: 50%; background: radial-gradient(circle, rgba(var(--a-rgb),.12), transparent 65%); pointer-events: none; }
+.sys { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: 64px; align-items: center; }
+.tilt { perspective: 1400px; }
+.browser { border-radius: 18px; border: 1px solid var(--line2); background: var(--bg); overflow: hidden; transition: transform .5s var(--ease);
+  box-shadow: 0 40px 100px -30px rgba(0,0,0,.8), 0 0 0 1px rgba(var(--a-rgb),.18), 0 30px 120px -40px rgba(var(--a-rgb),.55); }
+.browser-bar { display: flex; align-items: center; gap: 8px; padding: 12px 14px; border-bottom: 1px solid var(--line); }
+.browser-bar i { width: 10px; height: 10px; border-radius: 50%; background: var(--line2); }
+.browser-bar i:first-child { background: var(--a); }
+.browser-bar .url { margin-left: 10px; flex: 1; font-size: 11.5px; color: var(--mute); border: 1px solid var(--line); border-radius: 7px; padding: 5px 10px; }
+.app { display: grid; grid-template-columns: 150px minmax(0,1fr); min-height: 340px; }
+.app-side { border-right: 1px solid var(--line); padding: 14px 10px; }
 .app-side .logo { font-size: 12px; font-weight: 800; padding: 6px 10px 14px; display: flex; align-items: center; gap: 7px; }
-.app-side .logo i { width: 14px; height: 14px; border-radius: 4px; background: var(--grad); }
-.app-side a { display: block; font-size: 12px; color: var(--muted); padding: 7px 10px; border-radius: 7px; }
-.app-side a.on { color: var(--text); background: rgba(124,140,255,.16); font-weight: 600; }
+.app-side .logo i { width: 14px; height: 14px; border-radius: 4px; background: var(--a); }
+.app-side a { display: block; font-size: 12px; color: var(--mute); padding: 7px 10px; border-radius: 7px; }
+.app-side a.on { color: var(--ink); background: rgba(var(--a-rgb),.16); font-weight: 700; }
 .app-main { padding: 16px; }
-.app-main .hd { display: flex; justify-content: space-between; align-items: center; font-size: 13px; font-weight: 700; }
-.app-main .hd span { font-size: 11px; font-weight: 600; color: #06101C; background: var(--grad); padding: 4px 10px; border-radius: 6px; }
+.app-main .hd { display: flex; justify-content: space-between; align-items: center; font-size: 13px; font-weight: 800; }
+.app-main .hd span { font-size: 11px; font-weight: 800; color: var(--on-a); background: var(--a); padding: 4px 10px; border-radius: 6px; }
 .app-kpis { margin-top: 12px; display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }
-.app-kpis div { background: var(--surface); border: 1px solid var(--border); border-radius: 9px; padding: 9px 10px; font-size: 10.5px; color: var(--muted); }
-.app-kpis div b { display: block; font-size: 16px; color: var(--text); font-weight: 800; margin-top: 2px; font-variant-numeric: tabular-nums; }
+.app-kpis div { border: 1px solid var(--line); border-radius: 9px; padding: 9px 10px; font-size: 10.5px; color: var(--mute); }
+.app-kpis div b { display: block; font-size: 16px; color: var(--ink); font-weight: 800; margin-top: 2px; }
 .doc { margin-top: 10px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-.doc .paper { background: #F7F8FC; border-radius: 8px; padding: 12px; color: #1B2A41; font-size: 9px; line-height: 1.5; }
+.doc .paper { background: #F4F7F1; border-radius: 8px; padding: 12px; color: #1A2216; font-size: 9px; line-height: 1.5; }
 .doc .paper b { display: block; font-size: 11px; text-align: center; margin-bottom: 6px; letter-spacing: .2em; }
-.doc .paper .row { display: flex; justify-content: space-between; border-bottom: 1px solid #D8DDE8; padding: 2px 0; }
-.doc .paper .stamp { margin-top: 6px; text-align: right; color: #B8321A; font-weight: 700; font-size: 9px; }
-.doc .list { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 10px; font-size: 10.5px; }
-.doc .list div { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid var(--border); color: var(--text-2); }
+.doc .paper .r { display: flex; justify-content: space-between; border-bottom: 1px solid #DED6D0; padding: 2px 0; }
+.doc .paper .stamp { margin-top: 6px; text-align: right; color: #C0321A; font-weight: 800; }
+.doc .list { border: 1px solid var(--line); border-radius: 8px; padding: 10px; font-size: 10.5px; }
+.doc .list div { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid var(--line); color: var(--ink2); }
 .doc .list div:last-child { border: 0; }
-.doc .list em { font-style: normal; color: #34D399; font-weight: 700; }
-.doc .list em.w { color: var(--a3); }
-.sys-copy h3 { font-size: 26px; font-weight: 800; letter-spacing: -0.025em; line-height: 1.3; }
-.sys-copy p { margin-top: 16px; color: var(--text-2); font-size: 15.5px; }
-.sys-facts { margin-top: 26px; display: grid; gap: 10px; }
-.sys-facts div { display: grid; grid-template-columns: 110px 1fr; gap: 14px; align-items: baseline; padding: 12px 16px; border-radius: 12px; background: var(--surface); border: 1px solid var(--border); }
-.sys-facts b { font-size: 18px; font-weight: 800; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
-.sys-facts b.g { color: var(--a2); }
-.sys-facts span { font-size: 13.5px; color: var(--text-2); }
-.tools { margin-top: 56px; padding: 26px 28px; border-radius: var(--r-md); background: var(--surface); border: 1px solid var(--border); display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
-.tools h4 { font-size: 14px; font-weight: 700; white-space: nowrap; }
-.tools h4 small { display: block; font-size: 12px; color: var(--muted); font-weight: 500; margin-top: 2px; }
-.tools ul { display: flex; flex-wrap: wrap; gap: 8px; }
-.tools li { font-size: 13px; font-weight: 500; padding: 7px 13px; border-radius: 999px; border: 1px solid var(--border); background: rgba(255,255,255,.03); color: var(--text-2); transition: border-color .2s, color .2s; }
-.tools li:hover { border-color: var(--a2); color: var(--text); }
+.doc .list em { font-style: normal; color: #3BE38B; font-weight: 800; } .doc .list em.w { color: var(--b); }
+.sys-copy h3 { font-size: clamp(24px, 2.2vw, 32px); font-weight: 900; letter-spacing: -0.04em; line-height: 1.2; }
+.sys-copy p { margin-top: 18px; color: var(--ink2); font-size: 16px; }
+.facts { margin-top: 72px; display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); border-top: 1px solid var(--line); }
+.facts div { padding: 28px 24px 0 0; }
+.facts div + div { padding-left: 24px; border-left: 1px solid var(--line); }
+.facts b { display: block; font: 800 clamp(22px, 2.2vw, 32px)/1.1 var(--disp); letter-spacing: -0.04em; white-space: nowrap; }
+.facts b.c { color: var(--a); }
+.facts span { display: block; margin-top: 10px; font-size: 14px; color: var(--ink2); }
+.tools { margin-top: 64px; display: flex; gap: 28px; align-items: baseline; flex-wrap: wrap; }
+.tools h4 { font-size: 15px; font-weight: 800; }
+.tools h4 small { display: block; font-size: 12.5px; color: var(--mute); font-weight: 600; margin-top: 2px; }
+.tools ul { display: flex; flex-wrap: wrap; gap: 8px; flex: 1; }
+.tools li { font-size: 13.5px; font-weight: 600; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink2); }
 
-/* ═══════════════════════ Skills ═══════════════════════ */
-.skills { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.skill { padding: 26px 24px; }
-.skill .top { display: flex; align-items: center; gap: 12px; }
-.skill .top i { width: 38px; height: 38px; border-radius: 11px; display: grid; place-items: center; background: rgba(124,140,255,.14); border: 1px solid rgba(124,140,255,.25); color: #C3CAFF; }
-.skill .top i svg { width: 18px; height: 18px; }
-.skill h3 { font-size: 16.5px; font-weight: 800; letter-spacing: -0.01em; }
-.skill ul { margin-top: 18px; }
-.skill li { font-size: 14px; color: var(--text-2); padding: 8px 0; border-top: 1px solid var(--border); }
+/* ═════════════ Skills: tabs ═════════════ */
+.tabs { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 64px; align-items: start; }
+.tablist { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+.tab { all: unset; box-sizing: border-box; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 26px 4px; border-bottom: 1px solid var(--line);
+  font-size: clamp(20px, 1.9vw, 26px); font-weight: 900; letter-spacing: -0.035em; color: var(--mute); transition: color .3s, padding .4s var(--ease); }
+.tab small { font: 700 13px/1 var(--disp); letter-spacing: .1em; }
+.tab:hover { color: var(--ink2); }
+.tab[aria-selected="true"] { color: var(--ink); padding-left: 18px; }
+.tab[aria-selected="true"] small { color: var(--a); }
+.tab:focus-visible { outline: 2px solid var(--a); }
+.panel { position: sticky; top: 120px; padding: 40px; border-radius: 28px; background: var(--bg2); border: 1px solid var(--line); min-height: 380px; overflow: hidden; }
+.panel::after { content: ""; position: absolute; right: -120px; bottom: -120px; width: 320px; height: 320px; border-radius: 50%; background: radial-gradient(circle, rgba(var(--a-rgb),.22), transparent 70%); pointer-events: none; }
+.panel h3 { font: 700 12px/1 var(--disp); letter-spacing: .28em; color: var(--a); text-transform: uppercase; }
+.panel ul { margin-top: 18px; }
+.panel li { font-size: clamp(16px, 1.3vw, 18px); font-weight: 700; letter-spacing: -0.02em; padding: 15px 0; border-bottom: 1px solid var(--line); opacity: 0; transform: translateX(16px); animation: slide .6s var(--ease) forwards; }
+.panel li:last-child { border: 0; }
+@keyframes slide { to { opacity: 1; transform: none; } }
 
-/* ═══════════════════════ Principles ═══════════════════════ */
-.principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.principle { padding: 32px 28px; }
-.principle .q { font-size: 44px; line-height: 1; font-weight: 800; color: var(--a1); opacity: .6; font-family: Georgia, serif; }
-.principle h3 { margin-top: 10px; font-size: 20px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.4; }
-.principle p { margin-top: 12px; color: var(--text-2); font-size: 14.5px; }
+/* ═════════════ Principles: big statements ═════════════ */
+.st { padding: 46px 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: 90px minmax(0,1fr) minmax(0,.55fr); gap: 32px; align-items: start; }
+.st:last-child { border-bottom: 1px solid var(--line); }
+.st .q { font: 800 48px/.8 var(--disp); color: var(--a); }
+.st h3 { font-size: clamp(22px, 2.6vw, 36px); font-weight: 900; letter-spacing: -0.045em; line-height: 1.2;
+  background: linear-gradient(90deg, var(--ink) 0 var(--p, 0%), rgba(255,255,255,.16) var(--p, 0%) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.st p { font-size: 15.5px; color: var(--ink2); padding-top: 8px; }
 
-/* ═══════════════════════ Contact ═══════════════════════ */
-.contact-box { position: relative; border-radius: 28px; padding: 72px 56px; overflow: hidden; text-align: center; background: linear-gradient(160deg, #121B33, #0C1426); border: 1px solid var(--border-strong); box-shadow: var(--shadow); }
-.contact-box .aurora { filter: blur(70px); }
-.contact-box .c1 { width: 420px; height: 420px; background: rgba(124,140,255,.35); top: -200px; left: -100px; }
-.contact-box .c2 { width: 380px; height: 380px; background: rgba(47,212,238,.25); bottom: -220px; right: -80px; }
-.contact-box > :not(.aurora) { position: relative; }
-.contact-box h2 { font-size: clamp(28px, 3.6vw, 44px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.25; }
-.contact-box p { margin-top: 16px; color: var(--text-2); font-size: 16.5px; max-width: 34em; margin-left: auto; margin-right: auto; }
-.contact-box .cta-row { justify-content: center; }
-.contact-info { margin-top: 36px; display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; font-size: 14.5px; color: var(--text-2); }
-.contact-info a { display: inline-flex; align-items: center; gap: 8px; transition: color .2s; }
-.contact-info a:hover { color: var(--a2); }
-.contact-info svg { width: 16px; height: 16px; color: var(--a2); }
-footer { position: relative; z-index: 1; padding: 36px 0 44px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13.5px; }
+/* ═════════════ Contact ═════════════ */
+.contact { text-align: center; padding: 160px 0 140px; overflow: hidden; }
+.contact::before { content: ""; position: absolute; left: 50%; top: 50%; width: 1100px; height: 700px; transform: translate(-50%,-50%); background: radial-gradient(ellipse, rgba(var(--a-rgb),.18), transparent 65%); pointer-events: none; }
+.contact .eb { font: 600 12px/1 var(--disp); letter-spacing: .3em; color: var(--mute); }
+.contact h2 { margin-top: 26px; font-size: clamp(30px, 4.2vw, 60px); font-weight: 900; letter-spacing: -0.055em; line-height: 1.08; }
+.contact p { margin: 26px auto 0; max-width: 36em; color: var(--ink2); font-size: 17px; }
+.contact .cta-row { justify-content: center; margin-top: 44px; }
+.contact-info { margin-top: 40px; display: flex; justify-content: center; gap: 10px 30px; flex-wrap: wrap; font-size: 15px; color: var(--ink2); }
+.contact-info a, .contact-info span { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; transition: color .2s; }
+.contact-info a:hover { color: var(--a); }
+.contact-info svg { width: 16px; height: 16px; color: var(--a); }
+footer { position: relative; z-index: 1; padding: 34px 0 44px; border-top: 1px solid var(--line); color: var(--mute); font-size: 13.5px; }
 footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
-.to-top { position: fixed; right: 24px; bottom: 24px; width: 44px; height: 44px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--border-strong); color: var(--text); display: grid; place-items: center; backdrop-filter: blur(10px); opacity: 0; transform: translateY(10px); transition: opacity .3s, transform .3s; z-index: 40; cursor: pointer; }
+.to-top { position: fixed; right: 22px; bottom: 22px; width: 48px; height: 48px; border-radius: 50%; background: var(--a); color: var(--on-a); border: 0; display: grid; place-items: center; opacity: 0; transform: translateY(10px); transition: opacity .3s, transform .3s; z-index: 40; cursor: pointer; }
 .to-top.show { opacity: 1; transform: none; }
 .to-top svg { width: 18px; height: 18px; }
 
-/* ═══════════════════════ Responsive ═══════════════════════ */
+/* ═════════════ Responsive ═════════════ */
 @media (max-width: 1024px) {
-  .hero .wrap { grid-template-columns: minmax(0,1fr); gap: 56px; }
-  .dash { transform: none; max-width: 560px; margin: 0 auto; }
-  .bento { grid-template-columns: repeat(2, minmax(0,1fr)); }
-  .tile.big { grid-column: span 2; }
-  .areas, .principles { grid-template-columns: minmax(0,1fr); }
-  .skills { grid-template-columns: repeat(2, minmax(0,1fr)); }
-  .sys { grid-template-columns: minmax(0,1fr); }
-  .timeline::before { left: 7px; }
-  .job { grid-template-columns: minmax(0,1fr); gap: 16px; padding-left: 32px; }
-  .job .node { left: 7px; }
-  .job .when { position: static; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
-  .job .when span, .job .when .dur { margin: 0; }
+  #net { width: 100vw; right: -22vw; opacity: .55; }
+  .row { grid-template-columns: 90px minmax(0,1fr); }
+  .row ul { grid-column: 2; }
+  .row .rn { font-size: 44px; }
+  .career, .sys, .tabs { grid-template-columns: minmax(0,1fr); gap: 48px; }
+  .yr-col { display: none; }
+  .job .mhead { display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap; margin-bottom: 14px; font: 700 14px/1.3 var(--disp); color: var(--a); }
+  .job .mhead span { font-family: var(--font); color: var(--mute); font-size: 13px; font-weight: 600; }
+  .stats { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .stat.big { grid-row: span 1; }
+  .facts { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .facts div:nth-child(3) { border-left: 0; padding-left: 0; }
+  .panel { position: static; }
+  .st { grid-template-columns: 60px minmax(0,1fr); }
+  .st p { grid-column: 2; padding-top: 0; }
 }
 @media (max-width: 720px) {
   .nav-links, .nav-cta { display: none; }
   .nav-burger { display: block; }
-  section { padding: 84px 0; }
-  .hero { padding: 120px 0 72px; min-height: auto; }
-  .hero-meta { gap: 22px; }
-  .bento { grid-template-columns: minmax(0,1fr); grid-auto-rows: auto; }
-  .tile { min-height: 150px; }
-  .tile.big, .tile.wide { grid-column: span 1; grid-row: span 1; }
-  .skills, .more-body { grid-template-columns: minmax(0,1fr); }
+  .sec { padding: 84px 0; }
+  .hero { padding: 116px 0 90px; }
+  #net { top: -4%; height: 64%; right: -45vw; width: 135vw; opacity: .32; }
+  .hero h1 { font-size: clamp(38px, 11vw, 50px); }
+  .hero-meta { display: grid; grid-template-columns: 1fr 1fr; }
+  .hero-meta div, .hero-meta div + div { padding: 16px 12px 0 0; margin: 0; border: 0; }
+  .hero-meta b { font-size: 18px; }
+  .scroll-hint { display: none; }
+  .head { grid-template-columns: minmax(0,1fr); margin-bottom: 40px; }
+  .head .no { grid-row: auto; }
+  .stat { padding: 22px 16px 20px; }
+  .stat .n { font-size: 34px; } .stat.big .n { font-size: 54px; }
+  .stat .n.sm { font-size: 25px; }
+  .stat p { font-size: 13.5px; }
+  .stat.big { padding: 28px 20px; }
+  .row { grid-template-columns: minmax(0,1fr); gap: 14px; padding: 36px 0; }
+  .row ul { grid-column: 1; }
+  .more-body { grid-template-columns: minmax(0,1fr); }
   .app { grid-template-columns: minmax(0,1fr); }
-  .kpis { grid-template-columns: repeat(3, minmax(0,1fr)); gap: 6px; }
-  .kpi { padding: 10px 8px; }
-  .kpi b { font-size: 15px; }
-  .hero-meta div b { font-size: 19px; }
-  .tile .n { font-size: 34px; }
-  .tile.big .n { font-size: 52px; }
   .app-side { display: none; }
   .doc { grid-template-columns: minmax(0,1fr); }
-  .job .card { padding: 24px 20px; }
-  .contact-box { padding: 52px 24px; }
-  .dash-hl { grid-template-columns: 1fr; }
+  .facts { margin-top: 48px; }
+  .facts div, .facts div + div { padding: 22px 12px 0 0; border-left: 0; }
+  .facts b { font-size: 24px; }
+  .tablist { flex-direction: row; overflow-x: auto; border: 0; gap: 8px; scrollbar-width: none; padding-bottom: 4px; }
+  .tab { flex: none; font-size: 15px; padding: 0 16px; min-height: 44px; border: 1px solid var(--line2); border-radius: 999px; }
+  .tab[aria-selected="true"] { padding-left: 16px; background: var(--a); color: var(--on-a); border-color: var(--a); }
+  .tab small { display: none; }
+  .tabs { gap: 20px; }
+  .panel { padding: 26px 22px; min-height: 0; }
+  .st { grid-template-columns: minmax(0,1fr); gap: 12px; padding: 36px 0; }
+  .st .q { font-size: 36px; }
+  .st p { grid-column: 1; }
+  .contact { padding: 110px 0 110px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
-  .rv { opacity: 1; transform: none; }
-  .chart rect { transform: none; }
+  .rv, .hero .lede, .hero .cta-row, .hero-meta { opacity: 1; transform: none; }
+  .hero h1 .ln > span { transform: none; }
+  .panel li { opacity: 1; transform: none; }
+  .st h3 { --p: 100%; }
 }
 </style>
 </head>
 <body>
 
 <div class="progress" id="progress"></div>
-<div class="bg-noise" aria-hidden="true"></div>
-<div class="bg-grid" aria-hidden="true"></div>
-<div class="bg-glow" aria-hidden="true"></div>
-<canvas class="bg-sky" id="sky" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+<div class="glow" id="glow" aria-hidden="true"></div>
 
-<!-- ═══════════════════════ Nav ═══════════════════════ -->
 <header class="nav" id="nav">
   <div class="nav-pill">
     <a class="brand" href="#top"><i aria-hidden="true"></i>정지원</a>
     <nav class="nav-links" aria-label="페이지 내 이동">
-      <a href="#impact">성과</a>
-      <a href="#areas">역량</a>
-      <a href="#career">경력</a>
-      <a href="#system">시스템</a>
-      <a href="#skills">전문성</a>
+      <a href="#impact">성과</a><a href="#areas">역량</a><a href="#career">경력</a><a href="#system">시스템</a><a href="#skills">전문성</a>
     </nav>
     <a class="nav-cta" href="mailto:bobgo9@naver.com">이메일 문의</a>
     <button class="nav-burger" id="burger" aria-label="메뉴 열기" aria-expanded="false" aria-controls="sheet">
@@ -408,189 +387,146 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
 
 <main id="top">
 
-<!-- ═══════════════════════ Hero ═══════════════════════ -->
+<!-- ═════════════ Hero ═════════════ -->
 <section class="hero" aria-labelledby="hero-title">
-  <div class="aurora a1"></div><div class="aurora a2"></div><div class="aurora a3"></div>
+  <canvas id="net" aria-hidden="true"></canvas>
   <div class="wrap">
-    <div>
-      <span class="badge"><span class="dot"></span>구직 중 · Available for work</span>
-      <h1 id="hero-title">
-        <span class="line">데이터로 인사이트를 찾고</span>
-        <span class="line grad-text">기술로 업무를 혁신하는</span>
-        <span class="line">HR &amp; GA 전문가</span>
-      </h1>
-      <div class="rotator" aria-live="polite">
-        <span>제조 사업장의</span>
-        <span class="word" id="rotator">
-          <span class="in">제도 설계자</span>
-          <span>시스템 빌더</span>
-          <span>컴플라이언스 관리자</span>
-          <span>인사·총무 총괄</span>
-        </span>
-      </div>
-      <p class="lede">300~400인 제조 사업장에서 인사·총무·EHS를 총괄한 11년. KPI·직무급 제도를 설계하고, 근태 시스템과 그룹웨어를 도입했으며, <strong>React·Firebase로 인사·총무 통합시스템을 직접 개발해</strong> 반복 행정을 시스템으로 옮겼습니다.</p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="#system">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          직접 만든 시스템 보기
-        </a>
-        <a class="btn btn-ghost" href="mailto:bobgo9@naver.com">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-          이메일 문의하기
-        </a>
-      </div>
-      <div class="hero-meta">
-        <div><b>11년 5개월</b><span>총 경력</span></div>
-        <div><b>400인</b><span>최대 사업장 규모</span></div>
-        <div><b>ISO 14001</b><span>내부심사원</span></div>
-        <div><b>React · Firebase</b><span>개발 스택</span></div>
-      </div>
+    <span class="status"><i></i>재직 중 · 엔코스 경영지원팀 인사 파트장</span>
+    <h1 id="hero-title">
+      <span class="ln"><span>HR을</span></span>
+      <span class="ln"><span class="shine">시스템으로</span></span>
+      <span class="ln"><span>만드는 사람</span></span>
+    </h1>
+    <p class="lede">데이터로 인사이트를 찾고 기술로 업무를 혁신하는 HR &amp; GA 전문가 <strong>정지원</strong>입니다. 200~400인 제조 사업장에서 인사·총무·EHS를 총괄한 11년. KPI·직무급 제도를 설계하고, 근태 시스템과 그룹웨어를 도입했으며, <strong>React·Firebase로 인사·총무 통합시스템을 직접 개발해</strong> 반복 행정을 시스템으로 옮겼습니다.</p>
+    <div class="cta-row">
+      <a class="btn btn-a mag" href="#system">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        직접 만든 시스템 보기
+      </a>
+      <a class="btn btn-o mag" href="mailto:bobgo9@naver.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        이메일 문의하기
+      </a>
     </div>
-
-    <div class="dash-wrap">
-      <div class="dash" id="dash">
-        <div class="dash-in">
-          <div class="dash-top">
-            <div class="t"><i></i>인사·총무 통합시스템</div>
-            <div class="stack"><span>React</span><span>Firebase</span><span>LIVE</span></div>
-          </div>
-          <div class="kpis">
-            <div class="kpi"><small>연간 절감</small><b class="c1">5,000만원</b></div>
-            <div class="kpi"><small>행정 처리시간</small><b class="c2">−60%</b></div>
-            <div class="kpi"><small>법정교육 이수율</small><b class="c3">100%</b></div>
-          </div>
-          <div class="chart">
-            <div class="lbl"><span>월별 자동 생성 문서</span><span>2025.08 ~</span></div>
-            <svg viewBox="0 0 320 86" preserveAspectRatio="none" aria-hidden="true">
-              <defs><linearGradient id="barGrad" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#7C8CFF"/><stop offset="1" stop-color="#2FD4EE"/></linearGradient></defs>
-              <rect x="6" y="50" width="30" height="36" rx="4"/><rect x="46" y="40" width="30" height="46" rx="4"/><rect x="86" y="46" width="30" height="40" rx="4"/><rect x="126" y="28" width="30" height="58" rx="4"/><rect x="166" y="22" width="30" height="64" rx="4"/><rect x="206" y="30" width="30" height="56" rx="4"/><rect x="246" y="12" width="30" height="74" rx="4"/><rect x="286" y="6" width="30" height="80" rx="4"/>
-            </svg>
-          </div>
-          <div class="modules">
-            <span>인사정보</span><span>인사발령</span><span>교육 이력</span><span>고충처리</span><span>출장자</span><span>고정자산</span><span>차량</span><span>보험</span><span>동호회</span>
-          </div>
-          <div class="dash-hl">
-            <div><span class="ic" style="background:rgba(52,211,153,.15);color:#34D399"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><small>고용노동부 근로감독 2회</small><b>지적 2건 마무리</b></div></div>
-            <div><span class="ic" style="background:rgba(255,200,92,.15);color:#FFC85C"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><div><small>정부지원사업 발굴·정산</small><b>연 1억 6천만원 수령</b></div></div>
-          </div>
-        </div>
-      </div>
+    <div class="hero-meta">
+      <div><b>11년+</b><span>총 경력</span></div>
+      <div><b>400인</b><span>최대 사업장 규모</span></div>
+      <div><b>ISO 14001</b><span>내부심사원</span></div>
+      <div><b>React</b><span>Firebase 개발 스택</span></div>
     </div>
   </div>
 </section>
 
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-track">
-    <span>KPI · MBO 설계</span><span>직무급 Pay Band</span><span>중대재해처벌법 대응</span><span>근로감독 대응</span><span>노사협의회 간사</span><span>그룹웨어 도입</span><span>근태시스템 구축</span><span>ISO 9001 · 14001</span><span>React · Firebase</span><span>DLP 정보보안</span><span>정부지원사업</span><span>취업규칙 개정</span>
-    <span>KPI · MBO 설계</span><span>직무급 Pay Band</span><span>중대재해처벌법 대응</span><span>근로감독 대응</span><span>노사협의회 간사</span><span>그룹웨어 도입</span><span>근태시스템 구축</span><span>ISO 9001 · 14001</span><span>React · Firebase</span><span>DLP 정보보안</span><span>정부지원사업</span><span>취업규칙 개정</span>
+<div class="mq" aria-hidden="true">
+  <div class="mq-track">
+    <span>KPI · MBO</span><span>PAY BAND</span><span>중대재해처벌법</span><span>근로감독 대응</span><span>REACT · FIREBASE</span><span>HRIS</span><span>그룹웨어 도입</span><span>ISO 9001 · 14001</span><span>사규 전면 개정</span>
+    <span>KPI · MBO</span><span>PAY BAND</span><span>중대재해처벌법</span><span>근로감독 대응</span><span>REACT · FIREBASE</span><span>HRIS</span><span>그룹웨어 도입</span><span>ISO 9001 · 14001</span><span>사규 전면 개정</span>
   </div>
 </div>
 
-<!-- ═══════════════════════ Impact (Bento) ═══════════════════════ -->
-<section id="impact" aria-labelledby="impact-title">
-  <div class="sec-aurora" style="width:560px;height:560px;background:rgba(124,140,255,.16);top:-160px;right:-140px"></div>
+<!-- ═════════════ Impact ═════════════ -->
+<section id="impact" class="sec" aria-labelledby="impact-title">
   <div class="wrap">
-    <div class="sec-head rv">
-      <span class="eyebrow">Impact</span>
+    <div class="head rv">
+      <span class="no">01</span><span class="eb">Impact</span>
       <h2 id="impact-title">숫자로 증명된 성과</h2>
       <p>재직 중 실제 집행·확인된 결과입니다. 비용을 줄이고, 시간을 줄이고, 리스크를 줄였습니다.</p>
     </div>
-    <div class="bento">
-      <div class="card tile big rv">
-        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 10h18M8 15h3"/></svg></span>
-        <div><div class="n"><span data-count="5000" data-sep>0</span><span class="u">만원</span></div><p class="l">인사·총무 통합시스템을 외부 솔루션 없이 자체 개발해 상용 HR SaaS를 대체. 2025년 8월부터 전사 운영 중인 시스템의 연간 절감액.</p></div>
-        <span class="org">유진테크놀로지 · 연간</span>
-      </div>
-      <div class="card tile rv" style="--d:60ms">
-        <div><div class="n"><span data-count="60">0</span><span class="u">%</span></div><p class="l">인사 행정 처리 시간 단축<br>발령문·보고서·대장 자동 생성</p></div>
-        <span class="org">유진테크놀로지</span>
-      </div>
-      <div class="card tile rv" style="--d:120ms">
-        <div><div class="n"><span data-count="1.8" data-dec="1">0</span><span class="u">억원</span></div><p class="l">고용부담금 연간 절감<br>장애인 의무고용률 충족</p></div>
-        <span class="org">엠플러스</span>
-      </div>
-      <div class="card tile rv" style="--d:180ms">
-        <div><div class="n"><span data-count="1.6" data-dec="1">0</span><span class="u">억원</span></div><p class="l">정부 지원 사업 연간 수령<br>발굴·신청·정산 전 과정 주관</p></div>
-        <span class="org">엠플러스</span>
-      </div>
-      <div class="card tile rv" style="--d:240ms">
-        <div><div class="n"><span data-count="15">0</span><span class="u">%</span></div><p class="l">기업성 보험료 연간 절감<br>갱신 요율 협의</p></div>
-        <span class="org">엠플러스</span>
-      </div>
-      <div class="card tile wide rv" style="--d:300ms">
-        <div><div class="n">2회 → <span class="grad-text">2건</span></div><p class="l">고용노동부 정기 근로감독 2회를 소명 자료로 대응, 지적사항 2건으로 마무리. 취약 항목 사전 점검으로 노무 리스크 최소화.</p></div>
-        <span class="org">엠플러스 · 노사협의회 사측 간사 4년</span>
-      </div>
-      <div class="card tile rv" style="--d:360ms">
-        <div><div class="n"><span data-count="100">0</span><span class="u">%</span></div><p class="l">법정 의무교육 이수율<br>시스템 연동 관리</p></div>
-        <span class="org">양사 공통</span>
-      </div>
-      <div class="card tile rv" style="--d:420ms">
-        <div><div class="n"><span data-count="90">0</span><span class="u">명</span></div><p class="l">연간 채용 운영 규모<br>채널 다각화·JD 기반 선발</p></div>
-        <span class="org">엠플러스</span>
-      </div>
+    <div class="stats rv">
+        <div class="stat big"><span class="k">ANNUAL SAVING</span><div class="n"><span class="gt" data-count="5000" data-sep>0</span><small>만원</small></div><p>인사·총무 통합시스템을 외부 솔루션 없이 자체 개발해 상용 HR SaaS를 대체. 2025년 8월부터 전사 운영 중인 시스템의 연간 절감액.</p><span class="org">유진테크놀로지 · 연간</span></div>
+        <div class="stat"><span class="k">TIME CUT</span><div class="n"><span data-count="60">0</span><small>%</small></div><p>인사 행정 처리 시간 단축. 발령문·보고서·대장 자동 생성.</p><span class="org">유진테크놀로지</span></div>
+        <div class="stat"><span class="k">ONBOARDING</span><div class="n sm">3일 <span class="gt">→ 당일</span></div><p>오퍼레터 전자서명으로 발송부터 서명완료 통보까지 자동화해 입사 서류 처리 기간 단축.</p><span class="org">엔코스</span></div>
+        <div class="stat"><span class="k">LEVY SAVED</span><div class="n"><span data-count="1.8" data-dec="1">0</span><small>억원</small></div><p>고용부담금 연간 절감. 장애인 의무고용률 충족.</p><span class="org">엠플러스</span></div>
+        <div class="stat"><span class="k">GRANTS</span><div class="n"><span data-count="1.6" data-dec="1">0</span><small>억원</small></div><p>정부 지원 사업 연간 수령. 발굴·신청·정산 전 과정 주관.</p><span class="org">엠플러스</span></div>
+        <div class="stat"><span class="k">INSURANCE</span><div class="n"><span data-count="15">0</span><small>%</small></div><p>기업성 보험료 연간 절감. 갱신 요율 협의.</p><span class="org">엠플러스</span></div>
+        <div class="stat"><span class="k">LABOR INSPECTION</span><div class="n"><span data-count="2">0</span><small>회 대응</small></div><p>고용노동부 정기 근로감독 2회를 소명 자료로 대응해 지적사항 2건으로 마무리. 취약 항목 사전 점검으로 노무 리스크 최소화.</p><span class="org">엠플러스 · 노사협의회 사측 간사 4년</span></div>
+        <div class="stat"><span class="k">COMPLIANCE</span><div class="n"><span data-count="100">0</span><small>%</small></div><p>법정 의무교육 이수율. 시스템 연동 관리.</p><span class="org">양사 공통</span></div>
+        <div class="stat"><span class="k">HIRING</span><div class="n"><span data-count="90">0</span><small>명</small></div><p>연간 채용 운영 규모. 채널 다각화·JD 기반 선발.</p><span class="org">엠플러스</span></div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════ Areas ═══════════════════════ -->
-<section id="areas" aria-labelledby="areas-title">
-  <div class="sec-aurora" style="width:520px;height:520px;background:rgba(47,212,238,.11);bottom:-200px;left:-180px"></div>
+<!-- ═════════════ Areas ═════════════ -->
+<section id="areas" class="sec" aria-labelledby="areas-title">
   <div class="wrap">
-    <div class="sec-head rv">
-      <span class="eyebrow">Core Capabilities</span>
-      <h2 id="areas-title">제도 · 시스템 · 현장을<br>함께 움직입니다</h2>
+    <div class="head rv">
+      <span class="no">02</span><span class="eb">Core Capabilities</span>
+      <h2 id="areas-title">제도 · 시스템 · 현장을 함께 움직입니다</h2>
       <p>인사와 총무를 나누어 맡기기 어려운 규모의 제조 사업장에서, 세 영역을 한 사람이 책임져 왔습니다.</p>
     </div>
-    <div class="areas">
-      <div class="card area rv">
-        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M12 20V4M18 20v-7"/></svg></span>
-        <h3>제도 설계</h3>
-        <p>KPI·MBO 평가 체계와 평가 연동 인상률 구간, 직무급(Pay Band) 임금 체계를 설계해 적용했습니다. 취업규칙과 사내 제규정을 법령 개정에 맞춰 정비했습니다.</p>
+    <div class="rows">
+      <div class="row rv">
+        <span class="rn">01</span>
+        <div><h3>제도 설계</h3><p class="desc">KPI·MBO 평가 체계와 평가 연동 인상률 구간, 직무급(Pay Band) 임금 체계를 설계해 적용했습니다. 취업규칙과 사내 제규정을 법령 개정에 맞춰 정비했습니다.</p></div>
         <ul><li>직무 분석 → 직무 평가 → 등급 → 급여 밴드</li><li>총액 인건비 관리 체계</li><li>사내 제규정 16건 제·개정</li></ul>
       </div>
-      <div class="card area rv" style="--d:100ms">
-        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 4l-4 16"/></svg></span>
-        <h3>시스템 구축</h3>
-        <p>400인 사업장에 근태 시스템을 새로 도입해 안정화하고, 그룹웨어(다우오피스)를 기획부터 안착까지 주관했습니다. 인사·총무 통합시스템은 직접 개발했습니다.</p>
+      <div class="row rv">
+        <span class="rn">02</span>
+        <div><h3>시스템 구축</h3><p class="desc">400인 사업장에 근태 시스템을 새로 도입해 안정화하고, 그룹웨어(다우오피스)를 기획부터 안착까지 주관했습니다. 인사·총무 통합시스템은 직접 개발했습니다.</p></div>
         <ul><li>근태(타임인아웃) · Jade ERP · 다우오피스</li><li>React·Firebase 통합 플랫폼 자체 개발</li><li>조직 건강도 대시보드</li></ul>
       </div>
-      <div class="card area rv" style="--d:200ms">
-        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></span>
-        <h3>안전 · 컴플라이언스</h3>
-        <p>중대재해처벌법 대응 체계를 구축해 경영책임자 9개 의무 이행을 관리하고 무재해 사업장을 유지했습니다. ISO 14001 내부심사와 DLP 정보보안을 운영했습니다.</p>
+      <div class="row rv">
+        <span class="rn">03</span>
+        <div><h3>안전 · 컴플라이언스</h3><p class="desc">중대재해처벌법 대응 체계를 구축해 경영책임자 9개 의무 이행을 관리하고 무재해 사업장을 유지했습니다. ISO 14001 내부심사와 DLP 정보보안을 운영했습니다.</p></div>
         <ul><li>위험성 평가 · 영문 안전교육 표준화</li><li>근로감독 2회 대응 · 노무법인 협업</li><li>방사선 발생장치 판매 허가 취득</li></ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════ Career ═══════════════════════ -->
-<section id="career" aria-labelledby="career-title">
-  <div class="sec-aurora" style="width:620px;height:620px;background:rgba(124,140,255,.12);top:20%;left:-260px"></div>
-  <div class="sec-aurora" style="width:520px;height:520px;background:rgba(47,212,238,.09);bottom:5%;right:-220px"></div>
+<!-- ═════════════ Career ═════════════ -->
+<section id="career" class="sec" aria-labelledby="career-title">
   <div class="wrap">
-    <div class="sec-head rv">
-      <span class="eyebrow">Career</span>
+    <div class="head rv">
+      <span class="no">03</span><span class="eb">Career</span>
       <h2 id="career-title">경력 타임라인</h2>
       <p>품질보증의 데이터 감각으로 시작해, 인사·총무 전문성과 IT 기반 DX 역량을 더했습니다. 한 회사에서 8년, 사원에서 과장까지.</p>
     </div>
-    <div class="timeline">
+    <div class="career">
+      <div class="yr-col" aria-hidden="true">
+        <div class="yr-stick">
+          <div class="yr" id="yr">2026<span id="yrFill">2026</span></div>
+          <div class="yr-co" id="yrCo">엔코스</div>
+          <div class="yr-per" id="yrPer">2026.05 – 현재 · 경기</div>
+          <div class="yr-dots" id="yrDots"></div>
+        </div>
+      </div>
+      <div class="jobs">
 
-      <article class="job rv">
-        <div class="when"><b>2025.04 – 2026.05</b><span>충북</span><span class="dur">1년 2개월</span></div>
-        <div class="node" aria-hidden="true"></div>
-        <div class="card">
-          <div class="job-head">
-            <div><h3>유진테크놀로지</h3><p class="role">경영기획팀 차장 · 인사·총무·EHS 전담</p></div>
-          </div>
+        <article class="job" data-y="2026" data-co="엔코스" data-per="2026.05 – 현재 · 경기 · 재직 중">
+          <div class="mhead">2026.05 – 현재 <span>경기 · 재직 중</span></div>
+          <h3>엔코스</h3>
+          <p class="role">경영지원팀 차장 · 인사 파트장</p>
+          <p class="scope">재직 300여 명 제조기업의 인사제도·보상·채용·HRD·노무 총괄</p>
+          <div class="tags"><span>사규 11종 개정</span><span>연봉 인상 시나리오</span><span>HRIS 자체 구축</span><span>전자서명</span><span>구조화 면접</span><span>징계 절차</span><span>불법파견 점검</span></div>
+          <ul class="hl">
+            <li><span><b>사규 <em>11종</em> 전면 개정안 완성.</b> 최신 노동법령 반영과 중복·충돌 조항 정비로 규정 리스크 해소. 불이익 변경 조항은 부칙 경과조치로 설계해 재직자 근로조건 보호, 분쟁 소지 최소화.</span></li>
+            <li><span><b>시장 비교 기반 연봉 인상 <em>3개 시나리오</em> 수립.</b> <em>240여 명</em> 부서별 인상 예산과 승진·신규입사자 반영 기준을 설계한 경영진 보고안 수립(확정 진행 중). 신규 입사자 처우 밴드·경력 인정 기준으로 처우 결정 일관성 확보.</span></li>
+            <li><span><b>인사정보 웹시스템(HRIS) 직접 구축.</b> 재직자 300여 명 인사명부 정합성 <em>100%</em> 확보. 전자서명 API·자동 메일 연동, AI 문서 자동화로 반복 행정업무 효율화.</span></li>
+            <li><span><b>채용 객관성과 속도 개선.</b> 서류전형 평가체계(필수요건·100점 배점·등급)와 구조화 면접 도입. 오퍼레터 전자서명으로 발송부터 서명완료 통보까지 자동화해 입사 서류 처리 기간 <em>3일 → 당일</em>.</span></li>
+          </ul>
+          <details class="more">
+            <summary>나머지 업무 보기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+            <div class="more-body">
+              <div><h4>인재육성(HRD)</h4><ul><li>팀장급 리더십 교육 신규 도입 추진(과정 설계·교육기관 선정)</li><li>주니어(사원~대리) 120여 명 대상 1박 2일 육성 워크숍 기획·추진</li><li>국비지원 훈련 연계 임직원 AI 역량 교육 기획</li></ul></div>
+              <div><h4>노무·노사관계(ER)</h4><ul><li>징계위원회 3회 운영: 사실조사·소명·양정·통지 절차 준수로 징계 처분의 절차적 정당성 확보</li><li>도급 근로감독 대비 불법파견 리스크 사전 점검 및 개선과제 도출</li></ul></div>
+              <div><h4>직무관리</h4><ul><li>전사 직무조사로 부서별 직무 현황 데이터화, 직무기술서·인사평가 기초자료 확보</li></ul></div>
+              <div><h4>채용·온보딩</h4><ul><li>채용 확정~입사 온보딩 프로세스 재정립</li></ul></div>
+            </div>
+          </details>
+        </article>
+
+        <article class="job" data-y="2025" data-co="유진테크놀로지" data-per="2025.04 – 2026.05 · 충북 · 1년 2개월">
+          <div class="mhead">2025.04 – 2026.05 <span>충북 · 1년 2개월</span></div>
+          <h3>유진테크놀로지</h3>
+          <p class="role">경영기획팀 차장 · 인사·총무·EHS 전담</p>
           <p class="scope">200인 사업장의 인사제도·시스템·안전 체계 설계 및 운영 총괄</p>
           <div class="tags"><span>KPI·MBO</span><span>직무급 Pay Band</span><span>React·Firebase</span><span>중대재해처벌법</span><span>그룹웨어 도입</span><span>DLP</span></div>
           <ul class="hl">
-            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><span><b>인사·총무 통합시스템 자체 구축.</b> 인사정보·교육 이력·고충처리·출장자·인사발령·고정자산·차량·보험·동호회를 단일 웹 앱으로 통합해 2025년 8월부터 전사 운영. 연 5천만원 절감, 인사 행정 처리 시간 60% 단축.</span></li>
-            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><span><b>KPI·MBO 평가 제도와 직무급 체계 설계.</b> 직무 분석부터 직무 평가·등급 분류·급여 밴드 설정까지 주관해 2026년 3월 적용. 평가 등급별 인상률 구간과 총액 인건비 관리 체계 운영.</span></li>
-            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><span><b>중대재해처벌법 대응 안전보건 경영체계 구축.</b> 경영책임자 9개 의무 이행 관리, 영문 안전교육 콘텐츠로 해외 법인 표준화, 법정 교육 이수율 100%.</span></li>
-            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><span><b>그룹웨어(다우오피스) 도입 주관.</b> 기획부터 사용자 교육·안착까지. 취업규칙·사내 규정 6건 법적 준거성 검토·개정, DLP 시스템 도입·운영.</span></li>
+            <li><span><b>인사·총무 통합시스템 자체 구축.</b> 인사정보·교육 이력·고충처리·출장자·인사발령·고정자산·차량·보험·동호회를 단일 웹 앱으로 통합해 2025년 8월부터 전사 운영. <em>연 5천만원</em> 절감, 인사 행정 처리 시간 <em>60% 단축</em>.</span></li>
+            <li><span><b>KPI·MBO 평가 제도와 직무급 체계 설계.</b> 직무 분석부터 직무 평가·등급 분류·급여 밴드 설정까지 주관해 2026년 3월 적용. 평가 등급별 인상률 구간과 총액 인건비 관리 체계 운영.</span></li>
+            <li><span><b>중대재해처벌법 대응 안전보건 경영체계 구축.</b> 경영책임자 9개 의무 이행 관리, 영문 안전교육 콘텐츠로 해외 법인 표준화, 법정 교육 이수율 <em>100%</em>.</span></li>
+            <li><span><b>그룹웨어(다우오피스) 도입 주관.</b> 기획부터 사용자 교육·안착까지. 취업규칙·사내 규정 6건 법적 준거성 검토·개정, DLP 시스템 도입·운영.</span></li>
           </ul>
           <details class="more">
             <summary>나머지 업무 보기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
@@ -599,23 +535,19 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
               <div><h4>총무·자산·안전</h4><ul><li>법인차량·기업보험 등 고정자산 이력 관리 표준화, 시스템 연동</li><li>보안 정책 수립, 사내 준법 점검 체계 운영</li><li>전사 안전보건·환경경영방침 수립, 위험성 평가 프로세스 설계</li></ul></div>
             </div>
           </details>
-        </div>
-      </article>
+        </article>
 
-      <article class="job rv">
-        <div class="when"><b>2016.05 – 2024.04</b><span>충북</span><span class="dur">8년</span></div>
-        <div class="node" aria-hidden="true"></div>
-        <div class="card">
-          <div class="job-head">
-            <div><h3>엠플러스</h3><p class="role">인사총무팀 과장 · 노사협의회 사측 간사</p></div>
-          </div>
+        <article class="job" data-y="2016" data-co="엠플러스" data-per="2016.05 – 2024.04 · 충북 · 8년">
+          <div class="mhead">2016.05 – 2024.04 <span>충북 · 8년</span></div>
+          <h3>엠플러스</h3>
+          <p class="role">인사총무팀 과장 · 노사협의회 사측 간사</p>
           <p class="scope">400인 사업장(본사·공장)의 인사·총무·안전·자산 실무 총괄</p>
           <div class="tags"><span>근로감독 대응</span><span>노사협의회</span><span>근태시스템 도입</span><span>Jade ERP</span><span>ISO 14001</span><span>정부지원사업</span><span>임대차·보안</span></div>
           <ul class="hl">
-            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><span><b>노무 리스크 관리.</b> 고용노동부 정기 근로감독 2회를 소명 자료로 대응해 지적사항 2건으로 마무리. 분기별 노사협의회 안건 조율·운영·이행 관리 4년 주도.</span></li>
-            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><span><b>근태 시스템 신규 도입·안정화.</b> 300인 이상 사업장용 프로그램(타임인아웃) 선정부터 전사 교육까지 총괄, 급여 마감 시간 단축. Jade 인사정보시스템 기반 인원·이직률·인건비 경영 리포팅.</span></li>
-            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><span><b>채용·육성.</b> 연간 90명 채용 운영, 장애인 체육선수 채용으로 의무고용률 충족(고용부담금 연 1억 8천만원 절감). 온보딩과 직급별 리더십·역량 교육 설계.</span></li>
-            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><span><b>재무 기여.</b> 정부 지원 사업 발굴·정산으로 연 1억 6천만원 수령, 기업성 보험 요율 협의로 보험료 연 15% 절감.</span></li>
+            <li><span><b>노무 리스크 관리.</b> 고용노동부 정기 근로감독 2회를 소명 자료로 대응해 <em>지적사항 2건</em>으로 마무리. 분기별 노사협의회 안건 조율·운영·이행 관리 4년 주도.</span></li>
+            <li><span><b>근태 시스템 신규 도입·안정화.</b> 300인 이상 사업장용 프로그램(타임인아웃) 선정부터 전사 교육까지 총괄, 급여 마감 시간 단축. Jade 인사정보시스템 기반 인원·이직률·인건비 경영 리포팅.</span></li>
+            <li><span><b>채용·육성.</b> 연간 <em>90명</em> 채용 운영, 장애인 체육선수 채용으로 의무고용률 충족(고용부담금 <em>연 1억 8천만원</em> 절감). 온보딩과 직급별 리더십·역량 교육 설계.</span></li>
+            <li><span><b>재무 기여.</b> 정부 지원 사업 발굴·정산으로 <em>연 1억 6천만원</em> 수령, 기업성 보험 요율 협의로 보험료 <em>연 15%</em> 절감.</span></li>
           </ul>
           <details class="more">
             <summary>나머지 업무 보기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
@@ -626,22 +558,18 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
               <div><h4>총무 행정</h4><ul><li>해외 출장 지원(항공·비자) 체계 표준화</li><li>여비·비품 신청 등 전사 공통 행정 프로세스 매뉴얼화</li><li>법인차량 운행·정비 이력 관리 기준 수립</li></ul></div>
             </div>
           </details>
-        </div>
-      </article>
+        </article>
 
-      <article class="job rv">
-        <div class="when"><b>2013.05 – 2015.07</b><span>충남</span><span class="dur">2년 3개월</span></div>
-        <div class="node" aria-hidden="true"></div>
-        <div class="card">
-          <div class="job-head">
-            <div><h3>윤우케미칼</h3><p class="role">품질보증팀 주임</p></div>
-          </div>
+        <article class="job" data-y="2013" data-co="윤우케미칼" data-per="2013.05 – 2015.07 · 충남 · 2년 3개월">
+          <div class="mhead">2013.05 – 2015.07 <span>충남 · 2년 3개월</span></div>
+          <h3>윤우케미칼</h3>
+          <p class="role">품질보증팀 주임</p>
           <p class="scope">절연테이프 제조사 품질경영시스템 구축 및 검사·통계 품질 관리</p>
           <div class="tags"><span>ISO 9001·14001</span><span>IQC·IPQC·OQC</span><span>Cp/Cpk·관리도</span><span>협력사 감사</span><span>VOC 대응</span></div>
           <ul class="hl">
-            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><span><b>ISO 9001·14001 인증 취득 프로젝트 주도.</b> 시스템 구축부터 인증, 사후 심사 부적합 시정까지 책임 대응. 이후 인사총무에서 ISO 내부심사와 안전보건 체계 구축의 기반이 됨.</span></li>
-            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><span><b>데이터 기반 품질 관리.</b> 공정별 불량률·클레임 KPI 수립, Cp/Cpk·관리도로 공정 산포 정량 관리, 파레토 분석으로 개선 우선순위 설정.</span></li>
-            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><span><b>공급망·고객 대응.</b> 협력사 품질 감사·등급 관리, 고객 클레임 시 4M·5-Why·특성요인도 기반 원인 분석과 재발 방지.</span></li>
+            <li><span><b>ISO 9001·14001 인증 취득 프로젝트 주도.</b> 시스템 구축부터 인증, 사후 심사 부적합 시정까지 책임 대응. 이후 인사총무에서 ISO 내부심사와 안전보건 체계 구축의 기반이 됨.</span></li>
+            <li><span><b>데이터 기반 품질 관리.</b> 공정별 불량률·클레임 KPI 수립, Cp/Cpk·관리도로 공정 산포 정량 관리, 파레토 분석으로 개선 우선순위 설정.</span></li>
+            <li><span><b>공급망·고객 대응.</b> 협력사 품질 감사·등급 관리, 고객 클레임 시 4M·5-Why·특성요인도 기반 원인 분석과 재발 방지.</span></li>
           </ul>
           <details class="more">
             <summary>나머지 업무 보기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
@@ -650,136 +578,106 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
               <div><h4>기술 문서</h4><ul><li>제품 승인원·변경점·제품 표준서 제·개정 및 이력 관리, 추적성 확보</li></ul></div>
             </div>
           </details>
-        </div>
-      </article>
+        </article>
 
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════ System showcase ═══════════════════════ -->
-<section id="system" class="showcase" aria-labelledby="system-title">
+<!-- ═════════════ System ═════════════ -->
+<section id="system" class="sec band" aria-labelledby="system-title">
   <div class="wrap">
-    <div class="sec-head rv">
-      <span class="eyebrow">Built by me</span>
+    <div class="head rv">
+      <span class="no">04</span><span class="eb">Built by me</span>
       <h2 id="system-title">직접 만든 인사·총무 통합시스템</h2>
       <p>반복되는 행정은 사람이 아니라 시스템이 하게 만듭니다. 회사 여건에 따라 기존 솔루션을 쓸 수도, 직접 만들 수도 있습니다.</p>
     </div>
     <div class="sys">
-      <div class="browser rv" role="img" aria-label="인사·총무 통합시스템 화면 구성 예시">
-        <div class="browser-bar"><i></i><i></i><i></i><span class="url">hr-system.internal / 인사발령</span></div>
-        <div class="app">
-          <div class="app-side">
-            <div class="logo"><i></i>경영관리</div>
-            <a>대시보드</a><a class="on">인사발령</a><a>인사정보</a><a>교육 이력</a><a>고충처리</a><a>출장자</a><a>고정자산</a><a>차량 · 보험</a><a>동호회</a>
-          </div>
-          <div class="app-main">
-            <div class="hd">인사발령 · 2026년 3월 <span>발령문 자동 생성</span></div>
-            <div class="app-kpis">
-              <div>이번 달 발령<b>12건</b></div>
-              <div>자동 생성 문서<b>48건</b></div>
-              <div>처리 시간<b>−60%</b></div>
+      <div class="tilt rv">
+        <div class="browser" id="browser" role="img" aria-label="인사·총무 통합시스템 화면 구성 예시">
+          <div class="browser-bar"><i></i><i></i><i></i><span class="url">hr-system.internal / 인사발령</span></div>
+          <div class="app">
+            <div class="app-side">
+              <div class="logo"><i></i>경영관리</div>
+              <a>대시보드</a><a class="on">인사발령</a><a>인사정보</a><a>교육 이력</a><a>고충처리</a><a>출장자</a><a>고정자산</a><a>차량 · 보험</a><a>동호회</a>
             </div>
-            <div class="doc">
-              <div class="paper">
-                <b>인 사 발 령</b>
-                <div class="row"><span>성명</span><span>홍○○</span></div>
-                <div class="row"><span>소속</span><span>생산1팀</span></div>
-                <div class="row"><span>발령</span><span>주임 → 대리</span></div>
-                <div class="row"><span>시행일</span><span>2026.03.01</span></div>
-                <div class="stamp">대표이사 (인)</div>
-              </div>
-              <div class="list">
-                <div><span>법정교육 이수율</span><em>100%</em></div>
-                <div><span>고정자산 실사</span><em>완료</em></div>
-                <div><span>고충 접수</span><em class="w">2건 처리중</em></div>
-                <div><span>출장자 현황</span><em>3명</em></div>
-                <div><span>차량 정비 예정</span><em class="w">1대</em></div>
+            <div class="app-main">
+              <div class="hd">인사발령 · 2026년 3월 <span>발령문 자동 생성</span></div>
+              <div class="app-kpis"><div>이번 달 발령<b>12건</b></div><div>자동 생성 문서<b>48건</b></div><div>처리 시간<b>−60%</b></div></div>
+              <div class="doc">
+                <div class="paper"><b>인 사 발 령</b><div class="r"><span>성명</span><span>홍○○</span></div><div class="r"><span>소속</span><span>생산1팀</span></div><div class="r"><span>발령</span><span>주임 → 대리</span></div><div class="r"><span>시행일</span><span>2026.03.01</span></div><div class="stamp">대표이사 (인)</div></div>
+                <div class="list"><div><span>법정교육 이수율</span><em>100%</em></div><div><span>고정자산 실사</span><em>완료</em></div><div><span>고충 접수</span><em class="w">2건 처리중</em></div><div><span>출장자 현황</span><em>3명</em></div><div><span>차량 정비 예정</span><em class="w">1대</em></div></div>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="sys-copy rv" style="--d:120ms">
-        <h3>외부 솔루션 없이,<br>경영관리 전 영역을 <span class="grad-text">하나의 앱</span>으로</h3>
+        <h3>외부 솔루션 없이, 경영관리 전 영역을 <span class="gt">하나의 앱</span>으로</h3>
         <p>유진테크놀로지에서 React·Firebase 기반 경영관리 통합 플랫폼을 혼자 설계·개발했습니다. 인사발령문·내부 보고서·관리대장이 자동으로 생성되고, 교육 이력은 법정 교육 이수율 관리와 연동됩니다. 이직률·결근율·고충 접수 건수를 시각화한 조직 건강도 대시보드로 경영진 보고를 선행합니다.</p>
-        <div class="sys-facts">
-          <div><b>2025.08</b><span>전사 운영 시작, 현재까지 운영 중</span></div>
-          <div><b class="g">연 5,000만원</b><span>상용 HR SaaS 대비 절감</span></div>
-          <div><b class="g">60% 단축</b><span>인사 행정 처리 시간</span></div>
-          <div><b>9개 모듈</b><span>인사정보 · 발령 · 교육 · 고충 · 출장 · 자산 · 차량 · 보험 · 동호회</span></div>
-        </div>
       </div>
+    </div>
+    <div class="facts rv">
+      <div><b>2025.08</b><span>전사 운영 시작, 현재까지 운영 중</span></div>
+      <div><b class="c">5,000만</b><span>상용 HR SaaS 대비 연간 절감(원)</span></div>
+      <div><b class="c">−60%</b><span>인사 행정 처리 시간</span></div>
+      <div><b>9 모듈</b><span>인사정보 · 발령 · 교육 · 고충 · 출장 · 자산 · 차량 · 보험 · 동호회</span></div>
     </div>
     <div class="tools rv">
       <h4>그 밖에 기획·개발해 운영한 도구<small>현업 병목을 푸는 소규모 웹앱</small></h4>
-      <ul>
-        <li>경조사 관리대장</li><li>고정자산 관리대장</li><li>교육 이수현황 보고</li><li>주간메뉴표 운영앱</li><li>보안점검 리포트 생성기</li><li>라이센스 관리대장</li><li>인건비 전략 대시보드</li><li>급여 계산기</li><li>주간 플래너</li>
-      </ul>
+      <ul><li>경조사 관리대장</li><li>고정자산 관리대장</li><li>교육 이수현황 보고</li><li>주간메뉴표 운영앱</li><li>보안점검 리포트 생성기</li><li>라이센스 관리대장</li><li>인건비 전략 대시보드</li><li>급여 계산기</li><li>주간 플래너</li></ul>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════ Skills ═══════════════════════ -->
-<section id="skills" aria-labelledby="skills-title">
-  <div class="sec-aurora" style="width:520px;height:520px;background:rgba(255,200,92,.08);top:-120px;right:-160px"></div>
+<!-- ═════════════ Skills ═════════════ -->
+<section id="skills" class="sec" aria-labelledby="skills-title">
   <div class="wrap">
-    <div class="sec-head rv">
-      <span class="eyebrow">Expertise</span>
+    <div class="head rv">
+      <span class="no">05</span><span class="eb">Expertise</span>
       <h2 id="skills-title">직무 전문성</h2>
       <p>인사와 총무, 노무와 안전, 데이터와 개발까지 한 자리에서 맡아 온 범위입니다.</p>
     </div>
-    <div class="skills">
-      <div class="card skill rv">
-        <div class="top"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4a3.5 3.5 0 0 1 0 7M21.5 20a6.5 6.5 0 0 0-5-6.3"/></svg></i><h3>인사 기획·운영</h3></div>
-        <ul><li>KPI·MBO 성과 평가 설계·전 주기 운영</li><li>직무 분석·평가·직무급 설계</li><li>총액 인건비 관리, 인상률 구간</li><li>채용 채널 다각화, JD 기반 선발</li><li>온보딩·직급별 교육 체계</li></ul>
+    <div class="tabs rv">
+      <div class="tablist" role="tablist" aria-label="직무 전문성 분야">
+        <button class="tab" role="tab" id="t0" aria-controls="skillPanel" aria-selected="true">인사 기획·운영<small>01</small></button>
+        <button class="tab" role="tab" id="t1" aria-controls="skillPanel" aria-selected="false" tabindex="-1">노무·노사관계<small>02</small></button>
+        <button class="tab" role="tab" id="t2" aria-controls="skillPanel" aria-selected="false" tabindex="-1">EHS·컴플라이언스<small>03</small></button>
+        <button class="tab" role="tab" id="t3" aria-controls="skillPanel" aria-selected="false" tabindex="-1">총무·자산·데이터<small>04</small></button>
       </div>
-      <div class="card skill rv" style="--d:80ms">
-        <div class="top"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H8l-4 4V4Z"/><path d="M8 9h8M8 12h5"/></svg></i><h3>노무·노사관계</h3></div>
-        <ul><li>취업규칙·제규정 법적 준거성 개정</li><li>불이익 변경 시 의견 수렴 절차</li><li>노사협의회 사측 간사, 고충 처리</li><li>근로감독 대응, 노무법인 협업</li><li>괴롭힘·성희롱 예방·조사 프로세스</li></ul>
-      </div>
-      <div class="card skill rv" style="--d:160ms">
-        <div class="top"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/></svg></i><h3>EHS·컴플라이언스</h3></div>
-        <ul><li>중대재해처벌법 의무 이행 관리</li><li>위험성 평가, 안전보건 교육</li><li>ISO 9001·14001 구축·인증·내부심사</li><li>방사선 발생장치 등 특수 인허가</li><li>DLP 정보보안, 물리 보안 총괄</li></ul>
-      </div>
-      <div class="card skill rv" style="--d:240ms">
-        <div class="top"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></i><h3>총무·자산·데이터</h3></div>
-        <ul><li>고정자산·차량·보험 전 주기 관리</li><li>부동산·임대차·기숙사 운영</li><li>정부 지원 사업 발굴·신청·정산</li><li>근태·ERP·그룹웨어 도입, HR 리포팅</li><li>Cp/Cpk·관리도 통계적 품질 관리</li></ul>
-      </div>
+      <div class="panel" id="skillPanel" role="tabpanel" aria-labelledby="t0"><h3 id="panelH">HR Planning</h3><ul id="panelList"></ul></div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════ Principles ═══════════════════════ -->
-<section id="principles" aria-labelledby="principles-title">
-  <div class="sec-aurora" style="width:600px;height:600px;background:rgba(124,140,255,.13);top:-220px;left:30%"></div>
+<!-- ═════════════ Principles ═════════════ -->
+<section id="principles" class="sec" aria-labelledby="principles-title">
   <div class="wrap">
-    <div class="sec-head rv">
-      <span class="eyebrow">How I work</span>
+    <div class="head rv">
+      <span class="no">06</span><span class="eb">How I work</span>
       <h2 id="principles-title">일하는 원칙</h2>
       <p>인사·총무·안전을 동시에 맡으면서도 큰 사고 없이 운영해 온 이유입니다.</p>
     </div>
-    <div class="principles">
-      <div class="card principle rv"><div class="q">“</div><h3>제도는 문서가 아니라<br>현장에서 돌아갈 때 완성됩니다.</h3><p>설계 전에 현장 관리자와 먼저 이야기합니다. 규정 공백으로 생기는 현장 혼선을 줄이는 것이 제도의 목적입니다.</p></div>
-      <div class="card principle rv" style="--d:100ms"><div class="q">“</div><h3>반복되는 행정은<br>사람이 아니라 시스템이 합니다.</h3><p>수기 근태를 시스템으로 바꾸고, 발령문과 대장을 자동 생성하게 만들어 담당자가 제도와 사람에 집중하게 합니다.</p></div>
-      <div class="card principle rv" style="--d:200ms"><div class="q">“</div><h3>법이 걸린 영역은 “아마 괜찮을 것”으로<br>넘기지 않습니다.</h3><p>노무·안전은 법령과 노무법인 자문으로 근거를 확인한 뒤 움직입니다. 근로감독에서 문제가 나오지 않는 상태가 성과입니다.</p></div>
-    </div>
+    <div class="st"><span class="q">“</span><h3 class="fill">제도는 문서가 아니라 현장에서 돌아갈 때 완성됩니다.</h3><p>설계 전에 현장 관리자와 먼저 이야기합니다. 규정 공백으로 생기는 현장 혼선을 줄이는 것이 제도의 목적입니다.</p></div>
+    <div class="st"><span class="q">“</span><h3 class="fill">반복되는 행정은 사람이 아니라 시스템이 합니다.</h3><p>수기 근태를 시스템으로 바꾸고, 발령문과 대장을 자동 생성하게 만들어 담당자가 제도와 사람에 집중하게 합니다.</p></div>
+    <div class="st"><span class="q">“</span><h3 class="fill">법이 걸린 영역은 “아마 괜찮을 것”으로 넘기지 않습니다.</h3><p>노무·안전은 법령과 노무법인 자문으로 근거를 확인한 뒤 움직입니다. 근로감독에서 문제가 나오지 않는 상태가 성과입니다.</p></div>
   </div>
 </section>
 
-<!-- ═══════════════════════ Contact ═══════════════════════ -->
-<section id="contact" aria-labelledby="contact-title">
+<!-- ═════════════ Contact ═════════════ -->
+<section id="contact" class="contact" aria-labelledby="contact-title">
   <div class="wrap">
-    <div class="contact-box rv">
-      <div class="aurora c1"></div><div class="aurora c2"></div>
-      <h2 id="contact-title">안녕하세요,<br>인사·총무 담당자 <span class="grad-text">정지원</span>입니다.</h2>
+    <div class="rv">
+      <span class="eb">CONTACT</span>
+      <h2 id="contact-title">안녕하세요, 인사·총무 담당자 <span class="gt">정지원</span>입니다.</h2>
       <p>끝까지 읽어 주셔서 감사합니다. 인사와 총무를 함께 책임질 사람을 찾고 계신 제조 사업장이라면, 편하게 연락 주세요. 첫 3개월은 진단, 1년 안에 데이터 기반 운영 체계 정착을 목표로 함께 만들겠습니다.</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="mailto:bobgo9@naver.com">
+        <a class="btn btn-a mag" href="mailto:bobgo9@naver.com">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
           이메일 보내기
         </a>
-        <a class="btn btn-ghost" href="tel:010-5442-4404">
+        <a class="btn btn-o mag" href="tel:010-5442-4404">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>
           전화 문의
         </a>
@@ -787,7 +685,7 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
       <div class="contact-info">
         <a href="mailto:bobgo9@naver.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>bobgo9@naver.com</a>
         <a href="tel:010-5442-4404"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>010-5442-4404</a>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;color:var(--a2);vertical-align:-3px;margin-right:6px"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>충남 아산</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>충남 아산</span>
       </div>
     </div>
   </div>
@@ -803,114 +701,180 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
   </div>
 </footer>
 
-<button class="to-top" id="toTop" aria-label="맨 위로">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 15 6-6 6 6"/></svg>
-</button>
+<button class="to-top" id="toTop" aria-label="맨 위로"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 15 6-6 6 6"/></svg></button>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 (() => {
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fine = matchMedia('(pointer: fine)').matches;
+  const root = document.documentElement;
+  const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+  const css = (n) => getComputedStyle(root).getPropertyValue(n).trim();
 
-  // Nav: scrolled state, progress, active link, to-top
-  const nav = document.getElementById('nav'), prog = document.getElementById('progress'), toTop = document.getElementById('toTop');
+  /* ── nav, progress, to-top ── */
+  const prog = document.getElementById('progress'), toTop = document.getElementById('toTop');
   const links = [...document.querySelectorAll('.nav-links a')];
   const secs = links.map(a => document.querySelector(a.getAttribute('href')));
-  const onScroll = () => {
-    const y = scrollY, h = document.documentElement.scrollHeight - innerHeight;
-    nav.classList.toggle('scrolled', y > 40);
-    prog.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
-    toTop.classList.toggle('show', y > 600);
-    let cur = -1; secs.forEach((s, i) => { if (s && s.getBoundingClientRect().top <= 140) cur = i; });
-    links.forEach((a, i) => a.classList.toggle('active', i === cur));
-  };
-  addEventListener('scroll', onScroll, { passive: true }); onScroll();
   toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }));
-
-  // Mobile sheet
   const burger = document.getElementById('burger'), sheet = document.getElementById('sheet');
   const setSheet = (o) => { sheet.classList.toggle('open', o); burger.setAttribute('aria-expanded', o); burger.setAttribute('aria-label', o ? '메뉴 닫기' : '메뉴 열기'); document.body.style.overflow = o ? 'hidden' : ''; };
   burger.addEventListener('click', () => setSheet(!sheet.classList.contains('open')));
   sheet.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setSheet(false)));
   addEventListener('keydown', e => { if (e.key === 'Escape') setSheet(false); });
 
-  // Reveal + counters
+  /* ── reveal + counters ── */
   const fmt = (v, dec, sep) => { const s = v.toFixed(dec); return sep ? s.replace(/\B(?=(\d{3})+(?!\d))/g, ',') : s; };
   const count = (el) => {
+    if (el.dataset.done) return; el.dataset.done = 1;
     const target = parseFloat(el.dataset.count), dec = +(el.dataset.dec || 0), sep = 'sep' in el.dataset;
     if (reduce) { el.textContent = fmt(target, dec, sep); return; }
-    const t0 = performance.now(), dur = 1400;
+    const t0 = performance.now(), dur = 1500;
     const step = (t) => { const p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 4); el.textContent = fmt(target * e, dec, sep); if (p < 1) requestAnimationFrame(step); };
     requestAnimationFrame(step);
   };
   const io = new IntersectionObserver((es) => es.forEach(en => {
     if (!en.isIntersecting) return;
     en.target.classList.add('in');
-    en.target.querySelectorAll('[data-count]').forEach(count);
+    if (en.target.dataset.count) count(en.target);
     io.unobserve(en.target);
-  }), { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
-  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+  }), { threshold: 0.15 });
+  document.querySelectorAll('.rv, [data-count]').forEach(el => io.observe(el));
 
-  // Spotlight on cards
-  document.querySelectorAll('.card').forEach(c => c.addEventListener('pointermove', e => {
-    const r = c.getBoundingClientRect(); c.style.setProperty('--mx', (e.clientX - r.left) + 'px'); c.style.setProperty('--my', (e.clientY - r.top) + 'px');
-  }));
+  /* ── career: sticky year ── */
+  const jobs = [...document.querySelectorAll('.job')];
+  const yr = document.getElementById('yr'), yrFill = document.getElementById('yrFill'), yrCo = document.getElementById('yrCo'), yrPer = document.getElementById('yrPer'), dots = document.getElementById('yrDots');
+  jobs.forEach(j => {
+    const b = document.createElement('button'); b.type = 'button'; b.tabIndex = -1; b.innerHTML = '<i></i>' + j.dataset.co;
+    b.addEventListener('click', () => j.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }));
+    dots.appendChild(b);
+  });
+  let curJob = -1;
+  const setJob = (i) => {
+    if (i === curJob) return; curJob = i; const j = jobs[i];
+    yr.firstChild.nodeValue = j.dataset.y; yrFill.textContent = j.dataset.y;
+    yrCo.textContent = j.dataset.co; yrPer.textContent = j.dataset.per;
+    [...dots.children].forEach((d, k) => d.classList.toggle('on', k === i));
+  };
+  setJob(0);
 
-  // Rotating word
-  const words = [...document.querySelectorAll('#rotator span')]; let wi = 0;
-  if (!reduce && words.length > 1) setInterval(() => {
-    words[wi].classList.remove('in'); words[wi].classList.add('out');
-    const prev = wi; wi = (wi + 1) % words.length;
-    words[wi].classList.remove('out'); words[wi].classList.add('in');
-    setTimeout(() => words[prev].classList.remove('out'), 500);
-  }, 2600);
+  const fills = [...document.querySelectorAll('.fill')];
 
-  // Starfield + occasional shooting stars (background layer only)
-  const sky = document.getElementById('sky');
-  if (sky && !reduce && matchMedia('(min-width: 720px)').matches) {
-    const ctx = sky.getContext('2d');
-    let W, H, stars = [], meteors = [], nextMeteor = 0, dpr = Math.min(devicePixelRatio || 1, 2);
-    const resize = () => {
-      W = innerWidth; H = innerHeight; sky.width = W * dpr; sky.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      stars = Array.from({ length: Math.round(W * H / 14000) }, () => ({ x: Math.random() * W, y: Math.random() * H, r: Math.random() * 1.1 + 0.3, p: Math.random() * Math.PI * 2, s: 0.4 + Math.random() * 0.8 }));
-    };
-    const spawn = (t) => {
-      const fromLeft = Math.random() < 0.5;
-      meteors.push({ x: fromLeft ? Math.random() * W * 0.5 : W * 0.4 + Math.random() * W * 0.6, y: -20 - Math.random() * H * 0.3,
-        vx: (fromLeft ? 1 : -1) * (5 + Math.random() * 3), vy: 4 + Math.random() * 2, len: 140 + Math.random() * 120, life: 0, max: 110 + Math.random() * 60 });
-      nextMeteor = t + 5000 + Math.random() * 7000;
-    };
-    const draw = (t) => {
-      ctx.clearRect(0, 0, W, H);
-      for (const st of stars) {
-        const a = 0.25 + 0.45 * (0.5 + 0.5 * Math.sin(t / 1000 * st.s + st.p));
-        ctx.globalAlpha = a; ctx.fillStyle = '#DCE6FF'; ctx.beginPath(); ctx.arc(st.x, st.y, st.r, 0, Math.PI * 2); ctx.fill();
-      }
-      if (t > nextMeteor && meteors.length === 0) spawn(t);
-      meteors = meteors.filter(m => m.life < m.max && m.y < H + 50);
-      for (const m of meteors) {
-        m.x += m.vx; m.y += m.vy; m.life++;
-        const fade = Math.sin(Math.PI * Math.min(1, m.life / m.max));
-        const nx = m.vx / Math.hypot(m.vx, m.vy), ny = m.vy / Math.hypot(m.vx, m.vy);
-        const g = ctx.createLinearGradient(m.x, m.y, m.x - nx * m.len, m.y - ny * m.len);
-        g.addColorStop(0, `rgba(220,235,255,${0.9 * fade})`); g.addColorStop(0.3, `rgba(124,140,255,${0.5 * fade})`); g.addColorStop(1, 'rgba(124,140,255,0)');
-        ctx.globalAlpha = 1; ctx.strokeStyle = g; ctx.lineWidth = 1.4; ctx.lineCap = 'round';
-        ctx.beginPath(); ctx.moveTo(m.x, m.y); ctx.lineTo(m.x - nx * m.len, m.y - ny * m.len); ctx.stroke();
-        ctx.fillStyle = `rgba(255,255,255,${fade})`; ctx.beginPath(); ctx.arc(m.x, m.y, 1.6, 0, Math.PI * 2); ctx.fill();
-      }
-      ctx.globalAlpha = 1;
-      if (!document.hidden) requestAnimationFrame(draw);
-    };
-    resize(); addEventListener('resize', resize); nextMeteor = performance.now() + 2500;
-    document.addEventListener('visibilitychange', () => { if (!document.hidden) requestAnimationFrame(draw); });
-    requestAnimationFrame(draw);
+  const onScroll = () => {
+    const y = scrollY, h = root.scrollHeight - innerHeight;
+    prog.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
+    toTop.classList.toggle('show', y > 700);
+    let cur = -1; secs.forEach((s, i) => { if (s && s.getBoundingClientRect().top <= 160) cur = i; });
+    links.forEach((a, i) => a.classList.toggle('active', i === cur));
+    let ji = 0; jobs.forEach((j, i) => { if (j.getBoundingClientRect().top < innerHeight * 0.45) ji = i; }); setJob(ji);
+    const jr = jobs[ji].getBoundingClientRect();
+    yr.style.setProperty('--yclip', (100 - clamp((innerHeight * 0.45 - jr.top) / jr.height, 0, 1) * 100) + '%');
+    fills.forEach(f => { const r = f.getBoundingClientRect(); f.style.setProperty('--p', (reduce ? 100 : clamp((innerHeight * 0.85 - r.top) / (innerHeight * 0.45), 0, 1) * 100) + '%'); });
+  };
+  addEventListener('scroll', onScroll, { passive: true });
+  addEventListener('resize', onScroll);
+  onScroll();
+
+  /* ── skills tabs ── */
+  const SK = [
+    ['HR Planning', ['KPI·MBO 성과 평가 설계·전 주기 운영', '직무 분석·평가·직무급 설계', '총액 인건비 관리, 인상률 구간', '채용 채널 다각화, JD 기반 선발', '온보딩·직급별 교육 체계']],
+    ['Labor Relations', ['취업규칙·제규정 법적 준거성 개정', '불이익 변경 시 의견 수렴 절차', '노사협의회 사측 간사, 고충 처리', '근로감독 대응, 노무법인 협업', '괴롭힘·성희롱 예방·조사 프로세스']],
+    ['EHS & Compliance', ['중대재해처벌법 의무 이행 관리', '위험성 평가, 안전보건 교육', 'ISO 9001·14001 구축·인증·내부심사', '방사선 발생장치 등 특수 인허가', 'DLP 정보보안, 물리 보안 총괄']],
+    ['GA · Assets · Data', ['고정자산·차량·보험 전 주기 관리', '부동산·임대차·기숙사 운영', '정부 지원 사업 발굴·신청·정산', '근태·ERP·그룹웨어 도입, HR 리포팅', 'Cp/Cpk·관리도 통계적 품질 관리']]
+  ];
+  const tabs = [...document.querySelectorAll('.tab')], panel = document.getElementById('skillPanel'), pH = document.getElementById('panelH'), pL = document.getElementById('panelList');
+  let curTab = -1;
+  const showTab = (i, focus) => {
+    if (i !== curTab) {
+      curTab = i;
+      tabs.forEach((t, k) => { t.setAttribute('aria-selected', k === i); t.tabIndex = k === i ? 0 : -1; });
+      panel.setAttribute('aria-labelledby', tabs[i].id);
+      pH.textContent = SK[i][0];
+      pL.innerHTML = SK[i][1].map((s, k) => `<li style="animation-delay:${k * 60}ms">${s}</li>`).join('');
+    }
+    if (focus) tabs[i].focus();
+  };
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => showTab(i));
+    if (fine) t.addEventListener('mouseenter', () => showTab(i));
+    t.addEventListener('keydown', e => {
+      const k = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
+      if (k) { e.preventDefault(); showTab((i + k + tabs.length) % tabs.length, true); }
+    });
+  });
+  showTab(0);
+
+  /* ── pointer: glow, magnetic buttons, browser tilt ── */
+  const glow = document.getElementById('glow'), browser = document.getElementById('browser');
+  if (fine && !reduce) {
+    addEventListener('pointermove', e => { glow.style.transform = `translate(${e.clientX}px,${e.clientY}px)`; }, { passive: true });
+    document.querySelectorAll('.mag').forEach(m => {
+      m.addEventListener('pointermove', e => { const r = m.getBoundingClientRect(); m.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * .25}px,${(e.clientY - r.top - r.height / 2) * .35}px)`; });
+      m.addEventListener('pointerleave', () => { m.style.transform = ''; });
+    });
+    browser.addEventListener('pointermove', e => { const r = browser.getBoundingClientRect(); const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5; browser.style.transform = `rotateY(${x * 10}deg) rotateX(${-y * 10}deg)`; });
+    browser.addEventListener('pointerleave', () => { browser.style.transform = ''; });
+  } else glow.style.display = 'none';
+
+  /* ── hero: 3D 조직 네트워크 (Three.js r128) — 노드=사람, 선=연결, 중심=시스템 ── */
+  const cv = document.getElementById('net');
+  const T = window.THREE;
+  if (!T || !cv) return;
+  let renderer;
+  try { renderer = new T.WebGLRenderer({ canvas: cv, antialias: true, alpha: true }); } catch (e) { cv.style.display = 'none'; return; }
+  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
+  const scene = new T.Scene(), cam = new T.PerspectiveCamera(42, 1, .1, 100); cam.position.z = 7.2;
+  const group = new T.Group(); scene.add(group);
+  const small = innerWidth < 720, N = small ? 150 : 240, R = 2.3;
+  const pts = [];
+  for (let i = 0; i < N; i++) {
+    const y = 1 - (i / (N - 1)) * 2, r = Math.sqrt(1 - y * y), th = i * 2.399963, j = 1 + (Math.random() - .5) * .12;
+    pts.push(new T.Vector3(Math.cos(th) * r * R * j, y * R * j, Math.sin(th) * r * R * j));
   }
-
-  // Dashboard parallax tilt (desktop only)
-  const dash = document.getElementById('dash');
-  if (!reduce && matchMedia('(min-width: 1024px)').matches) {
-    dash.addEventListener('pointermove', e => { const r = dash.getBoundingClientRect(); const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5; dash.style.transform = `perspective(1400px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg)`; });
-    dash.addEventListener('pointerleave', () => { dash.style.transform = ''; });
-  }
+  const pGeo = new T.BufferGeometry().setFromPoints(pts);
+  const seg = [], lim = small ? .78 : .62;
+  for (let i = 0; i < N; i++) for (let k = i + 1; k < N; k++) if (pts[i].distanceTo(pts[k]) < lim) seg.push(pts[i], pts[k]);
+  const lGeo = new T.BufferGeometry().setFromPoints(seg);
+  const dot = (() => { const c = document.createElement('canvas'); c.width = c.height = 64; const g = c.getContext('2d'), gr = g.createRadialGradient(32, 32, 0, 32, 32, 32); gr.addColorStop(0, 'rgba(255,255,255,1)'); gr.addColorStop(.35, 'rgba(255,255,255,.55)'); gr.addColorStop(1, 'rgba(255,255,255,0)'); g.fillStyle = gr; g.fillRect(0, 0, 64, 64); return new T.CanvasTexture(c); })();
+  const pMat = new T.PointsMaterial({ size: .16, map: dot, vertexColors: true, transparent: true, depthWrite: false, blending: T.AdditiveBlending });
+  const lMat = new T.LineBasicMaterial({ vertexColors: true, transparent: true, opacity: .32, depthWrite: false, blending: T.AdditiveBlending });
+  group.add(new T.Points(pGeo, pMat)); group.add(new T.LineSegments(lGeo, lMat));
+  const core = new T.Mesh(new T.IcosahedronGeometry(1.05, 1), new T.MeshBasicMaterial({ wireframe: true, transparent: true, opacity: .45 }));
+  group.add(core);
+  const halo = new T.Sprite(new T.SpriteMaterial({ map: dot, transparent: true, opacity: .5, depthWrite: false, blending: T.AdditiveBlending })); halo.scale.set(4.6, 4.6, 1); group.add(halo);
+  const ring = new T.Mesh(new T.TorusGeometry(3.15, .007, 8, 260), new T.MeshBasicMaterial({ transparent: true, opacity: .55 }));
+  ring.rotation.set(1.15, .25, 0); scene.add(ring);
+  const sats = new T.Points(new T.BufferGeometry().setFromPoints([new T.Vector3(), new T.Vector3(), new T.Vector3()]), new T.PointsMaterial({ size: .3, map: dot, transparent: true, depthWrite: false, blending: T.AdditiveBlending }));
+  scene.add(sats);
+  const sparkle = pts.map(() => Math.random() < .08);
+  const colorize = () => {
+    const A = new T.Color(css('--a')), B = new T.Color(css('--b')), W = new T.Color('#ffffff');
+    const tint = (geo, vs, sp) => { const arr = new Float32Array(vs.length * 3); vs.forEach((v, i) => { const c = A.clone().lerp(B, (v.y / R + 1) / 2); if (sp && sp[i]) c.lerp(W, .6); arr.set([c.r, c.g, c.b], i * 3); }); geo.setAttribute('color', new T.BufferAttribute(arr, 3)); };
+    tint(pGeo, pts, sparkle); tint(lGeo, seg);
+    core.material.color = B.clone(); halo.material.color = A.clone(); ring.material.color = A.clone().lerp(W, .2); sats.material.color = W;
+  };
+  colorize();
+  const size = () => { const w = cv.clientWidth, h = cv.clientHeight; if (!w || !h) return; renderer.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix(); };
+  size(); addEventListener('resize', size);
+  let mx = 0, my = 0, tx = 0, ty = 0, visible = true, running = false;
+  addEventListener('pointermove', e => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5; }, { passive: true });
+  const sp = sats.geometry.attributes.position, v3 = new T.Vector3();
+  const frame = (t) => {
+    tx += (mx - tx) * .05; ty += (my - ty) * .05;
+    group.rotation.y = t * .00012 + tx * 1.1; group.rotation.x = ty * .7 + Math.sin(t * .0003) * .08;
+    core.rotation.y = -t * .0004; core.rotation.z = t * .0002;
+    const s = 1 + Math.sin(t * .0012) * .03; halo.scale.set(4.6 * s, 4.6 * s, 1);
+    ring.rotation.z = t * .00015;
+    for (let i = 0; i < 3; i++) { const a = t * .0005 + i * 2.094; v3.set(Math.cos(a) * 3.15, Math.sin(a) * 3.15, 0).applyEuler(ring.rotation); sp.setXYZ(i, v3.x, v3.y, v3.z); }
+    sp.needsUpdate = true;
+    cv.style.opacity = String(clamp(1 - scrollY / (innerHeight * .9), 0, 1));
+    renderer.render(scene, cam);
+  };
+  const loop = (t) => { if (!visible || document.hidden) { running = false; return; } frame(t); requestAnimationFrame(loop); };
+  const start = () => { if (reduce) { frame(4000); return; } if (!running) { running = true; requestAnimationFrame(loop); } };
+  new IntersectionObserver(([en]) => { visible = en.isIntersecting; if (visible) start(); }).observe(cv);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) start(); });
+  start();
 })();
 </script>
 </body>
